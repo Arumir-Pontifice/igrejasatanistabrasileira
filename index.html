@@ -4,55 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Igreja Satanista Brasileira</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background-color: #000; /* Preto absoluto */
-      color: #ccc; /* Cinza claro */
-    }
-
-    .bar {
-      width: 24px;
-      height: 3px;
-      background-color: #c10000; /* Vermelho sangue */
-      margin: 3px 0;
-      transition: 0.4s ease;
-    }
-
-    .menu-btn.open .top {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .menu-btn.open .middle {
-      opacity: 0;
-    }
-
-    .menu-btn.open .bottom {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    .nav-scroll {
-      transition: all 0.3s ease;
-    }
-
-    .scrolled .brand-name {
-      content: "ISB";
-    }
-  </style>
 </head>
 <body class="font-sans">
+
   <!-- Header -->
   <header class="fixed top-0 w-full bg-black bg-opacity-90 p-4 flex justify-between items-center z-50 nav-scroll transition-all">
     <h1 id="brand" class="text-2xl text-red-700 font-bold brand-name transition-all">Igreja Satanista Brasileira</h1>
 
-    <!-- Botão do menu (mobile) -->
+    <!-- Botão do menu mobile -->
     <div class="menu-btn md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer z-50" onclick="toggleMenu(this)">
       <span class="bar top"></span>
       <span class="bar middle"></span>
       <span class="bar bottom"></span>
     </div>
 
-    <!-- Menu (desktop) -->
+    <!-- Menu desktop -->
     <nav class="hidden md:flex gap-6 text-gray-300">
       <a href="#inicio" class="hover:text-red-700">Início</a>
       <a href="#blog" class="hover:text-red-700">Blog</a>
@@ -65,7 +33,7 @@
     </nav>
   </header>
 
-  <!-- Menu Mobile -->
+  <!-- Menu mobile -->
   <nav id="mobileMenu" class="hidden md:hidden absolute top-16 left-0 w-full bg-black bg-opacity-95 text-center text-gray-300 py-4">
     <a href="#inicio" class="block py-2 hover:text-red-700">Início</a>
     <a href="#blog" class="block py-2 hover:text-red-700">Blog</a>
@@ -77,30 +45,20 @@
     <a href="#comunidades" class="block py-2 hover:text-red-700">Comunidades</a>
   </nav>
 
-  <!-- Conteúdo de exemplo -->
+  <!-- Conteúdo -->
   <main class="pt-24 px-6">
     <section id="inicio" class="py-20 text-center">
+      <img src="assets/logo.png" alt="Logo ISB" class="mx-auto w-32 mb-6" />
       <h2 class="text-4xl text-red-700 font-bold mb-4">Bem-vindo à ISB</h2>
       <p class="text-gray-400">A filosofia da liberdade, da carne e da razão começa aqui.</p>
     </section>
+
+    <!-- Inclusão de seções futuras -->
+    <section id="manifesto" class="py-16 px-4 text-center">
+      <!-- Conteúdo será carregado via JS se necessário -->
+    </section>
   </main>
 
-  <!-- Scripts -->
-  <script>
-    function toggleMenu(btn) {
-      btn.classList.toggle("open");
-      document.getElementById("mobileMenu").classList.toggle("hidden");
-    }
-
-    window.addEventListener("scroll", function () {
-      const header = document.querySelector("header");
-      const brand = document.getElementById("brand");
-      if (window.scrollY > 50) {
-        brand.textContent = "ISB";
-      } else {
-        brand.textContent = "Igreja Satanista Brasileira";
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
