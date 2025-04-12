@@ -1,1 +1,29 @@
 
+/* Estilos adicionais para personalização, se necessário */
+body {
+  background-color: #000; /* Preto */
+  color: #ccc; /* Cinza claro */
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2 {
+  font-family: 'Helvetica', sans-serif;
+}
+
+.navbar {
+  background-color: #1c1c1c; /* Preço para destacar */
+}
+
+footer {
+  background-color: #222; /* Cor de fundo do rodapé */
+  color: #aaa; /* Texto claro */
+  padding: 20px;
+  text-align: center;
+}
