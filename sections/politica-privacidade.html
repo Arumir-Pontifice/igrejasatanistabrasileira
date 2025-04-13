@@ -89,13 +89,17 @@
       <p>Dúvidas podem ser enviadas para: <a href="mailto:contato@igrejassatanistabrasileira.org" class="text-red-500 hover:underline">contato@igrejassatanistabrasileira.org</a></p>
     </section>
   </main>
-
+ <div id="footer"></div>
   <!-- Script para carregar a navbar -->
   <script>
     fetch('../sections/navbar.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
+         document.getElementById('footer').innerHTML = '';
+    fetch('/sections/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
       });
   </script>
 
