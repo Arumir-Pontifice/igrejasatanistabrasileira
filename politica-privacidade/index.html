@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Metadados... -->
+  <!-- Metatags... -->
 </head>
-<body class="bg-black text-gray-200">
-  <!-- Navbar -->
+<body class="bg-black text-gray-200 min-h-screen flex flex-col">
   <div id="navbar-container"></div>
 
-  <main class="pt-20 px-4 sm:px-6"> <!-- Padding top ajustado -->
-    <div class="max-w-4xl mx-auto py-8">
-      <!-- Conteúdo da política... -->
+  <main class="flex-grow pt-20 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto bg-dark-gray p-6 sm:p-8 rounded-lg border border-amoled-gray">
+      <!-- Conteúdo da Política... -->
     </div>
   </main>
 
-  <!-- Footer -->
   <div id="footer-container"></div>
 
-  <!-- Scripts -->
-  <script src="/scripts/navbar.js"></script>
   <script>
-    // Carrega navbar e footer
-    fetch('/partials/navbar.html')
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById('navbar-container').innerHTML = html;
-        return fetch('/partials/footer.html');
-      })
-      .then(r => r.text())
-      .then(html => document.getElementById('footer-container').innerHTML = html)
-      .catch(console.error);
+  document.addEventListener('DOMContentLoaded', function() {
+    // Carregar componentes
+    Promise.all([
+      fetch('/partials/navbar.html').then(r => r.text()),
+      fetch('/partials/footer.html').then(r => r.text())
+    ]).then(([navbar, footer]) => {
+      document.getElementById('navbar-container').innerHTML = navbar;
+      document.getElementById('footer-container').innerHTML = footer;
+      
+      // Injetar scripts
+      const script = document.createElement('script');
+      script.src = '/scripts/navbar.js';
+      document.body.appendChild(script);
+    });
+  });
   </script>
 </body>
 </html>
