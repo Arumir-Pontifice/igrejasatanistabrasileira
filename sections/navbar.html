@@ -1,73 +1,73 @@
-<nav class="fixed top-0 left-0 w-full bg-black text-white border-b border-gray-800 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+<nav class="bg-black text-white border-b border-gray-800 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
     <!-- Logo -->
-    <a id="brand" href="/index.html" class="text-xl font-bold text-red-700 hover:text-white transition-all">Igreja Satanista Brasileira</a>
+    <a href="/index.html" class="text-2xl font-bold text-red-700">Igreja Satanista Brasileira</a>
 
-    <!-- Botão hambúrguer visível apenas no mobile -->
-    <button id="menu-toggle" class="md:hidden focus:outline-none">
-      <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-        <path d="M4 5h16M4 12h16M4 19h16" />
+    <!-- Botão Hamburguer (Mobile) -->
+    <button id="menu-toggle" class="md:hidden text-red-700 focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
 
-    <!-- Menu padrão para desktop -->
+    <!-- Menu Desktop -->
     <ul class="hidden md:flex space-x-6 text-sm items-center">
       <li><a href="/index.html" class="hover:text-red-700">Início</a></li>
       <li><a href="/sections/manifesto.html" class="hover:text-red-700">Manifesto</a></li>
       <li><a href="/sections/filosofia.html" class="hover:text-red-700">Filosofia</a></li>
 
       <!-- Institucional -->
-      <li class="relative group">
-        <span class="cursor-pointer hover:text-red-700">Institucional</span>
-        <ul class="absolute hidden group-hover:block bg-black border border-gray-700 mt-2 rounded shadow-lg z-50 text-sm">
+      <li class="relative">
+        <button onclick="toggleSubMenu('institucional-menu')" class="hover:text-red-700 focus:outline-none">Institucional</button>
+        <ul id="institucional-menu" class="hidden absolute bg-black border border-gray-700 mt-2 rounded shadow-lg z-50 text-sm">
           <li><a href="/sections/estatuto.html" class="block px-4 py-2 hover:bg-red-700">Estatuto</a></li>
           <li><a href="/sections/codigo-de-conduta.html" class="block px-4 py-2 hover:bg-red-700">Código de Conduta</a></li>
-          <li><a href="/sections/diretrizes.html" class="block px-4 py-2 hover:bg-red-700">Diretrizes da ISB</a></li>
+          <li><a href="/sections/diretrizes.html" class="block px-4 py-2 hover:bg-red-700">Diretrizes</a></li>
         </ul>
       </li>
 
       <!-- Documentos Legais -->
-      <li class="relative group">
-        <span class="cursor-pointer hover:text-red-700">Documentos Legais</span>
-        <ul class="absolute hidden group-hover:block bg-black border border-gray-700 mt-2 rounded shadow-lg z-50 text-sm">
+      <li class="relative">
+        <button onclick="toggleSubMenu('documentos-menu')" class="hover:text-red-700 focus:outline-none">Documentos Legais</button>
+        <ul id="documentos-menu" class="hidden absolute bg-black border border-gray-700 mt-2 rounded shadow-lg z-50 text-sm">
           <li><a href="/sections/politica-privacidade.html" class="block px-4 py-2 hover:bg-red-700">Política de Privacidade</a></li>
           <li><a href="/sections/termos-de-uso.html" class="block px-4 py-2 hover:bg-red-700">Termos de Uso</a></li>
         </ul>
       </li>
 
+      <!-- Outros -->
       <li><a href="/sections/doutrina.html" class="hover:text-red-700">Doutrina</a></li>
       <li><a href="/sections/contato.html" class="hover:text-red-700">Contato</a></li>
-
-      <!-- Recursos -->
-      <li class="relative group">
-        <span class="cursor-pointer hover:text-red-700">Recursos</span>
-        <ul class="absolute hidden group-hover:block bg-black border border-gray-700 mt-2 rounded shadow-lg z-50 text-sm">
-          <li><a href="/sections/loja.html" class="block px-4 py-2 hover:bg-red-700">Loja</a></li>
-          <li><a href="/sections/biblioteca.html" class="block px-4 py-2 hover:bg-red-700">Biblioteca</a></li>
-          <li><a href="/sections/faq.html" class="block px-4 py-2 hover:bg-red-700">FAQ</a></li>
-          <li><a href="/sections/blog.html" class="block px-4 py-2 hover:bg-red-700">Blog</a></li>
-          <li><a href="/sections/comunidades.html" class="block px-4 py-2 hover:bg-red-700">Comunidades e Sociais</a></li>
-        </ul>
-      </li>
+      <li><a href="/sections/loja.html" class="hover:text-red-700">Loja</a></li>
+      <li><a href="/sections/biblioteca.html" class="hover:text-red-700">Biblioteca</a></li>
+      <li><a href="/sections/faq.html" class="hover:text-red-700">FAQ</a></li>
+      <li><a href="/sections/blog.html" class="hover:text-red-700">Blog</a></li>
+      <li><a href="/sections/comunidades.html" class="hover:text-red-700">Comunidades e Sociais</a></li>
     </ul>
   </div>
 
-  <!-- Menu mobile (hidden por padrão) -->
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-sm">
-    <a href="/index.html" class="block hover:text-red-700">Início</a>
-    <a href="/sections/manifesto.html" class="block hover:text-red-700">Manifesto</a>
-    <a href="/sections/filosofia.html" class="block hover:text-red-700">Filosofia</a>
-    <a href="/sections/estatuto.html" class="block hover:text-red-700">Estatuto</a>
-    <a href="/sections/codigo-de-conduta.html" class="block hover:text-red-700">Código de Conduta</a>
-    <a href="/sections/diretrizes.html" class="block hover:text-red-700">Diretrizes</a>
-    <a href="/sections/politica-privacidade.html" class="block hover:text-red-700">Privacidade</a>
-    <a href="/sections/termos-de-uso.html" class="block hover:text-red-700">Termos de Uso</a>
-    <a href="/sections/doutrina.html" class="block hover:text-red-700">Doutrina</a>
-    <a href="/sections/contato.html" class="block hover:text-red-700">Contato</a>
-    <a href="/sections/loja.html" class="block hover:text-red-700">Loja</a>
-    <a href="/sections/biblioteca.html" class="block hover:text-red-700">Biblioteca</a>
-    <a href="/sections/faq.html" class="block hover:text-red-700">FAQ</a>
-    <a href="/sections/blog.html" class="block hover:text-red-700">Blog</a>
-    <a href="/sections/comunidades.html" class="block hover:text-red-700">Comunidades</a>
-  </div>
+  <!-- Menu Mobile -->
+  <ul id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-sm">
+    <li><a href="/index.html" class="block px-4 py-2 hover:text-red-700">Início</a></li>
+    <li><a href="/sections/manifesto.html" class="block px-4 py-2 hover:text-red-700">Manifesto</a></li>
+    <li><a href="/sections/filosofia.html" class="block px-4 py-2 hover:text-red-700">Filosofia</a></li>
+
+    <li><span class="block px-4 py-2 font-bold text-red-700">Institucional</span></li>
+    <li><a href="/sections/estatuto.html" class="block px-6 py-1 hover:text-red-700">Estatuto</a></li>
+    <li><a href="/sections/codigo-de-conduta.html" class="block px-6 py-1 hover:text-red-700">Código de Conduta</a></li>
+    <li><a href="/sections/diretrizes.html" class="block px-6 py-1 hover:text-red-700">Diretrizes</a></li>
+
+    <li><span class="block px-4 py-2 font-bold text-red-700">Documentos Legais</span></li>
+    <li><a href="/sections/politica-privacidade.html" class="block px-6 py-1 hover:text-red-700">Política de Privacidade</a></li>
+    <li><a href="/sections/termos-de-uso.html" class="block px-6 py-1 hover:text-red-700">Termos de Uso</a></li>
+
+    <li><a href="/sections/doutrina.html" class="block px-4 py-2 hover:text-red-700">Doutrina</a></li>
+    <li><a href="/sections/contato.html" class="block px-4 py-2 hover:text-red-700">Contato</a></li>
+    <li><a href="/sections/loja.html" class="block px-4 py-2 hover:text-red-700">Loja</a></li>
+    <li><a href="/sections/biblioteca.html" class="block px-4 py-2 hover:text-red-700">Biblioteca</a></li>
+    <li><a href="/sections/faq.html" class="block px-4 py-2 hover:text-red-700">FAQ</a></li>
+    <li><a href="/sections/blog.html" class="block px-4 py-2 hover:text-red-700">Blog</a></li>
+    <li><a href="/sections/comunidades.html" class="block px-4 py-2 hover:text-red-700">Comunidades e Sociais</a></li>
+  </ul>
 </nav>
