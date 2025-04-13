@@ -26,6 +26,8 @@
   </style>
 </head>
 <body>
+  <div id="navbar-placeholder"></div>
+
   <h1>Política de Privacidade</h1>
   <p><strong>Última atualização:</strong> [colocar data de publicação no site]</p>
 
@@ -109,5 +111,13 @@
     <p>Para quaisquer esclarecimentos, sugestões ou solicitações relativas a esta Política de Privacidade ou ao tratamento de dados pessoais, entre em contato com a ISB pelo canal oficial:<br>
     📩 <a href="mailto:contato@igrejassatanistabrasileira.org">contato@igrejassatanistabrasileira.org</a></p>
   </section>
+  <script>
+  fetch('sections/navbar.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+    });
+</script>
+
 </body>
 </html>
