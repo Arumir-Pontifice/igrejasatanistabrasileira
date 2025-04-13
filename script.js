@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Elementos da Navbar
+function initNavbar() {
   const navbar = document.getElementById("navbar");
   const title = document.getElementById("navbar-title");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -7,17 +6,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const hamburger = document.getElementById("hamburger");
   const closeIcon = document.getElementById("close");
 
-  // 1. Menu Mobile (Hamburger/X)
-  if (toggleBtn && mobileMenu && hamburger && closeIcon) {
+  // 1) Mobile menu toggle
+  if (toggleBtn) {
     toggleBtn.addEventListener("click", () => {
-      const isMenuHidden = mobileMenu.classList.toggle("hidden");
-      hamburger.classList.toggle("hidden", !isMenuHidden);
-      closeIcon.classList.toggle("hidden", isMenuHidden);
+      mobileMenu.classList.toggle("hidden");
+      hamburger.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
     });
 
-    // Fechar menu ao clicar em um link
-    document.querySelectorAll("#mobile-menu a").forEach(link => {
-      link.addEventListener("click", () => {
+    // Fecha menu ao clicar em link
+    document.querySelectorAll("#mobile-menu a").forEach(a => {
+      a.addEventListener("click", () => {
         mobileMenu.classList.add("hidden");
         hamburger.classList.remove("hidden");
         closeIcon.classList.add("hidden");
@@ -25,43 +24,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 2. Efeito de Scroll no Desktop
-  function handleScroll() {
+  // 2) Scroll effect (desktop only)
+  function onScroll() {
     if (window.innerWidth >= 768) {
       if (window.scrollY > 50) {
-        navbar.classList.add("h-14");
-        navbar.classList.remove("h-20");
-        if (title) title.textContent = "ISB";
+        navbar.classList.replace("h-20", "h-14");
+        title.textContent = "ISB";
       } else {
-        navbar.classList.remove("h-14");
-        navbar.classList.add("h-20");
-        if (title) title.textContent = "Igreja Satanista Brasileira";
+        navbar.classList.replace("h-14", "h-20");
+        title.textContent = "Igreja Satanista Brasileira";
       }
     }
   }
+  window.addEventListener("scroll", onScroll);
+  onScroll();
+}
 
-  window.addEventListener("scroll", handleScroll);
-  
-  // Verificar estado inicial
-  handleScroll();
-
-  // 3. Submenus (se existirem)
-  document.querySelectorAll(".submenu").forEach((menu) => {
-    const trigger = menu.querySelector("span");
-    const submenu = menu.querySelector("ul");
-
-    if (trigger && submenu) {
-      // Desktop: mouse hover
-      menu.addEventListener("mouseenter", () => submenu.classList.remove("hidden"));
-      menu.addEventListener("mouseleave", () => submenu.classList.add("hidden"));
-
-      // Mobile: clique
-      trigger.addEventListener("click", (e) => {
-        if (window.innerWidth < 768) {
-          e.preventDefault();
-          submenu.classList.toggle("hidden");
-        }
-      });
-    }
-  });
-});
+// Se quiser executar algo ao carregar a página sem usar o fetch:
+// document.addEventListener('DOMContentLoaded', initNavbar);
