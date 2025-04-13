@@ -148,3 +148,21 @@ a:hover {
 .border-satanic {
   border-color: var(--vermelho-brilhante);
 }
+
+/* Footer específico */
+footer a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--vermelho-brilhante);
+}
+
+footer svg {
+  transition: transform 0.3s ease;
+}
+
+footer svg:hover {
+  transform: translateY(-2px);
+}
+
+footer input:focus {
+  box-shadow: 0 0 0 1px var(--vermelho-brilhante);
+}
