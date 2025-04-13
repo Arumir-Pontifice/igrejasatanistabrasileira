@@ -93,13 +93,13 @@
   <!-- Script para carregar a navbar -->
   <script>
     // Script para carregar a navbar e o footer
-fetch('sections/navbar.html')
+fetch('.../sections/navbar.html')
   .then(res => res.text())
   .then(data => {
     document.getElementById('navbar-placeholder').innerHTML = data;
 
     // Agora, carregue o footer
-    fetch('sections/footer.html')
+    fetch('.../sections/footer.html')
       .then(res => res.text())
       .then(data => document.getElementById('footer').innerHTML = data);
   })
