@@ -1,69 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Política de Privacidade - Igreja Satanista Brasileira</title>
+  <title>Igreja Satanista Brasileira - Autonomia, Razão e Liberdade</title>
 
   <!-- Favicon -->
-  <link rel="icon" href="/igrejasatanistabrasileira/assets/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/assets/imgs/favicon.ico" type="image/x-icon">
 
-  <!-- Tailwind + estilo -->
-  <link rel="stylesheet" href="../style.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="/style.css">
+  
+  <!-- Tailwind via CDN (opcional, considere instalar localmente para produção) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'satanic-red': '#8b0000',
+            'amoled-gray': '#121212'
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- SEO Básico -->
-  <meta name="description" content="Nossa política de privacidade explica como a Igreja Satanista Brasileira lida com dados dos visitantes e membros, com base na ética e transparência.">
+  <!-- SEO -->
+  <meta name="description" content="A Igreja Satanista Brasileira promove os princípios de autonomia individual, razão e liberdade conforme os Sete Fundamentos Satânicos">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Igreja Satanista Brasileira">
+  <meta property="og:description" content="Autonomia, Razão e Liberdade - Conheça nossos princípios e atividades">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://igrejasatanistabrasileira.org">
+  <meta property="og:image" content="https://igrejasatanistabrasileira.org/assets/imgs/logo.png">
+  <meta property="og:site_name" content="Igreja Satanista Brasileira">
 
-  <!-- Open Graph (Facebook, LinkedIn etc.) -->
-  <meta property="og:title" content="Política de Privacidade - Igreja Satanista Brasileira" />
-  <meta property="og:description" content="Saiba como a ISB trata seus dados com responsabilidade e transparência." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://igrejasatanistabrasileira.org/politica-privacidade/" />
-  <meta property="og:image" content="https://igrejasatanistabrasileira.org/assets/imgs/logo.svg" />
-  <meta property="og:site_name" content="Igreja Satanista Brasileira" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Política de Privacidade - ISB" />
-  <meta name="twitter:description" content="Transparência e ética no tratamento dos dados dos nossos membros e visitantes." />
-  <meta name="twitter:image" content="https://igrejasatanistabrasileira.org/assets/imgs/logo.svg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Igreja Satanista Brasileira">
+  <meta name="twitter:description" content="Promovendo autonomia individual e pensamento racional">
+  <meta name="twitter:image" content="https://igrejasatanistabrasileira.org/assets/imgs/logo.png">
 </head>
 
-<body class="bg-black text-white font-sans">
-
+<body class="bg-black text-white min-h-screen flex flex-col">
   <!-- NAVBAR -->
-  <div id="navbar-placeholder"></div>
+  <div id="navbar-container" class="fixed top-0 w-full z-50"></div>
 
   <!-- CONTEÚDO PRINCIPAL -->
-  <main class="pt-24 px-6">
-    <h1 class="text-4xl font-bold mb-6">Bem-vindo à Igreja Satanista Brasileira</h1>
-    <p class="text-lg text-gray-300">
-      Este é o início de uma jornada filosófica de autonomia, razão e liberdade.
-    </p>
+  <main class="flex-grow pt-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto py-12">
+      <div class="text-center mb-16">
+        <img src="/assets/imgs/logo.png" alt="Logo Igreja Satanista Brasileira" class="mx-auto h-32 w-auto mb-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-satanic-red">Igreja Satanista Brasileira</h1>
+        <p class="text-xl md:text-2xl text-amoled-gray mb-8">
+          "A vontade de destruir é também uma vontade criativa."<br>
+          <span class="text-lg">- Mikhail Bakunin</span>
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/doutrina/" class="px-6 py-3 bg-satanic-red hover:bg-red-900 rounded-md font-medium transition-colors">
+            Nossos Princípios
+          </a>
+          <a href="/manifesto/" class="px-6 py-3 border border-satanic-red hover:bg-amoled-gray rounded-md font-medium transition-colors">
+            Manifesto
+          </a>
+        </div>
+      </div>
+
+      <section class="mb-16">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-satanic-red border-b border-amoled-gray pb-2">Últimas Notícias</h2>
+        <!-- Espaço para posts dinâmicos do blog -->
+        <div id="latest-posts" class="grid md:grid-cols-2 gap-6"></div>
+      </section>
+    </div>
   </main>
 
   <!-- FOOTER -->
-  <div id="footer-placeholder"></div>
+  <div id="footer-container"></div>
 
   <!-- SCRIPTS -->
-  <script src="script.js"></script>
   <script>
-    // Carrega a navbar e o footer dinamicamente
-    fetch('sections/navbar.html')
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById('navbar-placeholder').innerHTML = html;
-        initNavbar(); // Importante: ativa os scripts da navbar após ela ser injetada
-        return fetch('sections/footer.html');
-      })
-      .then(r => r.text())
-      .then(html => {
-        document.getElementById('footer-placeholder').innerHTML = html;
-      })
-      .catch(console.error);
-  </script>
+    // Carrega componentes dinâmicos
+    document.addEventListener('DOMContentLoaded', function() {
+      // Carrega navbar
+      fetch('/partials/navbar.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .then(html => {
+          document.getElementById('navbar-container').innerHTML = html;
+          // Ativa scripts da navbar após carregamento
+          if (typeof initNavbar === 'function') initNavbar();
+        })
+        .catch(error => console.error('Error loading navbar:', error));
 
+      // Carrega footer
+      fetch('/partials/footer.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
+        .then(html => document.getElementById('footer-container').innerHTML = html)
+        .catch(error => console.error('Error loading footer:', error));
+
+      // Aqui você pode adicionar chamada para carregar posts do blog
+      // fetch('/api/latest-posts').then(...)
+    });
+  </script>
+  <script src="/scripts/navbar.js"></script>
+  <script src="/scripts/script_general.js"></script>
 </body>
 </html>
