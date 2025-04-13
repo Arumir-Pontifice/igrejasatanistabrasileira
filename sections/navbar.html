@@ -1,87 +1,15 @@
-<header class="fixed top-0 w-full bg-black bg-opacity-90 p-4 flex justify-between items-center z-50 nav-scroll transition-all">
-  <div class="flex items-center space-x-2">
-    <img src="assets/logo.png" alt="Logo ISB" class="w-8 h-8">
-    <h1 id="brand" class="text-2xl text-red-700 font-bold transition-all">Igreja Satanista Brasileira</h1>
+<nav class="fixed top-0 left-0 w-full bg-black text-white border-b border-gray-800 z-50">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/index.html" class="text-xl font-bold text-red-700 hover:text-white transition-all">Igreja Satanista Brasileira</a>
+    <ul class="hidden md:flex space-x-6 text-sm">
+      <li><a href="/index.html#inicio" class="hover:text-red-700">Início</a></li>
+      <li><a href="/blog.html" class="hover:text-red-700">Blog</a></li>
+      <li><a href="/historia.html" class="hover:text-red-700">História</a></li>
+      <li><a href="/faq.html" class="hover:text-red-700">FAQ</a></li>
+      <li><a href="/biblioteca.html" class="hover:text-red-700">Biblioteca</a></li>
+      <li><a href="/contato.html" class="hover:text-red-700">Contato</a></li>
+      <li><a href="/loja.html" class="hover:text-red-700">Loja</a></li>
+      <li><a href="/comunidades.html" class="hover:text-red-700">Comunidades</a></li>
+    </ul>
   </div>
-
-  <!-- Botão menu mobile -->
-  <div class="menu-btn md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer z-50" onclick="toggleMenu(this)">
-    <span class="bar top w-6 h-0.5 bg-gray-300 mb-1 transition-all duration-300"></span>
-    <span class="bar middle w-6 h-0.5 bg-gray-300 mb-1 transition-all duration-300"></span>
-    <span class="bar bottom w-6 h-0.5 bg-gray-300 transition-all duration-300"></span>
-  </div>
-
-  <!-- Menu desktop -->
-  <nav class="hidden md:flex gap-6 text-gray-300">
-    <a href="index.html" class="hover:text-red-700">Início</a>
-    <a href="blog.html" class="hover:text-red-700">Blog</a>
-    <a href="historia.html" class="hover:text-red-700">História</a>
-    <a href="faq.html" class="hover:text-red-700">FAQ</a>
-    <a href="biblioteca.html" class="hover:text-red-700">Biblioteca</a>
-    <a href="contato.html" class="hover:text-red-700">Contato</a>
-    <a href="loja.html" class="hover:text-red-700">Loja</a>
-    <a href="comunidades.html" class="hover:text-red-700">Comunidades</a>
-  </nav>
-</header>
-
-<!-- Menu mobile -->
-<nav id="mobileMenu" class="hidden md:hidden absolute top-16 left-0 w-full bg-black bg-opacity-95 text-center text-gray-300 py-4">
-  <a href="index.html" class="block py-2 hover:text-red-700" onclick="closeMobileMenu()">Início</a>
-  <a href="blog.html" class="block py-2 hover:text-red-700" onclick="closeMobileMenu()">Blog</a>
-  <a href="historia.html" class="block py-2 hover:text-red-700" onclick="closeMobileMenu()">História</a>
-  <a href="faq.html" class="block py-2 hover:text-red-700" onclick="closeMobileMenu()">FAQ</a>
-  <a href="biblioteca.html" class="block py-2 hover:text-red-700" onclick="closeMobileMenu()">Biblioteca</a>
-  <a href="contato.html" class="block py-2 hover:text-red-700" onclick="closeMobileMenu()">Contato</a>
-  <a href="loja.html" class="block py-2 hover:text-red-700" onclick="closeMobileMenu()">Loja</a>
-  <a href="comunidades.html" class="block py-2 hover:text-red-700" onclick="closeMobileMenu()">Comunidades</a>
 </nav>
-
-<script>
-  function toggleMenu(btn) {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('hidden');
-    btn.classList.toggle('open');
-  }
-
-  function closeMobileMenu() {
-    document.getElementById('mobileMenu').classList.add('hidden');
-    document.querySelector('.menu-btn')?.classList.remove('open');
-  }
-
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    const brand = document.getElementById('brand');
-
-    if (window.scrollY > 50) {
-      header.classList.add('py-2');
-      header.classList.remove('p-4');
-      brand.textContent = 'ISB';
-    } else {
-      header.classList.remove('py-2');
-      header.classList.add('p-4');
-      brand.textContent = 'Igreja Satanista Brasileira';
-    }
-  });
-
-  // Animação do botão hambúrguer
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.querySelector('.menu-btn');
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('open');
-    });
-  });
-</script>
-
-<style>
-  .menu-btn.open .top {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .menu-btn.open .middle {
-    opacity: 0;
-  }
-
-  .menu-btn.open .bottom {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-</style>
