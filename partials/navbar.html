@@ -1,39 +1,114 @@
-<nav id="navbar" class="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 md:px-8 h-20 z-50 transition-all duration-300">
+<nav id="navbar" class="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 md:px-8 h-20 z-50 transition-all duration-300 border-b border-amoled-gray shadow-lg">
   <!-- Logo + Título -->
-  <div class="flex items-center space-x-3">
-    <img src="/assets/logo.svg" alt="Logo" class="h-10 w-auto" />
-    <span id="navbar-title" class="text-xl font-bold whitespace-nowrap transition-all duration-300">
+  <a href="/" class="flex items-center space-x-3 group">
+    <img src="/assets/imgs/logo.svg" alt="Logo Igreja Satanista Brasileira" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
+    <span id="navbar-title" class="text-xl font-bold whitespace-nowrap transition-all duration-300 text-satanic-red group-hover:text-red-700">
       Igreja Satanista Brasileira
     </span>
-  </div>
+  </a>
 
   <!-- Menu Desktop -->
-  <ul class="hidden md:flex space-x-6 text-sm font-semibold">
-    <li><a href="/" class="hover:text-red-600">Início</a></li>
-    <li><a href="/membro" class="hover:text-red-600">Membro</a></li>
-    <li><a href="/blog" class="hover:text-red-600">Blog</a></li>
-    <li><a href="/biblioteca" class="hover:text-red-600">Biblioteca</a></li>
-    <li><a href="/faq" class="hover:text-red-600">FAQ</a></li>
+  <ul class="hidden md:flex space-x-8 text-sm uppercase tracking-wider">
+    <li>
+      <a href="/" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        Início
+      </a>
+    </li>
+    <li>
+      <a href="/membro" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        Tornar-se Membro
+      </a>
+    </li>
+    <li>
+      <a href="/blog" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        Blog
+      </a>
+    </li>
+    <li>
+      <a href="/biblioteca" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        Biblioteca
+      </a>
+    </li>
+    <li>
+      <a href="/faq" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        FAQ
+      </a>
+    </li>
+    <li>
+      <a href="/contato" class="ml-4 px-4 py-2 bg-satanic-red hover:bg-red-900 transition-colors rounded-sm">
+        Contato
+      </a>
+    </li>
   </ul>
 
   <!-- Botão do menu mobile -->
   <div class="md:hidden flex items-center">
-    <button id="mobile-menu-toggle" class="focus:outline-none">
-      <svg id="hamburger" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg id="close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+    <button id="mobile-menu-toggle" aria-label="Menu Mobile" aria-expanded="false" class="focus:outline-none p-2 hover:bg-amoled-gray rounded transition-colors">
+      <div class="menu-btn">
+        <div class="bar top"></div>
+        <div class="bar middle"></div>
+        <div class="bar bottom"></div>
+      </div>
     </button>
   </div>
 
   <!-- Menu Mobile -->
-  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black text-white py-4 px-6 space-y-4 md:hidden">
-    <a href="/" class="block hover:text-red-600">Início</a>
-    <a href="/membro" class="block hover:text-red-600">Membro</a>
-    <a href="/blog" class="block hover:text-red-600">Blog</a>
-    <a href="/biblioteca" class="block hover:text-red-600">Biblioteca</a>
-    <a href="/faq" class="block hover:text-red-600">FAQ</a>
+  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black text-white py-4 px-6 space-y-4 md:hidden border-t border-amoled-gray shadow-xl">
+    <a href="/" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      Início
+    </a>
+    <a href="/membro" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      Tornar-se Membro
+    </a>
+    <a href="/blog" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      Blog
+    </a>
+    <a href="/biblioteca" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      Biblioteca
+    </a>
+    <a href="/faq" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      FAQ
+    </a>
+    <a href="/contato" class="block py-3 px-4 bg-satanic-red hover:bg-red-900 text-center transition-colors mt-4">
+      Contato
+    </a>
   </div>
 </nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuBtn = document.querySelector('.menu-btn');
+  
+  toggle.addEventListener('click', function() {
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !isExpanded);
+    menu.classList.toggle('hidden');
+    menuBtn.classList.toggle('open');
+    
+    // Bloquear scroll quando menu mobile está aberto
+    document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+  });
+
+  // Fechar menu ao clicar em um link
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menuBtn.classList.remove('open');
+      document.body.style.overflow = 'auto';
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Efeito de scroll na navbar
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 20) {
+      navbar.classList.add('nav-scroll');
+    } else {
+      navbar.classList.remove('nav-scroll');
+    }
+  });
+});
+</script>
