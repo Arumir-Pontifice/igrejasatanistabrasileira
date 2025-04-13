@@ -1,13 +1,14 @@
-/* Variáveis */
 :root {
   --preto-absoluto: #000000;
   --vermelho-sangue: #8b0000;
   --cinza-amoled: #121212;
+  --cinza-claro: #cccccc;
 }
 
-/* Navbar */
+/* Navbar Fixa */
 #navbar {
   transition: transform 0.3s ease-in-out;
+  height: 4rem;
 }
 
 #navbar.scrolled-up {
@@ -18,12 +19,22 @@
   transform: translateY(-100%);
 }
 
-/* Menu Hamburguer */
+/* Conteúdo Principal */
+main {
+  padding-top: 5rem;
+  scroll-margin-top: 5rem;
+}
+
+/* Menu Mobile */
 .menu-btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .bar {
@@ -31,7 +42,8 @@
   height: 3px;
   background-color: var(--vermelho-sangue);
   margin: 3px 0;
-  transition: all 0.3s ease;
+  transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  transform-origin: center;
 }
 
 .menu-btn.open .top {
@@ -46,14 +58,19 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Ajustes de layout */
-main {
-  padding-top: 4rem;
-  scroll-margin-top: 4rem;
-}
-
-@media (min-width: 768px) {
+/* Responsividade */
+@media (max-width: 767px) {
+  #navbar {
+    height: 3.5rem;
+  }
+  
   main {
-    padding-top: 4.5rem;
+    padding-top: 3.5rem;
+    scroll-margin-top: 3.5rem;
+  }
+  
+  #mobile-menu {
+    max-height: calc(100vh - 3.5rem);
+    overflow-y: auto;
   }
 }
