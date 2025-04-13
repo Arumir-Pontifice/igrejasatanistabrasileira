@@ -8,6 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="font-sans">
+<div id="navbar-placeholder"></div>
 
   <!-- Header -->
   <header class="fixed top-0 w-full bg-black bg-opacity-90 p-4 flex justify-between items-center z-50 nav-scroll transition-all">
@@ -67,6 +68,13 @@
     <a href="sections/politica-privacidade.html" class="text-red-700 hover:underline">Política de Privacidade</a>
   </p>
 </footer>
+<script>
+  fetch('sections/navbar.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
+    });
+</script>
 
 </body>
 </html>
