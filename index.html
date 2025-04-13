@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <base href="/igrejasatanistabrasileira/">
+  <base href="/">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Igreja Satanista Brasileira</title>
@@ -27,11 +27,11 @@
 
   <!-- Carregamento dinâmico -->
   <script>
-    fetch('./sections/navbar.html')
+    fetch('sections/navbar.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
-        return fetch('./sections/footer.html');
+        return fetch('sections/footer.html');
       })
       .then(res => res.text())
       .then(data => {
