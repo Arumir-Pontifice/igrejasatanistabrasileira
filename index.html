@@ -8,22 +8,31 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black text-white">
+<body class="bg-black text-white font-sans">
 
+  <!-- NAVBAR -->
   <div id="navbar-placeholder"></div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
   <main class="pt-24 px-6">
-    <!-- seu conteúdo -->
+    <h1 class="text-4xl font-bold mb-6">Bem-vindo à Igreja Satanista Brasileira</h1>
+    <p class="text-lg text-gray-300">
+      Este é o início de uma jornada filosófica de autonomia, razão e liberdade.
+    </p>
   </main>
+
+  <!-- FOOTER -->
   <div id="footer-placeholder"></div>
 
+  <!-- SCRIPTS -->
   <script src="script.js"></script>
   <script>
-    // Carrega navbar e footer, depois inicializa o menu
+    // Carrega a navbar e o footer dinamicamente
     fetch('sections/navbar.html')
       .then(r => r.text())
       .then(html => {
         document.getElementById('navbar-placeholder').innerHTML = html;
-        initNavbar();                       // <— aqui
+        initNavbar(); // Importante: ativa os scripts da navbar após ela ser injetada
         return fetch('sections/footer.html');
       })
       .then(r => r.text())
@@ -32,5 +41,6 @@
       })
       .catch(console.error);
   </script>
+
 </body>
 </html>
