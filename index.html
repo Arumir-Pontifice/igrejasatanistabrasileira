@@ -7,7 +7,10 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-black text-white">
 
+  <!-- Navbar (será carregada dinamicamente) -->
+  <div id="navbar-placeholder"></div>
 
   <!-- Conteúdo -->
   <main class="pt-24 px-6">
@@ -17,27 +20,30 @@
       <p class="text-gray-400">A filosofia da liberdade, da carne e da razão começa aqui.</p>
     </section>
 
-    <!-- Inclusão de seções futuras -->
+    <!-- Seções futuras -->
     <section id="manifesto" class="py-16 px-4 text-center">
       <!-- Conteúdo será carregado via JS se necessário -->
     </section>
   </main>
 
-  <script src="script.js"></script>
   <!-- Rodapé -->
-<footer class="bg-black text-gray-500 text-center py-6 mt-12 border-t border-gray-800">
-  <p class="text-sm">
-    © 2025 Igreja Satanista Brasileira. Todos os direitos reservados. <br />
-    <a href="sections/politica-privacidade.html" class="text-red-700 hover:underline">Política de Privacidade</a>
-  </p>
-</footer>
-<script>
-  fetch('sections/navbar.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
-    });
-</script>
+  <footer class="bg-black text-gray-500 text-center py-6 mt-12 border-t border-gray-800">
+    <p class="text-sm">
+      © 2025 Igreja Satanista Brasileira. Todos os direitos reservados. <br />
+      <a href="sections/politica-privacidade.html" class="text-red-700 hover:underline">Política de Privacidade</a>
+    </p>
+  </footer>
 
+  <!-- Script para carregar a navbar -->
+  <script>
+    fetch('sections/navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+  </script>
+  
+  <!-- Script principal -->
+  <script src="script.js"></script>
 </body>
 </html>
