@@ -1,89 +1,79 @@
-<nav class="fixed top-0 left-0 w-full bg-black text-white border-b border-gray-800 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-    <a href="/" class="text-xl font-bold text-red-700">Igreja Satanista Brasileira</a>
+<nav class="bg-black text-white fixed w-full z-50 shadow-lg">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/">
+          <img class="h-8 w-auto" src="/assets/logo.svg" alt="ISB">
+        </a>
+      </div>
 
-    <!-- Botão menu mobile -->
-    <button id="menu-toggle" class="md:hidden focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
+      <!-- Botão Mobile -->
+      <div class="flex md:hidden">
+        <button id="menu-toggle" class="text-white focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
 
-    <!-- Menu desktop -->
-    <ul class="hidden md:flex space-x-6 text-sm items-center">
-      <li><a href="/" class="hover:text-red-700">Início</a></li>
-      <li><a href="/manifesto" class="hover:text-red-700">Manifesto</a></li>
-      <li><a href="/filosofia" class="hover:text-red-700">Filosofia</a></li>
+      <!-- Menu Principal -->
+      <div class="hidden md:flex md:items-center space-x-4">
+        <a href="/" class="hover:text-red-500">Início</a>
 
-      <li class="relative group submenu">
-        <span class="cursor-pointer hover:text-red-700">Institucional</span>
-        <ul class="hidden absolute bg-black border border-gray-700 mt-2 rounded shadow-lg z-50 text-sm">
-          <li><a href="/estatuto" class="block px-4 py-2 hover:bg-red-700">Estatuto</a></li>
-          <li><a href="/codigo-de-conduta" class="block px-4 py-2 hover:bg-red-700">Código de Conduta</a></li>
-          <li><a href="/diretrizes" class="block px-4 py-2 hover:bg-red-700">Diretrizes da ISB</a></li>
-        </ul>
-      </li>
+        <!-- Menu com Submenu -->
+        <div class="relative group">
+          <button class="hover:text-red-500 focus:outline-none">Institucional</button>
+          <div
+            class="absolute hidden group-hover:block bg-black text-white mt-2 py-2 w-48 rounded shadow-xl z-50">
+            <a href="/manifesto/" class="block px-4 py-2 hover:bg-red-700">Manifesto</a>
+            <a href="/estatuto/" class="block px-4 py-2 hover:bg-red-700">Estatuto</a>
+            <a href="/codigo-de-conduta/" class="block px-4 py-2 hover:bg-red-700">Código de Conduta</a>
+            <a href="/diretrizes/" class="block px-4 py-2 hover:bg-red-700">Diretrizes</a>
+          </div>
+        </div>
 
-      <li class="relative group submenu">
-        <span class="cursor-pointer hover:text-red-700">Documentos Legais</span>
-        <ul class="hidden absolute bg-black border border-gray-700 mt-2 rounded shadow-lg z-50 text-sm">
-          <li><a href="/politica-privacidade" class="block px-4 py-2 hover:bg-red-700">Política de Privacidade</a></li>
-          <li><a href="/termos-de-uso" class="block px-4 py-2 hover:bg-red-700">Termos de Uso</a></li>
-        </ul>
-      </li>
+        <!-- Outro submenu -->
+        <div class="relative group">
+          <button class="hover:text-red-500 focus:outline-none">Legal</button>
+          <div
+            class="absolute hidden group-hover:block bg-black text-white mt-2 py-2 w-48 rounded shadow-xl z-50">
+            <a href="/politica-privacidade/" class="block px-4 py-2 hover:bg-red-700">Privacidade</a>
+            <a href="/termos-de-uso/" class="block px-4 py-2 hover:bg-red-700">Termos de Uso</a>
+          </div>
+        </div>
 
-      <li><a href="/doutrina" class="hover:text-red-700">Doutrina</a></li>
-      <li><a href="/contato" class="hover:text-red-700">Contato</a></li>
-
-      <li class="relative group submenu">
-        <span class="cursor-pointer hover:text-red-700">Recursos</span>
-        <ul class="hidden absolute bg-black border border-gray-700 mt-2 rounded shadow-lg z-50 text-sm">
-          <li><a href="/loja" class="block px-4 py-2 hover:bg-red-700">Loja</a></li>
-          <li><a href="/biblioteca" class="block px-4 py-2 hover:bg-red-700">Biblioteca</a></li>
-          <li><a href="/faq" class="block px-4 py-2 hover:bg-red-700">FAQ</a></li>
-          <li><a href="/blog" class="block px-4 py-2 hover:bg-red-700">Blog</a></li>
-          <li><a href="/comunidades" class="block px-4 py-2 hover:bg-red-700">Comunidades</a></li>
-        </ul>
-      </li>
-    </ul>
+        <a href="/blog/" class="hover:text-red-500">Blog</a>
+        <a href="/contato/" class="hover:text-red-500">Contato</a>
+      </div>
+    </div>
   </div>
 
   <!-- Menu Mobile -->
-  <ul id="mobile-menu" class="md:hidden hidden px-6 pb-4 text-sm space-y-2">
-    <li><a href="index.html" class="block hover:text-red-700">Início</a></li>
-    <li><a href="/manifesto" class="block hover:text-red-700">Manifesto</a></li>
-    <li><a href="/filosofia" class="block hover:text-red-700">Filosofia</a></li>
-    
-    <li class="submenu">
-      <span class="block cursor-pointer hover:text-red-700">Institucional</span>
-      <ul class="hidden pl-4 space-y-1">
-        <li><a href="/estatuto" class="block hover:text-red-700">Estatuto</a></li>
-        <li><a href="/codigo-de-conduta" class="block hover:text-red-700">Código de Conduta</a></li>
-        <li><a href="/diretrizes" class="block hover:text-red-700">Diretrizes</a></li>
-      </ul>
-    </li>
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+    <a href="/" class="block py-2 hover:text-red-500">Início</a>
+    <div class="border-t border-gray-700 my-2"></div>
 
-    <li class="submenu">
-      <span class="block cursor-pointer hover:text-red-700">Documentos Legais</span>
-      <ul class="hidden pl-4 space-y-1">
-        <li><a href="/politica-privacidade" class="block hover:text-red-700">Política de Privacidade</a></li>
-        <li><a href="/termos-de-uso" class="block hover:text-red-700">Termos de Uso</a></li>
-      </ul>
-    </li>
+    <details class="mb-2">
+      <summary class="cursor-pointer py-2 hover:text-red-500">Institucional</summary>
+      <div class="pl-4 mt-2 space-y-1">
+        <a href="/manifesto/" class="block hover:text-red-500">Manifesto</a>
+        <a href="/estatuto/" class="block hover:text-red-500">Estatuto</a>
+        <a href="/codigo-de-conduta/" class="block hover:text-red-500">Código de Conduta</a>
+        <a href="/diretrizes/" class="block hover:text-red-500">Diretrizes</a>
+      </div>
+    </details>
 
-    <li><a href="/doutrina" class="block hover:text-red-700">Doutrina</a></li>
-    <li><a href="/contato" class="block hover:text-red-700">Contato</a></li>
+    <details class="mb-2">
+      <summary class="cursor-pointer py-2 hover:text-red-500">Legal</summary>
+      <div class="pl-4 mt-2 space-y-1">
+        <a href="/politica-privacidade/" class="block hover:text-red-500">Privacidade</a>
+        <a href="/termos-de-uso/" class="block hover:text-red-500">Termos de Uso</a>
+      </div>
+    </details>
 
-    <li class="submenu">
-      <span class="block cursor-pointer hover:text-red-700">Recursos</span>
-      <ul class="hidden pl-4 space-y-1">
-        <li><a href="/loja" class="block hover:text-red-700">Loja</a></li>
-        <li><a href="/biblioteca" class="block hover:text-red-700">Biblioteca</a></li>
-        <li><a href="/faq" class="block hover:text-red-700">FAQ</a></li>
-        <li><a href="/blog" class="block hover:text-red-700">Blog</a></li>
-        <li><a href="/comunidades" class="block hover:text-red-700">Comunidades</a></li>
-      </ul>
-    </li>
-  </ul>
+    <a href="/blog/" class="block py-2 hover:text-red-500">Blog</a>
+    <a href="/contato/" class="block py-2 hover:text-red-500">Contato</a>
+  </div>
 </nav>
