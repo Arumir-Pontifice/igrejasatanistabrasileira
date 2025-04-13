@@ -27,7 +27,7 @@
 
   <!-- Carregamento dinâmico -->
   <script>
-    fetch('sections/navbar.html')
+    fetch('./sections/navbar.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
