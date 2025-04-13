@@ -92,23 +92,25 @@
  <div id="footer"></div>
   <!-- Script para carregar a navbar -->
   <script>
-  fetch('../sections/navbar.html')
+    fetch('../sections/navbar.html')
     .then(res => res.text())
     .then(data => {
       document.getElementById('navbar-placeholder').innerHTML = data;
 
-      // Depois de inserir o HTML da navbar, carregue o script JS
+      // ⚠️ Carrega e executa o script que ativa o navbar (menu mobile, scroll etc.)
       const script = document.createElement('script');
-      script.src = '../scripts/navbar.js'; // ajuste o caminho se necessário
+      script.src = '../scripts/navbar.js'; // ajuste o caminho conforme necessário
+      script.defer = true;
       document.body.appendChild(script);
 
-      // Agora, carregue o footer
+      // Carrega o footer
       fetch('../sections/footer.html')
         .then(res => res.text())
         .then(data => document.getElementById('footer').innerHTML = data);
     })
-    .catch(err => console.error('Erro ao carregar a navbar ou o footer:', err));
-</script>
+    .catch(err => console.error('Erro ao carregar navbar/footer:', err));
+
+  </script>
 
 
 </body>
