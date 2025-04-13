@@ -1,19 +1,23 @@
 <nav id="navbar" class="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 md:px-8 h-16 z-50 transition-all duration-300 border-b border-amoled-gray shadow-lg">
   <!-- Logo -->
-  <a href="/" class="flex items-center space-x-3">
-    <img src="/assets/imgs/logo.svg" alt="Logo ISB" class="h-10 w-auto">
+  <a href="/" class="flex items-center space-x-3 group">
+    <img src="/assets/imgs/logo.svg" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
+    <span class="text-xl font-bold whitespace-nowrap text-satanic-red group-hover:text-red-700 transition-colors">
+      Igreja Satanista Brasileira
+    </span>
   </a>
 
   <!-- Menu Desktop -->
-  <ul class="hidden md:flex space-x-6 text-sm uppercase tracking-wider">
-    <li><a href="/" class="hover:text-satanic-red">Início</a></li>
-    <li><a href="/membro" class="hover:text-satanic-red">Membros</a></li>
-    <li><a href="/blog" class="hover:text-satanic-red">Blog</a></li>
-    <li><a href="/contato" class="ml-4 px-4 py-2 bg-satanic-red hover:bg-red-900">Contato</a></li>
+  <ul class="hidden md:flex space-x-8 text-sm uppercase tracking-wider">
+    <li><a href="/" class="nav-link">Início</a></li>
+    <li><a href="/membro" class="nav-link">Membro</a></li>
+    <li><a href="/blog" class="nav-link">Blog</a></li>
+    <li><a href="/biblioteca" class="nav-link">Biblioteca</a></li>
+    <li><a href="/contato" class="px-4 py-2 bg-satanic-red hover:bg-red-900">Contato</a></li>
   </ul>
 
   <!-- Menu Mobile -->
-  <button id="mobile-menu-toggle" class="md:hidden p-2 focus:outline-none">
+  <button id="mobile-menu-toggle" class="md:hidden p-2">
     <div class="menu-btn">
       <div class="bar top"></div>
       <div class="bar middle"></div>
@@ -21,13 +25,11 @@
     </div>
   </button>
 
-  <!-- Menu Mobile Content -->
-  <div id="mobile-menu" class="hidden md:hidden absolute top-16 left-0 right-0 bg-black border-t border-amoled-gray">
-    <div class="flex flex-col space-y-4 p-4">
-      <a href="/" class="hover:text-satanic-red py-2">Início</a>
-      <a href="/membro" class="hover:text-satanic-red py-2">Membros</a>
-      <a href="/blog" class="hover:text-satanic-red py-2">Blog</a>
-      <a href="/contato" class="mt-4 py-2 text-center bg-satanic-red hover:bg-red-900">Contato</a>
-    </div>
+  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black text-white py-4 px-6 space-y-4 md:hidden border-t border-amoled-gray shadow-xl">
+    <a href="/" class="block py-3 px-4 hover:bg-amoled-gray">Início</a>
+    <a href="/membro" class="block py-3 px-4 hover:bg-amoled-gray">Membro</a>
+    <a href="/blog" class="block py-3 px-4 hover:bg-amoled-gray">Blog</a>
+    <a href="/biblioteca" class="block py-3 px-4 hover:bg-amoled-gray">Biblioteca</a>
+    <a href="/contato" class="block py-3 px-4 bg-satanic-red hover:bg-red-900 text-center">Contato</a>
   </div>
 </nav>
