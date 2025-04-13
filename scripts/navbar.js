@@ -1,16 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const navbar = document.getElementById('navbar');
+  // Controle do Menu Mobile
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuBtn = document.querySelector('.menu-btn');
 
-  // Ajuste inicial do padding
-  const main = document.querySelector('main');
-  if (main) {
-    main.style.paddingTop = navbar.offsetHeight + 'px';
-  }
-
-  // Menu mobile
   if (mobileMenuToggle && mobileMenu) {
     mobileMenuToggle.addEventListener('click', function() {
       const isExpanded = this.getAttribute('aria-expanded') === 'true';
@@ -21,8 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Comportamento no scroll
+  // Comportamento de Scroll
   let lastScroll = 0;
+  const navbar = document.getElementById('navbar');
+
   window.addEventListener('scroll', function() {
     const currentScroll = window.pageYOffset;
     
@@ -31,14 +26,23 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    if (currentScroll > lastScroll && currentScroll > navbar.offsetHeight) {
+    if (currentScroll > lastScroll) {
       navbar.classList.add('scrolled-down');
       navbar.classList.remove('scrolled-up');
-    } else if (currentScroll < lastScroll) {
+    } else {
       navbar.classList.add('scrolled-up');
       navbar.classList.remove('scrolled-down');
     }
     
     lastScroll = currentScroll;
+  });
+
+  // Fechar Menu ao Clicar em Links
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.classList.remove('open');
+      document.body.style.overflow = 'auto';
+    });
   });
 });
