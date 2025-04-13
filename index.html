@@ -27,12 +27,7 @@
   </main>
 
   <!-- Rodapé -->
-  <footer class="bg-black text-gray-500 text-center py-6 mt-12 border-t border-gray-800">
-    <p class="text-sm">
-      © 2025 Igreja Satanista Brasileira. Todos os direitos reservados. <br />
-      <a href="sections/politica-privacidade.html" class="text-red-700 hover:underline">Política de Privacidade</a>
-    </p>
-  </footer>
+  <div id="footer"></div>
 
   <!-- Script para carregar a navbar -->
   <script>
@@ -40,6 +35,10 @@
       .then(res => res.text())
       .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
+         document.getElementById('footer').innerHTML = '';
+    fetch('/sections/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
       });
   </script>
   
