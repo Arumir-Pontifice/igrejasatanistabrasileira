@@ -1,107 +1,79 @@
-<style>
-  /* Transição ao rolar */
-  .navbar {
-    transition: all 0.3s ease;
-  }
-  .navbar.shrink {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-  }
-  .logo-title {
-    transition: opacity 0.3s ease;
-  }
-  .logo-full {
-    display: inline;
-  }
-  .logo-short {
-    display: none;
-  }
-  .navbar.shrink .logo-full {
-    display: none;
-  }
-  .navbar.shrink .logo-short {
-    display: inline;
-  }
-</style>
+<header id="navbar" class="fixed top-0 w-full z-50 bg-black transition-all duration-300 ease-in-out shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 transition-all duration-300">
+    <div class="flex items-center space-x-4">
+      <img src="./assets/imgs/logo.svg" alt="Logo ISB" class="h-10 w-10">
+      <span id="navbar-title" class="text-white text-xl font-semibold transition-all duration-300">Igreja Satanista Brasileira</span>
+    </div>
 
-<nav id="navbar"
-  class="navbar bg-black text-white w-full fixed top-0 z-50 px-4 py-4 shadow-lg flex items-center justify-between">
-  <!-- Esquerda: Logo + Nome -->
-  <div class="flex items-center space-x-2">
-    <img src="/assets/logo.svg" alt="ISB Logo" class="h-8 w-auto" />
-    <span class="logo-title text-lg font-bold">
-      <span class="logo-full">Igreja Satanista Brasileira</span>
-      <span class="logo-short">ISB</span>
-    </span>
+    <div class="md:hidden">
+      <button id="mobile-menu-toggle" class="text-white focus:outline-none">
+        <svg id="hamburger" class="h-6 w-6 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <nav id="desktop-menu" class="hidden md:flex space-x-6">
+      <a href="/igrejasatanistabrasileira/" class="text-white hover:text-red-600">Início</a>
+      <a href="/igrejasatanistabrasileira/sections/manifesto.html" class="text-white hover:text-red-600">Manifesto</a>
+      <a href="/igrejasatanistabrasileira/blog/" class="text-white hover:text-red-600">Blog</a>
+      <a href="/igrejasatanistabrasileira/docs/" class="text-white hover:text-red-600">Biblioteca</a>
+      <a href="/igrejasatanistabrasileira/sections/faq.html" class="text-white hover:text-red-600">FAQ</a>
+    </nav>
   </div>
 
-  <!-- Direita: Menu desktop -->
-  <div class="hidden md:flex space-x-6 text-sm font-medium">
-    <a href="/" class="hover:text-red-500">Início</a>
-    <a href="/membro" class="hover:text-red-500">Membro</a>
-    <a href="/blog" class="hover:text-red-500">Blog</a>
-    <a href="/biblioteca" class="hover:text-red-500">Biblioteca</a>
-    <a href="/faq" class="hover:text-red-500">FAQ</a>
-    <a href="/contato" class="hover:text-red-500">Contato</a>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-black px-4 pb-4">
+    <a href="/igrejasatanistabrasileira/" class="block py-2 text-white hover:text-red-600">Início</a>
+    <a href="/igrejasatanistabrasileira/sections/manifesto.html" class="block py-2 text-white hover:text-red-600">Manifesto</a>
+    <a href="/igrejasatanistabrasileira/blog/" class="block py-2 text-white hover:text-red-600">Blog</a>
+    <a href="/igrejasatanistabrasileira/docs/" class="block py-2 text-white hover:text-red-600">Biblioteca</a>
+    <a href="/igrejasatanistabrasileira/sections/faq.html" class="block py-2 text-white hover:text-red-600">FAQ</a>
   </div>
-
-  <!-- Botão mobile -->
-  <button id="menu-toggle" class="md:hidden focus:outline-none">
-    <svg id="icon-menu" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-      viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-    <svg id="icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
-      viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-        d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  </button>
-</nav>
-
-<!-- Menu mobile -->
-<div id="mobile-menu" class="hidden md:hidden bg-black text-white px-4 pt-4 pb-2 space-y-3 shadow-md">
-  <a href="/" class="block hover:text-red-500">Início</a>
-  <a href="/membro" class="block hover:text-red-500">Membro</a>
-  <a href="/blog" class="block hover:text-red-500">Blog</a>
-  <a href="/biblioteca" class="block hover:text-red-500">Biblioteca</a>
-  <a href="/faq" class="block hover:text-red-500">FAQ</a>
-  <a href="/contato" class="block hover:text-red-500">Contato</a>
-</div>
+</header>
 
 <script>
-  const menuToggle = document.getElementById("menu-toggle");
+  // Toggle mobile menu
+  const toggleBtn = document.getElementById("mobile-menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
-  const iconMenu = document.getElementById("icon-menu");
-  const iconClose = document.getElementById("icon-close");
-  const navbar = document.getElementById("navbar");
+  const hamburger = document.getElementById("hamburger");
+  const closeIcon = document.getElementById("close");
 
-  // Mobile toggle
-  menuToggle.addEventListener("click", () => {
+  toggleBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
-    iconMenu.classList.toggle("hidden");
-    iconClose.classList.toggle("hidden");
+    hamburger.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
   });
 
-  // Fecha menu ao clicar em link
-  mobileMenu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      iconMenu.classList.remove("hidden");
-      iconClose.classList.add("hidden");
+  // Fechar menu ao clicar em um link
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      hamburger.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
     });
   });
 
-  // Efeito de rolagem no desktop
+  // Navbar dinâmico ao rolar (desktop)
+  const navbar = document.getElementById("navbar");
+  const title = document.getElementById("navbar-title");
+
   window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    if (window.innerWidth >= 768) {
-      if (scrollY > 20) {
-        navbar.classList.add("shrink");
-      } else {
-        navbar.classList.remove("shrink");
-      }
+    if (window.scrollY > 50) {
+      navbar.classList.add("h-14");
+      navbar.classList.remove("h-20");
+      title.textContent = "ISB";
+    } else {
+      navbar.classList.add("h-20");
+      navbar.classList.remove("h-14");
+      title.textContent = "Igreja Satanista Brasileira";
     }
   });
 </script>
