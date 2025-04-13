@@ -10,44 +10,34 @@
 </head>
 <body class="bg-black text-white">
 
-  <!-- Navbar (será carregada dinamicamente) -->
+  <!-- Navbar -->
   <div id="navbar-placeholder"></div>
 
-  <!-- Conteúdo -->
+  <!-- Conteúdo principal -->
   <main class="pt-24 px-6">
-    <section id="inicio" class="py-20 text-center">
+    <section class="text-center py-20">
       <img src="assets/imgs/logo.svg" alt="Logo ISB" class="mx-auto w-32 mb-6" />
       <h2 class="text-4xl text-red-700 font-bold mb-4">Bem-vindo à ISB</h2>
       <p class="text-gray-400">A filosofia da liberdade, da carne e da razão começa aqui.</p>
     </section>
-
-    <!-- Seções futuras -->
-    <section id="manifesto" class="py-16 px-4 text-center">
-      <!-- Conteúdo será carregado via JS se necessário -->
-    </section>
   </main>
 
-  <!-- Rodapé -->
-  <div id="footer"></div>
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
 
-  <!-- Script para carregar a navbar -->
+  <!-- Carregamento dinâmico -->
   <script>
-  // Script para carregar a navbar e o footer
-fetch('sections/navbar.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('navbar-placeholder').innerHTML = data;
-
-    // Agora, carregue o footer
-    fetch('sections/footer.html')
+    fetch('sections/navbar.html')
       .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  })
-  .catch(err => console.error('Erro ao carregar a navbar ou o footer:', err));
-
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+        return fetch('sections/footer.html');
+      })
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
   </script>
-  
-  <!-- Script principal -->
   <script src="script.js"></script>
 </body>
 </html>
