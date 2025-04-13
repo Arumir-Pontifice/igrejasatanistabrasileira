@@ -1,5 +1,5 @@
-<header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-black transition-all duration-300 ease-in-out">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+<header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-black transition-all duration-300 ease-in-out h-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
     <!-- Logo e Título -->
     <div class="flex items-center space-x-3">
       <img src="/igrejasatanistabrasileira/assets/imgs/logo.svg" alt="Logo ISB" class="h-10 w-10" />
@@ -9,11 +9,11 @@
     <!-- Botão Mobile -->
     <button id="mobile-menu-toggle" class="md:hidden text-white focus:outline-none">
       <svg id="hamburger" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24">
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
       <svg id="close" class="h-6 w-6 hidden" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24">
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
@@ -39,41 +39,52 @@
 </header>
 
 <script>
-  const navbar = document.getElementById("navbar");
-  const title = document.getElementById("navbar-title");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const toggleBtn = document.getElementById("mobile-menu-toggle");
-  const hamburger = document.getElementById("hamburger");
-  const closeIcon = document.getElementById("close");
+  document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.getElementById("navbar");
+    const title = document.getElementById("navbar-title");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const hamburger = document.getElementById("hamburger");
+    const closeIcon = document.getElementById("close");
 
-  // Mobile menu toggle
-  toggleBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-    hamburger.classList.toggle("hidden");
-    closeIcon.classList.toggle("hidden");
-  });
-
-  // Fecha menu mobile ao clicar
-  document.querySelectorAll("#mobile-menu a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      hamburger.classList.remove("hidden");
-      closeIcon.classList.add("hidden");
+    // Mobile menu toggle
+    toggleBtn.addEventListener("click", () => {
+      const isHidden = mobileMenu.classList.toggle("hidden");
+      hamburger.classList.toggle("hidden", !isHidden);
+      closeIcon.classList.toggle("hidden", isHidden);
     });
-  });
 
-  // Rolagem – comportamento só no desktop
-  window.addEventListener("scroll", () => {
-    if (window.innerWidth >= 768) {
-      if (window.scrollY > 50) {
-        navbar.classList.remove("h-20");
-        navbar.classList.add("h-14");
-        title.textContent = "ISB";
-      } else {
-        navbar.classList.add("h-20");
-        navbar.classList.remove("h-14");
-        title.textContent = "Igreja Satanista Brasileira";
+    // Fecha menu mobile ao clicar em um link
+    document.querySelectorAll("#mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        hamburger.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+      });
+    });
+
+    // Rolagem – comportamento só no desktop
+    let lastScrollY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      if (window.innerWidth >= 768) {
+        if (window.scrollY > 50) {
+          navbar.classList.add("h-14");
+          navbar.classList.remove("h-20");
+          title.textContent = "ISB";
+        } else {
+          navbar.classList.remove("h-14");
+          navbar.classList.add("h-20");
+          title.textContent = "Igreja Satanista Brasileira";
+        }
+        lastScrollY = window.scrollY;
       }
+    });
+
+    // Verificar estado inicial no carregamento
+    if (window.innerWidth >= 768 && window.scrollY > 50) {
+      navbar.classList.add("h-14");
+      navbar.classList.remove("h-20");
+      title.textContent = "ISB";
     }
   });
 </script>
