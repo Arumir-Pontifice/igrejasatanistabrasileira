@@ -1,72 +1,107 @@
-<nav class="bg-black text-white fixed top-0 w-full z-50 shadow-lg">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
-      <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="/">
-          <img class="h-8 w-auto" src="/assets/logo.svg" alt="ISB">
-        </a>
-      </div>
+<style>
+  /* Transição ao rolar */
+  .navbar {
+    transition: all 0.3s ease;
+  }
+  .navbar.shrink {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .logo-title {
+    transition: opacity 0.3s ease;
+  }
+  .logo-full {
+    display: inline;
+  }
+  .logo-short {
+    display: none;
+  }
+  .navbar.shrink .logo-full {
+    display: none;
+  }
+  .navbar.shrink .logo-short {
+    display: inline;
+  }
+</style>
 
-      <!-- Botão Mobile -->
-      <div class="md:hidden">
-        <button id="menu-toggle" class="text-white focus:outline-none">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Menu Desktop -->
-      <div class="hidden md:flex md:items-center space-x-4">
-        <a href="/" class="hover:text-red-500">Início</a>
-
-        <!-- Submenu Desktop -->
-        <div class="relative group">
-          <button class="hover:text-red-500">Sobre ▼</button>
-          <div
-            class="absolute hidden group-hover:flex flex-col bg-black border border-gray-700 mt-2 py-2 w-48 z-50">
-            <a href="/doutrina" class="px-4 py-2 hover:bg-gray-800">Doutrina</a>
-            <a href="/estatuto" class="px-4 py-2 hover:bg-gray-800">Estatuto</a>
-            <a href="/manifesto" class="px-4 py-2 hover:bg-gray-800">Manifesto</a>
-          </div>
-        </div>
-
-        <a href="/blog" class="hover:text-red-500">Blog</a>
-        <a href="/contato" class="hover:text-red-500">Contato</a>
-      </div>
-    </div>
+<nav id="navbar"
+  class="navbar bg-black text-white w-full fixed top-0 z-50 px-4 py-4 shadow-lg flex items-center justify-between">
+  <!-- Esquerda: Logo + Nome -->
+  <div class="flex items-center space-x-2">
+    <img src="/assets/logo.svg" alt="ISB Logo" class="h-8 w-auto" />
+    <span class="logo-title text-lg font-bold">
+      <span class="logo-full">Igreja Satanista Brasileira</span>
+      <span class="logo-short">ISB</span>
+    </span>
   </div>
 
-  <!-- Menu Mobile -->
-  <div id="mobile-menu" class="hidden md:hidden px-4 pt-4 pb-2 space-y-2 bg-black border-t border-gray-700">
-    <a href="/" class="block hover:text-red-500">Início</a>
-
-    <div>
-      <button id="mobile-submenu-toggle" class="w-full text-left hover:text-red-500">Sobre ▼</button>
-      <div id="mobile-submenu" class="hidden flex-col mt-1 space-y-1 pl-4">
-        <a href="/doutrina" class="block hover:text-red-500">Doutrina</a>
-        <a href="/estatuto" class="block hover:text-red-500">Estatuto</a>
-        <a href="/manifesto" class="block hover:text-red-500">Manifesto</a>
-      </div>
-    </div>
-
-    <a href="/blog" class="block hover:text-red-500">Blog</a>
-    <a href="/contato" class="block hover:text-red-500">Contato</a>
+  <!-- Direita: Menu desktop -->
+  <div class="hidden md:flex space-x-6 text-sm font-medium">
+    <a href="/" class="hover:text-red-500">Início</a>
+    <a href="/membro" class="hover:text-red-500">Membro</a>
+    <a href="/blog" class="hover:text-red-500">Blog</a>
+    <a href="/biblioteca" class="hover:text-red-500">Biblioteca</a>
+    <a href="/faq" class="hover:text-red-500">FAQ</a>
+    <a href="/contato" class="hover:text-red-500">Contato</a>
   </div>
+
+  <!-- Botão mobile -->
+  <button id="menu-toggle" class="md:hidden focus:outline-none">
+    <svg id="icon-menu" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+    <svg id="icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
 </nav>
 
+<!-- Menu mobile -->
+<div id="mobile-menu" class="hidden md:hidden bg-black text-white px-4 pt-4 pb-2 space-y-3 shadow-md">
+  <a href="/" class="block hover:text-red-500">Início</a>
+  <a href="/membro" class="block hover:text-red-500">Membro</a>
+  <a href="/blog" class="block hover:text-red-500">Blog</a>
+  <a href="/biblioteca" class="block hover:text-red-500">Biblioteca</a>
+  <a href="/faq" class="block hover:text-red-500">FAQ</a>
+  <a href="/contato" class="block hover:text-red-500">Contato</a>
+</div>
+
 <script>
-  // Toggle mobile menu
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-    const menu = document.getElementById('mobile-menu');
-    menu.classList.toggle('hidden');
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const iconMenu = document.getElementById("icon-menu");
+  const iconClose = document.getElementById("icon-close");
+  const navbar = document.getElementById("navbar");
+
+  // Mobile toggle
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    iconMenu.classList.toggle("hidden");
+    iconClose.classList.toggle("hidden");
   });
 
-  // Toggle mobile submenu
-  document.getElementById('mobile-submenu-toggle').addEventListener('click', () => {
-    const submenu = document.getElementById('mobile-submenu');
-    submenu.classList.toggle('hidden');
+  // Fecha menu ao clicar em link
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      iconMenu.classList.remove("hidden");
+      iconClose.classList.add("hidden");
+    });
+  });
+
+  // Efeito de rolagem no desktop
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    if (window.innerWidth >= 768) {
+      if (scrollY > 20) {
+        navbar.classList.add("shrink");
+      } else {
+        navbar.classList.remove("shrink");
+      }
+    }
   });
 </script>
