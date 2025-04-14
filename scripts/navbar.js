@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('navbar-placeholder').innerHTML = data;
 
       // Reativa o botão depois de carregar
-      const toggle = document.getElementById('navbar-toggle');
-      const menu = document.getElementById('navbar-menu');
+      const toggle = document.getElementById('navbarToggle');
+      const menu = document.getElementById('navbarMenu');
 
       if (toggle && menu) {
         toggle.addEventListener('click', () => {
@@ -16,17 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
+  // Carrega footer
   fetch('/partials/footer.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
     });
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("navbarToggle");
-  const menu = document.getElementById("navbarMenu");
-
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-  });
 });
