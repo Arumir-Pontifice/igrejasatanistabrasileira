@@ -174,3 +174,29 @@ body {
   color: #666;
   font-style: italic;
 }
+
+.quote-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  background-color: #0a0a0a;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.quote-container {
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  font-style: italic;
+  max-width: 800px;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .quote-container {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+}
