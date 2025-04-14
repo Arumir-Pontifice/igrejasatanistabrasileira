@@ -3,10 +3,10 @@
   --preto-absoluto: #000000;
   --vermelho-sangue: #8b0000;
   --vermelho-brilhante: #c10000;
-  --vermelho-envelhecido: #6a0000; /* Nova cor adicionada */
-  --cinza-túmulo: #3a3a3a;        /* Nova cor adicionada */
-  --púrpura-profano: #5e0a5e;     /* Nova cor adicionada */
-  --bronze-maldito: #b08d57;      /* Nova cor adicionada */
+  --vermelho-envelhecido: #6a0000;
+  --cinza-túmulo: #3a3a3a;
+  --púrpura-profano: #5e0a5e;
+  --bronze-maldito: #b08d57;
   --cinza-amoled: #121212;
   --cinza-claro: #cccccc;
   --transicao-padrao: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
@@ -38,7 +38,6 @@ h1, h2, h3, h4 {
   margin-bottom: 0.75rem;
 }
 
-/* NOVA CLASSE PARA A FRASE PRINCIPAL (RECOMENDAÇÃO PRINCIPAL) */
 .frase-principal {
   color: var(--vermelho-envelhecido);
   text-shadow: 1px 1px 0px var(--preto-absoluto), 
@@ -51,7 +50,6 @@ h1, h2, h3, h4 {
   text-shadow: 0 0 8px rgba(139, 0, 0, 0.5);
 }
 
-/* CLASSES DAS NOVAS CORES RECOMENDADAS */
 .texto-envelhecido { color: var(--vermelho-envelhecido); }
 .texto-túmulo { color: var(--cinza-túmulo); }
 .texto-profano { color: var(--púrpura-profano); }
@@ -68,7 +66,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ===== BOTÕES ===== */
+/* ===== COMPONENTES ===== */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -89,7 +87,24 @@ a:hover {
   text-decoration: none;
 }
 
-/* ===== MENU HAMBURGUER ===== */
+/* ===== NAVEGAÇÃO ===== */
+.nav-scroll {
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 10px rgba(139, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  height: 60px;
+}
+
+.navbar-spacer {
+  height: 5rem;
+}
+
+main {
+  padding-top: 1rem;
+}
+
+/* MENU HAMBURGUER */
 .menu-btn {
   display: flex;
   flex-direction: column;
@@ -106,7 +121,7 @@ a:hover {
   height: 3px;
   background-color: var(--vermelho-brilhante);
   margin: 3px 0;
-  transition: var(--transicao-padrao);
+  transition: all 0.3s ease;
   transform-origin: center;
 }
 
@@ -123,96 +138,25 @@ a:hover {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ===== NAVEGAÇÃO ===== */
-.nav-scroll {
-  background-color: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 2px 10px rgba(139, 0, 0, 0.3);
-  transition: all 0.5s ease;
+/* MENU MOBILE */
+#mobile-menu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background-color: var(--preto-absoluto);
+  color: white;
+  z-index: 1000;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  border-top: 1px solid var(--cinza-amoled);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
 /* ===== EFEITOS ESPECIAIS ===== */
 ::selection {
   background: var(--vermelho-sangue);
   color: white;
-}
-
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
-  .menu-btn {
-    display: flex;
-  }
-  
-  .bar {
-    width: 20px;
-    height: 2px;
-  }
-}
-
-/* ===== ANIMAÇÕES ===== */
-@keyframes bloodPulse {
-  0% { opacity: 0.7; }
-  50% { opacity: 1; }
-  100% { opacity: 0.7; }
-}
-
-.pulse {
-  animation: bloodPulse 2s infinite;
-}
-
-/* ===== CLASSES UTILITÁRIAS ===== */
-.text-satanic {
-  color: var(--vermelho-brilhante);
-}
-
-.bg-satanic {
-  background-color: var(--vermelho-sangue);
-}
-
-.border-satanic {
-  border-color: var(--vermelho-brilhante);
-}
-
-/* Footer específico */
-footer a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--vermelho-brilhante);
-}
-
-footer svg {
-  transition: transform 0.3s ease;
-}
-
-footer svg:hover {
-  transform: translateY(-2px);
-}
-
-footer input:focus {
-  box-shadow: 0 0 0 1px var(--vermelho-brilhante);
-}
-
-/* Efeito de scroll */
-.nav-scroll {
-  background-color: rgba(0, 0, 0, 0.95) !important;
-  backdrop-filter: blur(5px);
-  height: 60px;
-}
-
-/* Melhorias na navbar mobile */
-#mobile-menu {
-  max-height: calc(100vh - 80px);
-  overflow-y: auto;
-}
-
-/* Acessibilidade - foco */
-a:focus, button:focus {
-  outline: 2px solid var(--vermelho-brilhante);
-  outline-offset: 2px;
-}
-
-/* EFEITO OPCIONAL DE TEXTO SANGRENTO */
-@keyframes blood-drip {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
 }
 
 .blood-text {
@@ -229,90 +173,48 @@ a:focus, button:focus {
   animation: blood-drip 8s infinite linear;
 }
 
-/* ===== NAVBAR FIXED ===== */
-.navbar-spacer {
-  /* Espaço igual à altura da navbar */
-  height: 5rem; /* 80px se estiver usando h-20 */
+@keyframes blood-drip {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
 }
 
-/* Ajuste para o conteúdo principal */
-main {
-  padding-top: 1rem; /* Espaço adicional se necessário */
+@keyframes bloodPulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
 }
 
-/* Correção para mobile */
+.pulse {
+  animation: bloodPulse 2s infinite;
+}
+
+/* ===== UTILITÁRIOS ===== */
+.text-satanic { color: var(--vermelho-brilhante); }
+.bg-satanic { background-color: var(--vermelho-sangue); }
+.border-satanic { border-color: var(--vermelho-brilhante); }
+
+a:focus, button:focus {
+  outline: 2px solid var(--vermelho-brilhante);
+  outline-offset: 2px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 767px) {
+  .menu-btn {
+    display: flex;
+  }
+  
+  .bar {
+    width: 20px;
+    height: 2px;
+  }
+  
   .navbar-spacer {
-    height: 4.5rem; /* Ajuste para mobile se necessário */
+    height: 4.5rem;
   }
-}
-
-/* Garante que o menu mobile fique acima de tudo */
-#mobile-menu {
-  z-index: 1000;
-}
-
-/* Corrige o posicionamento do menu mobile */
-@media (max-width: 767px) {
+  
   #mobile-menu {
-    top: 80px; /* Altura da navbar */
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
+    top: 72px;
+    max-height: calc(100vh - 72px);
   }
-}
-
-/* Estilos do Menu Hamburguer */
-.menu-btn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-}
-
-.bar {
-  width: 24px;
-  height: 3px;
-  background-color: var(--vermelho-brilhante);
-  margin: 3px 0;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-.menu-btn.open .top {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-btn.open .middle {
-  opacity: 0;
-  transform: translateX(-10px);
-}
-
-.menu-btn.open .bottom {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Estilos para o menu mobile */
-#mobile-menu {
-  max-height: calc(100vh - 5rem);
-  overflow-y: auto;
-}
-
-/* Transições para o menu hamburguer */
-.menu-btn .bar {
-  transition: all 0.3s ease;
-}
-
-.menu-btn.open .top {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-btn.open .middle {
-  opacity: 0;
-}
-
-.menu-btn.open .bottom {
-  transform: rotate(-45deg) translate(5px, -5px);
 }
