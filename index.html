@@ -1,143 +1,31 @@
-<!DOCTYPE html>  
-<html lang="pt-BR">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
-  
-  <title>Igreja Satanista Brasileira - Autonomia, Razão e Liberdade</title>  
-  
-  <!-- Favicon -->  
-  <link rel="icon" href="/assets/imgs/favicon.ico" type="image/x-icon">  
-  
-  <!-- CSS -->  
-  <link rel="stylesheet" href="/style.css">  
-  
-  <!-- Tailwind via CDN (opcional, considere instalar localmente para produção) -->  
-  <script src="https://cdn.tailwindcss.com"></script>  
-  <script>  
-    tailwind.config = {  
-      theme: {  
-        extend: {  
-          colors: {  
-            'satanic-red': '#8b0000',  
-            'amoled-gray': '#121212'  
-          }  
-        }  
-      }  
-    }  
-  </script>  
-  
-  <!-- SEO -->  
-  <meta name="description" content="A Igreja Satanista Brasileira promove os princípios de autonomia individual, razão e liberdade conforme os Sete Fundamentos Satânicos">  
-  
-  <!-- Open Graph -->  
-  <meta property="og:title" content="Igreja Satanista Brasileira">  
-  <meta property="og:description" content="Autonomia, Razão e Liberdade - Conheça nossos princípios e atividades">  
-  <meta property="og:type" content="website">  
-  <meta property="og:url" content="https://igrejasatanistabrasileira.org">  
-  <meta property="og:image" content="https://igrejasatanistabrasileira.org/assets/imgs/logo.png">  
-  <meta property="og:site_name" content="Igreja Satanista Brasileira">  
-  
-  <!-- Twitter -->  
-  <meta name="twitter:card" content="summary_large_image">  
-  <meta name="twitter:title" content="Igreja Satanista Brasileira">  
-  <meta name="twitter:description" content="Promovendo autonomia individual e pensamento racional">  
-  <meta name="twitter:image" content="https://igrejasatanistabrasileira.org/assets/imgs/logo.png">  
-</head>  
-  
-<body class="bg-black text-white min-h-screen flex flex-col">  
-  <!-- NAVBAR -->  
-  <div id="navbar-container" class="fixed top-0 w-full z-50"></div>  
-  
-  <!-- CONTEÚDO PRINCIPAL -->  
-  <main class="flex-grow pt-20 px-4 sm:px-6 lg:px-8">  
-    <div class="max-w-4xl mx-auto py-12">  
-      <div class="text-center mb-16">  
-        <img src="/assets/imgs/logo.png" alt="Logo Igreja Satanista Brasileira" class="mx-auto h-32 w-auto mb-8">  
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-satanic-red">Igreja Satanista Brasileira</h1>  
-<!-- Versão recomendada -->  
-<p class="frase-principal text-xl md:text-2xl mb-8">  
-  "A vontade de destruir é também uma vontade criativa."<br>  
-  <span class="text-lg">- Mikhail Bakunin</span></p>  
-        <div class="flex flex-wrap justify-center gap-4">  
-          <a href="/doutrina/" class="px-6 py-3 bg-satanic-red hover:bg-red-900 rounded-md font-medium transition-colors">  
-            Nossos Princípios  
-          </a>  
-          <a href="/manifesto/" class="px-6 py-3 border border-satanic-red hover:bg-amoled-gray rounded-md font-medium transition-colors">  
-            Manifesto  
-          </a>  
-        </div>  
-      </div>  
-  
-      <section class="mb-16">  
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-satanic-red border-b border-amoled-gray pb-2">Últimas Notícias</h2>  
-        <!-- Espaço para posts dinâmicos do blog -->  
-        <div id="latest-posts" class="grid md:grid-cols-2 gap-6"></div>  
-      </section>  
-    </div>  
-  </main>  
-  
-  <!-- FOOTER -->  
-  <div id="footer-container"></div>  
-  
-  <!-- SCRIPTS -->  
-  <script>  
-    // Carrega componentes dinâmicos  
-    document.addEventListener('DOMContentLoaded', function() {  
-      // Carrega navbar  
-      fetch('/partials/navbar.html')  
-        .then(response => {  
-          if (!response.ok) throw new Error('Network response was not ok');  
-          return response.text();  
-        })  
-        .then(html => {  
-          document.getElementById('navbar-container').innerHTML = html;  
-          // Ativa scripts da navbar após carregamento  
-          if (typeof initNavbar === 'function') initNavbar();  
-        })  
-        .catch(error => console.error('Error loading navbar:', error));  
-  
-      // Carrega footer  
-      fetch('/partials/footer.html')  
-        .then(response => {  
-          if (!response.ok) throw new Error('Network response was not ok');  
-          return response.text();  
-        })  
-        .then(html => document.getElementById('footer-container').innerHTML = html)  
-        .catch(error => console.error('Error loading footer:', error));  
-  
-      // Aqui você pode adicionar chamada para carregar posts do blog  
-      // fetch('/api/latest-posts').then(...)  
-    });  
-  </script>  
-  <script src="/scripts/navbar.js"></script>  
-  <script src="/scripts/script_general.js"></script>  
-<!-- Cookie Banner -->  
-<div id="cookie-container"></div>  
-<script>  
-  fetch('/partials/cookie-banner.html')  
-    .then(r => r.text())  
-    .then(html => document.getElementById('cookie-container').innerHTML = html);  
-</script>  
-<script>
-  // Carrega o banner
-  fetch('/partials/welcome-banner.html')
-    .then(res => res.text())
-    .then(html => {
-      // Verifica se já foi visto
-      if (!localStorage.getItem('welcomeBannerSeen')) {
-        const bannerWrapper = document.createElement('div');
-        bannerWrapper.innerHTML = html;
-        document.body.appendChild(bannerWrapper);
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Igreja Satanista Brasileira</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/assets/imgs/favicon.ico" type="image/x-icon" />
+  <script src="/scripts/navbar.js" defer></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar-placeholder"></div>
 
-        // Adiciona funcionalidade ao botão de fechar
-        document.getElementById('close-banner').addEventListener('click', () => {
-          bannerWrapper.remove();
-          localStorage.setItem('welcomeBannerSeen', 'true');
-        });
-      }
-    });
-</script>
-</body>  
+  <!-- Banner de Boas-vindas -->
+  <header class="hero">
+    <div class="hero-content">
+      <img src="/assets/imgs/logo.svg" alt="Logo da ISB" class="logo" />
+      <h1>Igreja Satanista Brasileira</h1>
+      <p class="subtitle">O homem como Deus de si. A carne como templo. A razão como chama.</p>
+      <div class="hero-buttons">
+        <a href="/doutrina/" class="btn">Conheça a Doutrina</a>
+        <a href="/manifesto/" class="btn btn-secondary">Leia o Manifesto</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Rodapé -->
+  <div id="footer-placeholder"></div>
+</body>
 </html>
