@@ -30,3 +30,9 @@ window.addEventListener('scroll', () => {
 
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+const toggleBtn = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+toggleBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
