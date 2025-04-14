@@ -1,79 +1,31 @@
-<nav id="navbar" class="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 md:px-8 h-20 z-50 transition-all duration-300 border-b border-amoled-gray shadow-lg">
-  <!-- Logo + Título -->
-  <a href="/" class="flex items-center space-x-3 group">
-    <img src="/assets/imgs/logo.svg" alt="Logo Igreja Satanista Brasileira" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
-    <span id="navbar-title" class="text-xl font-bold whitespace-nowrap transition-all duration-300 text-satanic-red group-hover:text-red-700">
-      Igreja Satanista Brasileira
-    </span>
-  </a>
+<nav id="navbar" class="navbar fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md text-white z-50 transition-all duration-300 shadow-lg px-4 md:px-8 py-4 flex items-center justify-between">
+  <!-- Logo e nome -->
+  <div class="flex items-center space-x-3">
+    <img src="/assets/imgs/logo.png" alt="Logo ISB" class="h-10 w-auto">
+    <span id="logo-text" class="text-xl font-bold transition-all duration-300">Igreja Satanista Brasileira</span>
+  </div>
 
-  <!-- Menu Desktop -->
-  <ul class="hidden md:flex space-x-8 text-sm uppercase tracking-wider">
-    <li>
-      <a href="/" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        Início
-      </a>
+  <!-- Ícone do menu mobile -->
+  <div id="menu-icon" class="menu-icon md:hidden cursor-pointer text-3xl">
+    &#9776;
+  </div>
+
+  <!-- Menu principal -->
+  <ul id="menu" class="menu hidden md:flex space-x-6 uppercase text-sm font-medium tracking-wider relative">
+    <li><a href="/" class="hover:text-satanic-red">Início</a></li>
+    <li class="relative group">
+      <a href="#" class="hover:text-satanic-red">Sobre</a>
+      <ul class="submenu absolute hidden group-hover:block bg-black border border-amoled-gray rounded-sm mt-2 py-2 px-3 space-y-1 z-50">
+        <li><a href="/manifesto" class="block hover:text-satanic-red">Manifesto</a></li>
+        <li><a href="/doutrina" class="block hover:text-satanic-red">Doutrina</a></li>
+      </ul>
     </li>
-    <li>
-      <a href="/membro" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        Tornar-se Membro
-      </a>
-    </li>
-    <li>
-      <a href="/blog" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        Blog
-      </a>
-    </li>
-    <li>
-      <a href="/biblioteca" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        Biblioteca
-      </a>
-    </li>
-    <li>
-      <a href="/faq" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        FAQ
-      </a>
-    </li>
-    <li>
-      <a href="/contato" class="ml-4 px-4 py-2 bg-satanic-red hover:bg-red-900 transition-colors rounded-sm">
-        Contato
-      </a>
-    </li>
+    <li><a href="/blog" class="hover:text-satanic-red">Blog</a></li>
+    <li><a href="/biblioteca" class="hover:text-satanic-red">Biblioteca</a></li>
+    <li><a href="/faq" class="hover:text-satanic-red">FAQ</a></li>
+    <li><a href="/contato" class="ml-4 px-4 py-2 bg-satanic-red hover:bg-red-900 rounded-sm transition-colors">Contato</a></li>
   </ul>
-
-  <!-- Botão do menu mobile -->
-  <div class="md:hidden flex items-center">
-    <button id="mobile-menu-toggle" aria-label="Menu Mobile" aria-expanded="false" class="focus:outline-none p-2 hover:bg-amoled-gray rounded transition-colors">
-      <div class="menu-btn">
-        <div class="bar top"></div>
-        <div class="bar middle"></div>
-        <div class="bar bottom"></div>
-      </div>
-    </button>
-  </div>
-
-  <!-- Menu Mobile -->
-  <div id="mobile-menu" class="hidden fixed top-20 left-0 w-full bg-black text-white py-4 px-6 space-y-4 md:hidden border-t border-amoled-gray shadow-xl z-40">
-    <a href="/" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      Início
-    </a>
-    <a href="/membro" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      Tornar-se Membro
-    </a>
-    <a href="/blog" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      Blog
-    </a>
-    <a href="/biblioteca" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      Biblioteca
-    </a>
-    <a href="/faq" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      FAQ
-    </a>
-    <a href="/contato" class="block py-3 px-4 bg-satanic-red hover:bg-red-900 text-center transition-colors mt-4">
-      Contato
-    </a>
-  </div>
 </nav>
 
-<!-- Espaço reservado para a navbar -->
-<div class="navbar-spacer h-20"></div>
+<!-- Espaço reservado para não sobrepor o conteúdo -->
+<div class="navbar-spacer h-20 md:h-20"></div>
