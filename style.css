@@ -3,6 +3,10 @@
   --preto-absoluto: #000000;
   --vermelho-sangue: #8b0000;
   --vermelho-brilhante: #c10000;
+  --vermelho-envelhecido: #6a0000; /* Nova cor adicionada */
+  --cinza-túmulo: #3a3a3a;        /* Nova cor adicionada */
+  --púrpura-profano: #5e0a5e;     /* Nova cor adicionada */
+  --bronze-maldito: #b08d57;      /* Nova cor adicionada */
   --cinza-amoled: #121212;
   --cinza-claro: #cccccc;
   --transicao-padrao: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
@@ -33,6 +37,25 @@ h1, h2, h3, h4 {
   line-height: 1.2;
   margin-bottom: 0.75rem;
 }
+
+/* NOVA CLASSE PARA A FRASE PRINCIPAL (RECOMENDAÇÃO PRINCIPAL) */
+.frase-principal {
+  color: var(--vermelho-envelhecido);
+  text-shadow: 1px 1px 0px var(--preto-absoluto), 
+              -1px -1px 0px var(--vermelho-sangue);
+  transition: color var(--transicao-padrao);
+}
+
+.frase-principal:hover {
+  color: var(--vermelho-sangue);
+  text-shadow: 0 0 8px rgba(139, 0, 0, 0.5);
+}
+
+/* CLASSES DAS NOVAS CORES RECOMENDADAS */
+.texto-envelhecido { color: var(--vermelho-envelhecido); }
+.texto-túmulo { color: var(--cinza-túmulo); }
+.texto-profano { color: var(--púrpura-profano); }
+.texto-bronze { color: var(--bronze-maldito); }
 
 a {
   color: var(--vermelho-brilhante);
@@ -184,4 +207,24 @@ footer input:focus {
 a:focus, button:focus {
   outline: 2px solid var(--vermelho-brilhante);
   outline-offset: 2px;
+}
+
+/* EFEITO OPCIONAL DE TEXTO SANGRENTO */
+@keyframes blood-drip {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.blood-text {
+  background: linear-gradient(
+    45deg,
+    var(--preto-absoluto) 45%,
+    var(--vermelho-envelhecido) 50%,
+    var(--preto-absoluto) 55%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: blood-drip 8s infinite linear;
 }
