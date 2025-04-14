@@ -10,7 +10,7 @@ body {
 /* Hero Section */
 .hero {
   background: linear-gradient(to bottom, #1a1a1a, #000000);
-  padding: 100px 20px;
+  padding: 140px 20px;
   text-align: center;
 }
 
@@ -76,7 +76,7 @@ body {
 .navbar {
   background-color: #111;
   padding: 10px 20px;
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   z-index: 1000;
 }
