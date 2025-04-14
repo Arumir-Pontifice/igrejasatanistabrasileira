@@ -280,26 +280,25 @@ main {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Menu Mobile */
+/* Estilos para o menu mobile */
 #mobile-menu {
-  position: fixed;
-  top: 5rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 40;
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+}
+
+/* Transições para o menu hamburguer */
+.menu-btn .bar {
   transition: all 0.3s ease;
 }
 
-/* Ajuste para telas pequenas */
-@media (max-width: 767px) {
-  #mobile-menu {
-    top: 4.5rem;
-  }
+.menu-btn.open .top {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
-/* Efeito de scroll na navbar */
-.nav-scroll {
-  background-color: rgba(0, 0, 0, 0.95) !important;
-  backdrop-filter: blur(5px);
+.menu-btn.open .middle {
+  opacity: 0;
+}
+
+.menu-btn.open .bottom {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
