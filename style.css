@@ -200,3 +200,10 @@ body {
     padding: 0 10px;
   }
 }
+
+.quote-divider {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 20px auto;
+  width: 60%;
+}
