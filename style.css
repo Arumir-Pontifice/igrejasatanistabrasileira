@@ -177,3 +177,46 @@
    color: #666;
    font-style: italic;
  }
+
+/* Ajuste do Menu no Mobile */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    width: 250px; /* Largura limitada para o menu */
+    position: absolute;
+    top: 60px; /* Ajuste para começar logo abaixo da barra */
+    left: 50%;  /* Centraliza o menu na tela */
+    transform: translateX(-50%); /* Ajusta para ficar centralizado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombras para destacar */
+    border-top: 2px solid #B22222; /* Linha vermelha acima do menu */
+    border-radius: 5px; /* Bordas arredondadas */
+    z-index: 999;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    color: #F5F5F5;
+    background-color: transparent;
+    font-size: 1.5rem;
+  }
+
+  .navbar-menu li {
+    padding: 10px 20px; /* Espaçamento maior nas opções */
+  }
+
+  .navbar-menu li a {
+    color: #F5F5F5;
+    text-decoration: none;
+    font-size: 1.1rem; /* Fonte do menu ajustada */
+    transition: color 0.3s;
+  }
+
+  .navbar-menu li a:hover {
+    color: #B22222; /* Vermelho para destacar no hover */
+  }
+}
