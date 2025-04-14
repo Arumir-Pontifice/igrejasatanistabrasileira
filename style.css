@@ -1,31 +1,72 @@
+/* ===== VARIÁVEIS E RESET ===== */
 :root {
   --preto-absoluto: #000000;
   --vermelho-sangue: #8b0000;
+  --vermelho-brilhante: #c10000;
   --cinza-amoled: #121212;
   --cinza-claro: #cccccc;
+  --transicao-padrao: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* Navbar Fixa */
-#navbar {
-  transition: transform 0.3s ease-in-out;
-  height: 4rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#navbar.scrolled-up {
-  transform: translateY(0);
+/* ===== BASE ===== */
+body {
+  background-color: var(--preto-absoluto);
+  color: var(--cinza-claro);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-#navbar.scrolled-down {
-  transform: translateY(-100%);
+/* ===== TIPOGRAFIA ===== */
+h1, h2, h3, h4 {
+  color: var(--vermelho-brilhante);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
 }
 
-/* Conteúdo Principal */
-main {
-  padding-top: 5rem;
-  scroll-margin-top: 5rem;
+a {
+  color: var(--vermelho-brilhante);
+  text-decoration: none;
+  transition: color var(--transicao-padrao);
 }
 
-/* Menu Mobile */
+a:hover {
+  color: var(--cinza-claro);
+  text-decoration: underline;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--vermelho-sangue);
+  color: white;
+  border: 2px solid var(--vermelho-brilhante);
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all var(--transicao-padrao);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--preto-absoluto);
+  color: var(--vermelho-brilhante);
+  text-decoration: none;
+}
+
+/* ===== MENU HAMBURGUER ===== */
 .menu-btn {
   display: flex;
   flex-direction: column;
@@ -40,9 +81,9 @@ main {
 .bar {
   width: 24px;
   height: 3px;
-  background-color: var(--vermelho-sangue);
+  background-color: var(--vermelho-brilhante);
   margin: 3px 0;
-  transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  transition: var(--transicao-padrao);
   transform-origin: center;
 }
 
@@ -52,62 +93,58 @@ main {
 
 .menu-btn.open .middle {
   opacity: 0;
+  transform: translateX(-10px);
 }
 
 .menu-btn.open .bottom {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Responsividade */
-@media (max-width: 767px) {
-  #navbar {
-    height: 3.5rem;
+/* ===== NAVEGAÇÃO ===== */
+.nav-scroll {
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 10px rgba(139, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+/* ===== EFEITOS ESPECIAIS ===== */
+::selection {
+  background: var(--vermelho-sangue);
+  color: white;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
   }
   
-  main {
-    padding-top: 3.5rem;
-    scroll-margin-top: 3.5rem;
-  }
-  
-  #mobile-menu {
-    max-height: calc(100vh - 3.5rem);
-    overflow-y: auto;
+  .bar {
+    width: 20px;
+    height: 2px;
   }
 }
 
-/* Ajustes para navbar fixa */
-body {
-  padding-top: var(--navbar-height, 80px);
+/* ===== ANIMAÇÕES ===== */
+@keyframes bloodPulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
 }
 
-#navbar {
-  transition: transform 0.3s ease;
+.pulse {
+  animation: bloodPulse 2s infinite;
 }
 
-#navbar.scroll-up {
-  transform: translateY(0);
+/* ===== CLASSES UTILITÁRIAS ===== */
+.text-satanic {
+  color: var(--vermelho-brilhante);
 }
 
-#navbar.scroll-down {
-  transform: translateY(-100%);
+.bg-satanic {
+  background-color: var(--vermelho-sangue);
 }
 
-/* Menu mobile */
-#mobile-menu {
-  max-height: calc(100vh - var(--navbar-height, 80px));
-  overflow-y: auto;
-}
-
-/* Barra de rolagem personalizada */
-#mobile-menu::-webkit-scrollbar {
-  width: 5px;
-}
-
-#mobile-menu::-webkit-scrollbar-thumb {
-  background-color: var(--satanic-red);
-}
-
-/* Garantir que o conteúdo não fique atrás da navbar */
-main {
-  margin-top: var(--navbar-height, 80px);
+.border-satanic {
+  border-color: var(--vermelho-brilhante);
 }
