@@ -228,3 +228,21 @@ a:focus, button:focus {
   color: transparent;
   animation: blood-drip 8s infinite linear;
 }
+
+/* ===== NAVBAR FIXED ===== */
+.navbar-spacer {
+  /* Espaço igual à altura da navbar */
+  height: 5rem; /* 80px se estiver usando h-20 */
+}
+
+/* Ajuste para o conteúdo principal */
+main {
+  padding-top: 1rem; /* Espaço adicional se necessário */
+}
+
+/* Correção para mobile */
+@media (max-width: 767px) {
+  .navbar-spacer {
+    height: 4.5rem; /* Ajuste para mobile se necessário */
+  }
+}
