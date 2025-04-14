@@ -1,43 +1,27 @@
-function initNavbar() {
-  const navbar = document.getElementById("navbar");
-  const title = document.getElementById("navbar-title");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const toggleBtn = document.getElementById("mobile-menu-toggle");
-  const hamburger = document.getElementById("hamburger");
-  const closeIcon = document.getElementById("close");
+document.addEventListener('DOMContentLoaded', () => {
+  const quotes = [
+    '"Tu és o altar sobre o qual tua vontade é celebrada." – Bíblia da ISB',
+    '"Negar o céu é afirmar a terra." – Arumir',
+    '"Não serviremos. E isso nos faz livres." – Bíblia da ISB',
+    '"A carne é sagrada pois nela habita o eu soberano." – Bíblia da ISB',
+    '"A dúvida é o fogo que depura a verdade." – Cap. IV, ISB',
+    '"Satã não nos guia: nos inspira a guiar-nos por nós mesmos." – Arumir'
+  ];
 
-  // Mobile: abre e fecha menu
-  if (toggleBtn && mobileMenu && hamburger && closeIcon) {
-    toggleBtn.addEventListener("click", () => {
-      const isHidden = mobileMenu.classList.toggle("hidden");
-      hamburger.classList.toggle("hidden", !isHidden);
-      closeIcon.classList.toggle("hidden", isHidden);
-    });
+  let current = 0;
+  const container = document.getElementById('quote-container');
 
-    document.querySelectorAll("#mobile-menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.add("hidden");
-        hamburger.classList.remove("hidden");
-        closeIcon.classList.add("hidden");
-      });
-    });
+  function showQuote(index) {
+    container.style.opacity = 0;
+    setTimeout(() => {
+      container.textContent = quotes[index];
+      container.style.opacity = 1;
+    }, 1000); // fade-out antes de mostrar nova
   }
 
-  // Efeito scroll no desktop
-  function handleScroll() {
-    if (window.innerWidth >= 768) {
-      if (window.scrollY > 50) {
-        navbar.classList.remove("h-20");
-        navbar.classList.add("h-14");
-        title.textContent = "ISB";
-      } else {
-        navbar.classList.remove("h-14");
-        navbar.classList.add("h-20");
-        title.textContent = "Igreja Satanista Brasileira";
-      }
-    }
-  }
-
-  window.addEventListener("scroll", handleScroll);
-  handleScroll(); // Inicializa ao carregar
-}
+  showQuote(current);
+  setInterval(() => {
+    current = (current + 1) % quotes.length;
+    showQuote(current);
+  }, 8000); // troca a cada 8 segundos
+});
