@@ -181,6 +181,8 @@ body {
   padding: 40px 20px;
   text-align: center;
   border-bottom: 1px solid #1a1a1a;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .quote-container {
