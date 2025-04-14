@@ -43,8 +43,7 @@
 
   <!-- Botão do menu mobile -->
   <div class="md:hidden flex items-center">
-    <button id="mobile-menu-button" type="button" aria-controls="mobile-menu" aria-expanded="false" class="p-2 rounded-md hover:bg-amoled-gray focus:outline-none focus:ring-2 focus:ring-satanic-red">
-      <span class="sr-only">Abrir menu</span>
+    <button id="mobile-menu-toggle" aria-label="Menu Mobile" aria-expanded="false" class="focus:outline-none p-2 hover:bg-amoled-gray rounded transition-colors">
       <div class="menu-btn">
         <div class="bar top"></div>
         <div class="bar middle"></div>
@@ -52,65 +51,69 @@
       </div>
     </button>
   </div>
-</nav>
 
-<!-- Menu Mobile (fora do nav) -->
-<div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-40 bg-black bg-opacity-90 mt-20 overflow-y-auto transition-all duration-300">
-  <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-    <a href="/" class="block px-3 py-4 text-base font-medium text-white hover:bg-amoled-gray hover:text-satanic-red border-l-4 border-transparent hover:border-satanic-red transition-colors">
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden fixed top-20 left-0 w-full bg-black text-white py-4 px-6 space-y-4 md:hidden border-t border-amoled-gray shadow-xl z-40">
+    <a href="/" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
       Início
     </a>
-    <a href="/membro" class="block px-3 py-4 text-base font-medium text-white hover:bg-amoled-gray hover:text-satanic-red border-l-4 border-transparent hover:border-satanic-red transition-colors">
+    <a href="/membro" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
       Tornar-se Membro
     </a>
-    <a href="/blog" class="block px-3 py-4 text-base font-medium text-white hover:bg-amoled-gray hover:text-satanic-red border-l-4 border-transparent hover:border-satanic-red transition-colors">
+    <a href="/blog" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
       Blog
     </a>
-    <a href="/biblioteca" class="block px-3 py-4 text-base font-medium text-white hover:bg-amoled-gray hover:text-satanic-red border-l-4 border-transparent hover:border-satanic-red transition-colors">
+    <a href="/biblioteca" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
       Biblioteca
     </a>
-    <a href="/faq" class="block px-3 py-4 text-base font-medium text-white hover:bg-amoled-gray hover:text-satanic-red border-l-4 border-transparent hover:border-satanic-red transition-colors">
+    <a href="/faq" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
       FAQ
     </a>
-    <a href="/contato" class="block px-3 py-4 text-base font-medium text-center bg-satanic-red text-white hover:bg-red-900 transition-colors mt-2">
+    <a href="/contato" class="block py-3 px-4 bg-satanic-red hover:bg-red-900 text-center transition-colors mt-4">
       Contato
     </a>
   </div>
-</div>
+</nav>
 
 <!-- Espaço reservado para a navbar -->
 <div class="navbar-spacer h-20"></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
   const menuBtn = document.querySelector('.menu-btn');
+  
+  // Verifica se os elementos existem
+  if (toggle && menu && menuBtn) {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation(); // Impede a propagação do evento
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      menu.classList.toggle('hidden');
+      menuBtn.classList.toggle('open');
+      
+      // Bloquear scroll quando menu mobile está aberto
+      document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+    });
 
-  // Função para alternar o menu
-  function toggleMenu() {
-    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-    
-    // Alternar visibilidade do menu
-    mobileMenu.classList.toggle('hidden');
-    menuBtn.classList.toggle('open');
-    
-    // Bloquear scroll do body quando o menu está aberto
-    document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
-  }
-
-  // Evento de clique no botão do menu
-  if (mobileMenuButton && mobileMenu && menuBtn) {
-    mobileMenuButton.addEventListener('click', toggleMenu);
-    
-    // Fechar menu ao clicar nos links
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+    // Fechar menu ao clicar em um link ou fora do menu
+    document.addEventListener('click', function(e) {
+      if (!menu.contains(e.target) {
+        menu.classList.add('hidden');
         menuBtn.classList.remove('open');
         document.body.style.overflow = 'auto';
-        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Fechar menu ao clicar nos links (redundância para garantir)
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menuBtn.classList.remove('open');
+        document.body.style.overflow = 'auto';
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -119,7 +122,11 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
     if (navbar) {
-      navbar.classList.toggle('nav-scroll', window.scrollY > 20);
+      if (window.scrollY > 20) {
+        navbar.classList.add('nav-scroll');
+      } else {
+        navbar.classList.remove('nav-scroll');
+      }
     }
   });
 });
