@@ -247,6 +247,20 @@ main {
   }
 }
 
+/* Garante que o menu mobile fique acima de tudo */
+#mobile-menu {
+  z-index: 1000;
+}
+
+/* Corrige o posicionamento do menu mobile */
+@media (max-width: 767px) {
+  #mobile-menu {
+    top: 80px; /* Altura da navbar */
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+}
+
 /* Estilos do Menu Hamburguer */
 .menu-btn {
   display: flex;
