@@ -113,5 +113,12 @@
   </script>
   <script src="/scripts/navbar.js"></script>
   <script src="/scripts/script_general.js"></script>
+<!-- Cookie Banner -->
+<div id="cookie-container"></div>
+<script>
+  fetch('/partials/cookie-banner.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('cookie-container').innerHTML = html);
+</script>
 </body>
 </html>
