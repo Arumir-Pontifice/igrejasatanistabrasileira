@@ -1,152 +1,156 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <title>Igreja Satanista Brasileira - Autonomia, Razão e Liberdade</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/imgs/favicon.ico" type="image/x-icon">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="/style.css">
-  
-  <!-- Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'satanic-red': '#8b0000',
-            'amoled-gray': '#121212'
-          }
-        }
-      }
-    }
-  </script>
-  
-  <!-- SEO -->
-  <meta name="description" content="A Igreja Satanista Brasileira promove os princípios de autonomia individual, razão e liberdade conforme os Sete Fundamentos Satânicos">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Igreja Satanista Brasileira">
-  <meta property="og:description" content="Autonomia, Razão e Liberdade - Conheça nossos princípios e atividades">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://igrejasatanistabrasileira.org">
-  <meta property="og:image" content="https://igrejasatanistabrasileira.org/assets/imgs/logo.png">
-  <meta property="og:site_name" content="Igreja Satanista Brasileira">
-  
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Igreja Satanista Brasileira">
-  <meta name="twitter:description" content="Promovendo autonomia individual e pensamento racional">
-  <meta name="twitter:image" content="https://igrejasatanistabrasileira.org/assets/imgs/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igreja Satanista Brasileira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS inline acima -->
 </head>
-
-<body class="bg-black text-white min-h-screen flex flex-col">
-  
-  <!-- NAVBAR -->
-  <header class="bg-amoled-gray fixed top-0 left-0 right-0 z-50 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div class="flex items-center">
-          <a href="/" class="flex-shrink-0">
-            <img class="h-8 w-auto" src="/assets/imgs/logo.png" alt="Logo">
-          </a>
-          <nav class="hidden md:flex ml-10 space-x-4">
-            <a href="/" class="text-white hover:text-satanic-red">Início</a>
-            <a href="/doutrina/" class="text-white hover:text-satanic-red">Doutrina</a>
-            <a href="/manifesto/" class="text-white hover:text-satanic-red">Manifesto</a>
-            <div class="relative group">
-              <button class="text-white hover:text-satanic-red focus:outline-none">
-                Mais
-              </button>
-              <div class="absolute hidden group-hover:block bg-amoled-gray text-white shadow-lg mt-2 rounded-md py-2 z-50">
-                <a href="/blog/" class="block px-4 py-2 hover:bg-satanic-red">Blog</a>
-                <a href="/contato/" class="block px-4 py-2 hover:bg-satanic-red">Contato</a>
-                <a href="/comunidade/" class="block px-4 py-2 hover:bg-satanic-red">Comunidade</a>
-              </div>
+<body>
+    <!-- Header/Navbar -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span>Igreja Satanista Brasileira</span>
             </div>
-          </nav>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Participar</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Biblioteca</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#" class="btn">Contato</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <div class="bar top"></div>
+                <div class="bar middle"></div>
+                <div class="bar bottom"></div>
+            </div>
         </div>
-        <div class="-mr-2 flex md:hidden">
-          <button id="mobile-menu-button" class="text-white hover:text-satanic-red focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
+        
+        <div id="mobile-menu">
+            <a href="#">Início</a>
+            <a href="#">Participar</a>
+            <a href="#">Blog</a>
+            <a href="#">Biblioteca</a>
+            <a href="#">FAQ</a>
+            <a href="#" class="btn">Contato</a>
         </div>
-      </div>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4">
-      <a href="/" class="block py-2 text-white hover:text-satanic-red">Início</a>
-      <a href="/doutrina/" class="block py-2 text-white hover:text-satanic-red">Doutrina</a>
-      <a href="/manifesto/" class="block py-2 text-white hover:text-satanic-red">Manifesto</a>
-      <a href="/blog/" class="block py-2 text-white hover:text-satanic-red">Blog</a>
-      <a href="/contato/" class="block py-2 text-white hover:text-satanic-red">Contato</a>
-      <a href="/comunidade/" class="block py-2 text-white hover:text-satanic-red">Comunidade</a>
-    </div>
-  </header>
-  
-  <!-- CONTEÚDO PRINCIPAL -->
-  <main class="flex-grow pt-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto py-12">
-      <div class="text-center mb-16">
-        <img src="/assets/imgs/logo.png" alt="Logo Igreja Satanista Brasileira" class="mx-auto h-32 w-auto mb-8">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-satanic-red">Igreja Satanista Brasileira</h1>
-        <p class="frase-principal text-xl md:text-2xl mb-8">
-          "A vontade de destruir é também uma vontade criativa."<br>
-          <span class="text-lg">- Mikhail Bakunin</span>
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="/doutrina/" class="px-6 py-3 bg-satanic-red hover:bg-red-900 rounded-md font-medium transition-colors">
-            Nossos Princípios
-          </a>
-          <a href="/manifesto/" class="px-6 py-3 border border-satanic-red hover:bg-amoled-gray rounded-md font-medium transition-colors">
-            Manifesto
-          </a>
-        </div>
-      </div>
-      
-      <section class="mb-16">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-satanic-red border-b border-amoled-gray pb-2">Últimas Notícias</h2>
-        <div id="latest-posts" class="grid md:grid-cols-2 gap-6"></div>
-      </section>
-    </div>
-  </main>
-  
-  <!-- FOOTER -->
-  <div id="footer-container"></div>
-  
-  <!-- COOKIE BANNER -->
-  <div id="cookie-container"></div>
-  
-  <!-- SCRIPTS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Carregar footer
-      fetch('/partials/footer.html')
-        .then(r => r.text())
-        .then(html => document.getElementById('footer-container').innerHTML = html);
-      
-      // Carregar cookie banner
-      fetch('/partials/cookie-banner.html')
-        .then(r => r.text())
-        .then(html => document.getElementById('cookie-container').innerHTML = html);
-      
-      // Toggle menu mobile
-      document.getElementById('mobile-menu-button').addEventListener('click', function() {
-        const menu = document.getElementById('mobile-menu');
-        menu.classList.toggle('hidden');
-      });
-    });
-  </script>
-  <script src="/scripts/navbar.js"></script>
-  <script src="/scripts/script_general.js"></script>
-</body>
+    </header>
 
+    <div class="navbar-spacer"></div>
+
+    <!-- Slider -->
+    <section class="slider">
+        <div class="slide-content">
+            <p class="frase-principal">“He aquí que llega Satanás, el eterno rebelde, el primer librepensador y el emancipador de los mundos”</p>
+            <h5>Bakunin, Dios y el Estado (1882)</h5>
+        </div>
+    </section>
+
+    <!-- Quem Somos -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Quem Somos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Quem Somos</h2>
+                    <p>Nossa organização é a primeira legalmente registrada no país, com membros em todo o território nacional.</p>
+                    
+                    <h2>Nossa Missão</h2>
+                    <p>Defendemos nossos direitos religiosos em condições de igualdade, combatendo estereótipos falsos e protegendo as liberdades de nossos praticantes.</p>
+                </div>
+                <div class="join-us bg-satanic">
+                    <h3>Junte-se a nós</h3>
+                    <p>Participe de nossos fóruns, aproveite descontos em eventos e muito mais.</p>
+                    <a href="#" class="btn">Quero Participar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="section bg-satanic">
+        <div class="container">
+            <h2 class="section-title">Últimas Publicações</h2>
+            <div class="posts-grid">
+                <!-- Posts aqui -->
+            </div>
+            <div class="view-more">
+                <a href="#" class="btn">Ver mais publicações</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Contate-nos</h2>
+            <div class="contact-form">
+                <!-- Formulário aqui -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-satanic">
+        <div class="container">
+            <!-- Conteúdo do footer -->
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <!-- Banner de cookies -->
+    </div>
+
+    <script>
+        // Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            this.classList.toggle('open');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+        // Slider de citações
+        const quotes = [
+            {
+                text: "“He aquí que llega Satanás, el eterno rebelde, el primer librepensador y el emancipador de los mundos”",
+                author: "Bakunin, Dios y el Estado (1882)"
+            },
+            {
+                text: "“Este Ángel, ahora convertido en Diablo, es mi amigo particular”",
+                author: "William Blake, El matrimonio del cielo y el infierno"
+            }
+        ];
+        
+        let currentQuote = 0;
+        const slideContent = document.querySelector('.slide-content');
+        
+        function changeQuote() {
+            currentQuote = (currentQuote + 1) % quotes.length;
+            slideContent.innerHTML = `
+                <p class="frase-principal">${quotes[currentQuote].text}</p>
+                <h5>${quotes[currentQuote].author}</h5>
+            `;
+        }
+        
+        setInterval(changeQuote, 8000);
+        
+        // Cookie Banner
+        const cookieBanner = document.getElementById('cookieBanner');
+        
+        if (!localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.style.display = 'flex';
+        }
+    </script>
+</body>
 </html>
