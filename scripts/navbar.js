@@ -1,38 +1,24 @@
-let lastScrollTop = 0;
-const navbar = document.querySelector('.navbar');
+document.addEventListener('DOMContentLoaded', function () {
+  // Carrega navbar e footer
+  fetch('/partials/navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
 
-function isMobile() {
-  return window.innerWidth <= 768;
-}
+      // Reativa o botão depois de carregar
+      const toggle = document.getElementById('navbar-toggle');
+      const menu = document.getElementById('navbar-menu');
 
-window.addEventListener('scroll', () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('active');
+        });
+      }
+    });
 
-  if (isMobile()) {
-    // MOBILE BEHAVIOR
-    if (scrollTop > lastScrollTop) {
-      // Rolando para baixo
-      navbar.classList.add('navbar-hidden');
-    } else {
-      // Rolando para cima
-      navbar.classList.remove('navbar-hidden');
-    }
-  } else {
-    // DESKTOP BEHAVIOR
-    if (scrollTop === 0) {
-      // No topo da página
-      navbar.classList.remove('navbar-shrink');
-    } else {
-      // Rolando
-      navbar.classList.add('navbar-shrink');
-    }
-  }
-
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
-const toggleBtn = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-
-toggleBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
+  fetch('/partials/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    });
 });
