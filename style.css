@@ -74,3 +74,40 @@ main {
     overflow-y: auto;
   }
 }
+
+/* Ajustes para navbar fixa */
+body {
+  padding-top: var(--navbar-height, 80px);
+}
+
+#navbar {
+  transition: transform 0.3s ease;
+}
+
+#navbar.scroll-up {
+  transform: translateY(0);
+}
+
+#navbar.scroll-down {
+  transform: translateY(-100%);
+}
+
+/* Menu mobile */
+#mobile-menu {
+  max-height: calc(100vh - var(--navbar-height, 80px));
+  overflow-y: auto;
+}
+
+/* Barra de rolagem personalizada */
+#mobile-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+#mobile-menu::-webkit-scrollbar-thumb {
+  background-color: var(--satanic-red);
+}
+
+/* Garantir que o conteúdo não fique atrás da navbar */
+main {
+  margin-top: var(--navbar-height, 80px);
+}
