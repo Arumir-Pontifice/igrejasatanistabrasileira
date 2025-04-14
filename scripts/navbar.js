@@ -22,3 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('footer-placeholder').innerHTML = data;
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("navbarToggle");
+  const menu = document.getElementById("navbarMenu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+  });
+});
