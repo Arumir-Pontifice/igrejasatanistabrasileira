@@ -1,33 +1,16 @@
-const header = document.getElementById('main-header');
-const siteName = document.getElementById('site-name');
-const menuToggle = document.getElementById('navbar-toggle');
-const menu = document.getElementById('navbar-menu');
+// navbar.js
+const navbar = document.querySelector('.navbar');
+const navbarToggle = document.getElementById('navbar-toggle');
+const navbarMenu = document.getElementById('navbar-menu');
 
-let lastScrollY = window.scrollY;
-
-// Toggle menu mobile
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('show');
+navbarToggle.addEventListener('click', () => {
+  navbarMenu.classList.toggle('active');
 });
 
-// Efeitos ao rolar
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
-    header.classList.add('header-scrolled');
-    siteName.textContent = 'ISB';
+    navbar.classList.add('navbar-shrink');
   } else {
-    header.classList.remove('header-scrolled');
-    siteName.textContent = 'Igreja Satanista Brasileira';
+    navbar.classList.remove('navbar-shrink');
   }
-
-  // Mobile: esconder ao descer, mostrar ao subir
-  if (window.innerWidth <= 768) {
-    if (window.scrollY < lastScrollY) {
-      header.style.top = "0";
-    } else {
-      header.style.top = "-100px";
-    }
-  }
-
-  lastScrollY = window.scrollY;
 });
