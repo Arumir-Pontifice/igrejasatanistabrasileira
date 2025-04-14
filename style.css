@@ -1,3 +1,79 @@
+/* Fonte base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000000; /* preto profundo */
+  color: #F5F5F5; /* branco suave */
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to bottom, #1a1a1a, #000000);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero .logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #B22222; /* vermelho profundo */
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid #B22222;
+  color: #F5F5F5;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #B22222;
+  color: #fff;
+}
+
+.btn-secondary {
+  border-color: #666666;
+}
+
+.btn-secondary:hover {
+  background-color: #666666;
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+
 .site-footer {
   background-color: #111;
   color: #888;
