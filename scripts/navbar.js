@@ -4,7 +4,7 @@ function initNavbar() {
   const menu = document.getElementById("menu");
   const menuIcon = document.getElementById("menu-icon");
   const content = document.querySelector("main") || document.body;
-
+  const mobileMenu = document.getElementById("mobile-menu");  // Adicionando mobile menu no script
   let lastScroll = 0;
 
   // Alternar o menu mobile
@@ -16,6 +16,18 @@ function initNavbar() {
       content.classList.toggle("blur-content", isActive);
     });
   }
+
+  // Fechar o menu mobile se o usuário clicar fora dele
+  window.addEventListener("click", (event) => {
+    if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) {
+      if (menu.classList.contains("active")) {
+        menu.classList.remove("active");
+        menu.classList.add("hidden");
+        menuIcon.innerHTML = "&#9776;";
+        content.classList.remove("blur-content");
+      }
+    }
+  });
 
   // Comportamento ao rolar
   window.addEventListener("scroll", () => {
