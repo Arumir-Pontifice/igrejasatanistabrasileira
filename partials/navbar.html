@@ -1,31 +1,16 @@
-<nav id="navbar" class="navbar fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md text-white z-50 transition-all duration-300 shadow-lg px-4 md:px-8 py-4 flex items-center justify-between">
-  <!-- Logo e nome -->
-  <div class="flex items-center space-x-3">
-    <img src="/assets/imgs/logo.png" alt="Logo ISB" class="h-10 w-auto">
-    <span id="logo-text" class="text-xl font-bold transition-all duration-300">Igreja Satanista Brasileira</span>
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="navbar-logo">
+      <img src="/assets/imgs/logo.svg" alt="Logo ISB" />
+      <span>Igreja Satanista Brasileira</span>
+    </a>
+    <button class="navbar-toggle" id="navbar-toggle">&#9776;</button>
+    <ul class="navbar-menu" id="navbar-menu">
+      <li><a href="/manifesto/">Manifesto</a></li>
+      <li><a href="/doutrina/">Doutrina</a></li>
+      <li><a href="/estatuto/">Estatuto</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/contato/">Contato</a></li>
+    </ul>
   </div>
-
-  <!-- Ícone do menu mobile -->
-  <div id="menu-icon" class="menu-icon md:hidden cursor-pointer text-3xl">
-    &#9776;
-  </div>
-
-  <!-- Menu principal -->
-  <ul id="menu" class="menu hidden md:flex space-x-6 uppercase text-sm font-medium tracking-wider relative">
-    <li><a href="/" class="hover:text-satanic-red">Início</a></li>
-    <li class="relative group">
-      <a href="#" class="hover:text-satanic-red">Sobre</a>
-      <ul class="submenu absolute hidden group-hover:block bg-black border border-amoled-gray rounded-sm mt-2 py-2 px-3 space-y-1 z-50">
-        <li><a href="/manifesto" class="block hover:text-satanic-red">Manifesto</a></li>
-        <li><a href="/doutrina" class="block hover:text-satanic-red">Doutrina</a></li>
-      </ul>
-    </li>
-    <li><a href="/blog" class="hover:text-satanic-red">Blog</a></li>
-    <li><a href="/biblioteca" class="hover:text-satanic-red">Biblioteca</a></li>
-    <li><a href="/faq" class="hover:text-satanic-red">FAQ</a></li>
-    <li><a href="/contato" class="ml-4 px-4 py-2 bg-satanic-red hover:bg-red-900 rounded-sm transition-colors">Contato</a></li>
-  </ul>
 </nav>
-
-<!-- Espaço reservado para não sobrepor o conteúdo -->
-<div class="navbar-spacer h-20 md:h-20"></div>
