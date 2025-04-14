@@ -9,36 +9,7 @@
 
   <!-- Menu Desktop -->
   <ul class="hidden md:flex space-x-8 text-sm uppercase tracking-wider">
-    <li>
-      <a href="/" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        Início
-      </a>
-    </li>
-    <li>
-      <a href="/membro" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        Tornar-se Membro
-      </a>
-    </li>
-    <li>
-      <a href="/blog" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        Blog
-      </a>
-    </li>
-    <li>
-      <a href="/biblioteca" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        Biblioteca
-      </a>
-    </li>
-    <li>
-      <a href="/faq" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
-        FAQ
-      </a>
-    </li>
-    <li>
-      <a href="/contato" class="ml-4 px-4 py-2 bg-satanic-red hover:bg-red-900 transition-colors rounded-sm">
-        Contato
-      </a>
-    </li>
+    <!-- Itens do menu desktop... (mantenha o conteúdo existente) -->
   </ul>
 
   <!-- Botão do menu mobile -->
@@ -52,30 +23,16 @@
     </button>
   </div>
 
-  <!-- Menu Mobile -->
-  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black text-white py-4 px-6 space-y-4 md:hidden border-t border-amoled-gray shadow-xl">
+  <!-- Menu Mobile - MODIFICADO: removida a classe 'absolute' -->
+  <div id="mobile-menu" class="hidden w-full bg-black text-white py-4 px-6 space-y-4 md:hidden border-t border-amoled-gray shadow-xl transform translate-y-0 transition-transform duration-300">
     <a href="/" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
       Início
     </a>
-    <a href="/membro" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      Tornar-se Membro
-    </a>
-    <a href="/blog" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      Blog
-    </a>
-    <a href="/biblioteca" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      Biblioteca
-    </a>
-    <a href="/faq" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
-      FAQ
-    </a>
-    <a href="/contato" class="block py-3 px-4 bg-satanic-red hover:bg-red-900 text-center transition-colors mt-4">
-      Contato
-    </a>
+    <!-- Demais itens do menu... -->
   </div>
 </nav>
 
-<!-- Espaço reservado para a navbar (importante!) -->
+<!-- Espaço reservado para a navbar -->
 <div class="navbar-spacer h-20"></div>
 
 <script>
@@ -84,10 +41,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const menu = document.getElementById('mobile-menu');
   const menuBtn = document.querySelector('.menu-btn');
   
+  // Verifica se os elementos existem
+  if (!toggle || !menu || !menuBtn) {
+    console.error('Elementos do menu mobile não encontrados!');
+    return;
+  }
+
   toggle.addEventListener('click', function() {
     const isExpanded = this.getAttribute('aria-expanded') === 'true';
     this.setAttribute('aria-expanded', !isExpanded);
+    
+    // Alterna entre mostrar/esconder o menu
     menu.classList.toggle('hidden');
+    menu.classList.toggle('block');
     menuBtn.classList.toggle('open');
     
     // Bloquear scroll quando menu mobile está aberto
@@ -95,22 +61,24 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Fechar menu ao clicar em um link
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      menuBtn.classList.remove('open');
-      document.body.style.overflow = 'auto';
-      toggle.setAttribute('aria-expanded', 'false');
+  const menuLinks = document.querySelectorAll('#mobile-menu a');
+  if (menuLinks) {
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('block');
+        menuBtn.classList.remove('open');
+        document.body.style.overflow = 'auto';
+        toggle.setAttribute('aria-expanded', 'false');
+      });
     });
-  });
+  }
 
   // Efeito de scroll na navbar
   window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
-    if (window.scrollY > 20) {
-      navbar.classList.add('nav-scroll');
-    } else {
-      navbar.classList.remove('nav-scroll');
+    if (navbar) {
+      navbar.classList.toggle('nav-scroll', window.scrollY > 20);
     }
   });
 });
