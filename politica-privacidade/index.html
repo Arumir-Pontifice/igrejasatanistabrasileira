@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Metatags... -->
+  <!-- ... (mantenha todo o head existente) ... -->
+  <style>
+    /* Adicione isto no <head> */
+    body {
+      padding-top: 80px; /* Espaço para a navbar */
+    }
+    
+    @media (min-width: 768px) {
+      body {
+        padding-top: 0;
+      }
+    }
+  </style>
 </head>
 <body class="bg-black text-gray-200 min-h-screen flex flex-col">
+  <!-- Navbar -->
   <div id="navbar-container"></div>
 
-  <main class="flex-grow pt-20 px-4 sm:px-6">
-    <div class="max-w-4xl mx-auto bg-dark-gray p-6 sm:p-8 rounded-lg border border-amoled-gray">
-      <!-- Conteúdo da Política... -->
-    </div>
+  <main class="flex-grow pt-4 md:pt-0 px-4 sm:px-6"> <!-- Adicionei pt-4 para mobile -->
+    <!-- ... (restante do conteúdo mantido igual) ... -->
   </main>
 
-  <div id="footer-container"></div>
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Carregar componentes
-    Promise.all([
-      fetch('/partials/navbar.html').then(r => r.text()),
-      fetch('/partials/footer.html').then(r => r.text())
-    ]).then(([navbar, footer]) => {
-      document.getElementById('navbar-container').innerHTML = navbar;
-      document.getElementById('footer-container').innerHTML = footer;
-      
-      // Injetar scripts
-      const script = document.createElement('script');
-      script.src = '/scripts/navbar.js';
-      document.body.appendChild(script);
-    });
-  });
-  </script>
+  <!-- ... (restante do código mantido igual) ... -->
 </body>
 </html>
