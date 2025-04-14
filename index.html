@@ -1,44 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- LOGO + NOME -->
-<div class="logo-container">
-  <img src="/assets/imgs/logo.svg" alt="Logo" height="40">
-  <span class="org-name">Igreja Satanista Brasileira</span>
-</div>
-
-<!-- HAMBURGER BUTTON (visível só no mobile) -->
-<button id="menu-toggle" class="hamburger" aria-label="Abrir menu">
-  ☰
-</button>
-
-<!-- MENU DE LINKS -->
-<nav id="mobile-menu" class="mobile-menu">
-  <a href="/manifesto/">Manifesto</a>
-  <a href="/doutrina/">Doutrina</a>
-  <a href="/estatuto/">Estatuto</a>
-  <a href="/blog/">Blog</a>
-  <a href="/contato/">Contato</a>
-</nav>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Igreja Satanista Brasileira</title>
   <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" href="/assets/imgs/favicon.ico" />
+  <link rel="icon" href="/assets/imgs/favicon.ico" type="image/x-icon" />
+  <script src="/scripts/navbar.js" defer></script>
 </head>
 <body>
+  <!-- Navbar -->
   <div id="navbar-placeholder"></div>
 
-  <section class="hero">
-    <img src="/assets/imgs/logo.svg" class="logo" alt="Logo ISB" />
-    <h1>Igreja Satanista Brasileira</h1>
-    <p class="subtitle">Filosofia, liberdade e responsabilidade sob o símbolo de Satã.</p>
-    <a href="/manifesto/" class="btn">Leia o Manifesto</a>
-    <a href="/doutrina/" class="btn btn-secondary">Conheça a Doutrina</a>
-  </section>
+  <!-- Banner de Boas-vindas -->
+  <header class="hero">
+    <div class="hero-content">
+      <img src="/assets/imgs/logo.svg" alt="Logo da ISB" class="logo" />
+      <h1>Igreja Satanista Brasileira</h1>
+      <p class="subtitle">O homem como Deus de si. A carne como templo. A razão como chama.</p>
+      <div class="hero-buttons">
+        <a href="/doutrina/" class="btn">Conheça a Doutrina</a>
+        <a href="/manifesto/" class="btn btn-secondary">Leia o Manifesto</a>
+      </div>
+    </div>
+  </header>
 
+  <!-- Rodapé -->
   <div id="footer-placeholder"></div>
-  <script src="/scripts/navbar.js"></script>
 </body>
 </html>
