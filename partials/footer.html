@@ -1,10 +1,73 @@
-<footer class="bg-black text-gray-400 py-8 mt-16 border-t border-amoled-gray">
+<footer class="bg-black text-gray-300 border-t border-amoled-gray py-8 mt-16">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Seções do Footer... -->
+    <!-- Grid de links -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <!-- Seção Sobre -->
+      <div class="col-span-1">
+        <h3 class="text-satanic-red font-bold text-lg mb-4">Sobre a ISB</h3>
+        <ul class="space-y-2">
+          <li><a href="/manifesto" class="hover:text-white transition-colors">Manifesto</a></li>
+          <li><a href="/doutrina" class="hover:text-white transition-colors">Doutrina</a></li>
+          <li><a href="/estatuto" class="hover:text-white transition-colors">Estatuto</a></li>
+        </ul>
+      </div>
+
+      <!-- Seção Documentos -->
+      <div class="col-span-1">
+        <h3 class="text-satanic-red font-bold text-lg mb-4">Documentos</h3>
+        <ul class="space-y-2">
+          <li><a href="/codigo-de-conduta" class="hover:text-white transition-colors">Código de Conduta</a></li>
+          <li><a href="/diretrizes" class="hover:text-white transition-colors">Diretrizes</a></li>
+          <li><a href="/docs" class="hover:text-white transition-colors">Publicações</a></li>
+        </ul>
+      </div>
+
+      <!-- Seção Legal -->
+      <div class="col-span-1">
+        <h3 class="text-satanic-red font-bold text-lg mb-4">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="/termos-de-uso" class="hover:text-white transition-colors">Termos de Uso</a></li>
+          <li><a href="/politica-privacidade" class="hover:text-white transition-colors">Política de Privacidade</a></li>
+          <li><a href="/contato" class="hover:text-white transition-colors">Contato Jurídico</a></li>
+        </ul>
+      </div>
+
+      <!-- Seção Social -->
+      <div class="col-span-1">
+        <h3 class="text-satanic-red font-bold text-lg mb-4">Conecte-se</h3>
+        <div class="flex space-x-4">
+          <a href="#" aria-label="Twitter" class="text-gray-400 hover:text-satanic-red transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">[...]</svg>
+          </a>
+          <a href="#" aria-label="Telegram" class="text-gray-400 hover:text-satanic-red transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">[...]</svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="text-gray-400 hover:text-satanic-red transition-colors">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">[...]</svg>
+          </a>
+        </div>
+        <div class="mt-4">
+          <p class="text-xs text-gray-500">Assine nossa newsletter:</p>
+          <form class="mt-2 flex">
+            <input type="email" placeholder="seu@email.com" class="bg-amoled-gray text-white px-3 py-2 text-sm w-full focus:outline-none focus:ring-1 focus:ring-satanic-red">
+            <button type="submit" class="bg-satanic-red text-white px-3 py-2 text-sm hover:bg-red-900 transition-colors">Enviar</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="mt-8 pt-6 border-t border-amoled-gray text-center">
-      <p class="text-sm">&copy; 2025 Igreja Satanista Brasileira</p>
+
+    <!-- Rodapé inferior -->
+    <div class="border-t border-amoled-gray pt-6 flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <a href="/" class="flex items-center">
+          <img src="/assets/imgs/logo-icon.svg" alt="Logo ISB" class="h-8 w-8 mr-2">
+          <span class="text-satanic-red font-bold">IGREJA SATANISTA BRASILEIRA</span>
+        </a>
+      </div>
+      <div class="text-center md:text-right">
+        <p class="text-xs text-gray-500">&copy; 2025 Igreja Satanista Brasileira. Todos os direitos reservados.</p>
+        <p class="text-xs text-gray-600 mt-1">Uma organização dedicada à liberdade individual e à razão.</p>
+      </div>
     </div>
   </div>
 </footer>
