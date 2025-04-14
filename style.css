@@ -147,3 +147,27 @@ body {
     max-width: 300px;
   }
 }
+.site-footer {
+  background-color: #111;
+  color: #888;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
+}
+
+.site-footer a {
+  color: #B22222;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-simbolo {
+  margin-top: 15px;
+  color: #666;
+  font-style: italic;
+}
