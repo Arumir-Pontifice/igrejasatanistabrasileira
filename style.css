@@ -1,64 +1,74 @@
-/* Logo e nome */
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Fonte base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #000000; /* preto profundo */
+  color: #F5F5F5; /* branco suave */
+  line-height: 1.6;
 }
 
-.org-name {
-  font-family: 'Georgia', serif;
+/* Hero Section */
+.hero {
+  background: linear-gradient(to bottom, #1a1a1a, #000000);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero .logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #B22222; /* vermelho profundo */
+  margin: 0;
+}
+
+.subtitle {
   font-size: 1.2rem;
-  font-weight: bold;
-  color: white;
+  color: #cccccc;
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
 
-/* Hamburger */
-.hamburger {
-  display: none;
-  background: none;
-  color: white;
-  font-size: 2rem;
-  border: none;
-  cursor: pointer;
-}
-
-/* Menu */
-.mobile-menu {
-  display: flex;
-  gap: 20px;
-}
-
-.mobile-menu a {
-  color: white;
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 1rem;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  border: 2px solid #B22222;
+  color: #F5F5F5;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  border-radius: 5px;
 }
 
-.mobile-menu a:hover {
-  color: #c00; /* tom vermelho profano */
+.btn:hover {
+  background-color: #B22222;
+  color: #fff;
 }
 
-/* Mobile override */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
+.btn-secondary {
+  border-color: #666666;
+}
+
+.btn-secondary:hover {
+  background-color: #666666;
+}
+
+/* Responsividade básica */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
   }
-
-  .mobile-menu {
-    display: none;
-    position: absolute;
-    top: 80px;
-    left: 0;
+  .subtitle {
+    font-size: 1rem;
+  }
+  .btn {
     width: 100%;
-    background-color: #111;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    z-index: 999;
-  }
-
-  .mobile-menu.active {
-    display: flex;
+    max-width: 300px;
   }
 }
