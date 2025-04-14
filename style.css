@@ -192,7 +192,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombras para destacar */
     border-top: 2px solid #B22222; /* Linha vermelha acima do menu */
     border-radius: 5px; /* Bordas arredondadas */
-    z-index: 999;
+    z-index: 998; /* Menor que o da barra para não cobrir */
   }
 
   .navbar-menu.active {
