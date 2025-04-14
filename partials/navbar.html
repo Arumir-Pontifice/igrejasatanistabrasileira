@@ -1,4 +1,4 @@
-<nav id="navbar" class="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 md:px-8 h-20 z-50 transition-all duration-300 border-b border-amoled-gray shadow-lg">
+<nav id="navbar" class="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 md:px-8 h-20 z-50 transition-all duration-300 border-b border-amoled-gray">
   <!-- Logo + Título -->
   <a href="/" class="flex items-center space-x-3 group">
     <img src="/assets/imgs/logo.svg" alt="Logo Igreja Satanista Brasileira" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
@@ -48,49 +48,57 @@
   </div>
 
   <!-- Menu Mobile -->
-  <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 pt-20 overflow-y-auto">
-    <div class="container mx-auto px-4 py-8">
-      <a href="/" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
-        Início
-      </a>
-      <a href="/membro" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
-        Tornar-se Membro
-      </a>
-      <a href="/blog" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
-        Blog
-      </a>
-      <a href="/biblioteca" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
-        Biblioteca
-      </a>
-      <a href="/faq" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
-        FAQ
-      </a>
-    </div>
+  <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-black text-white py-4 px-6 space-y-4 md:hidden border-t border-amoled-gray shadow-xl transform transition-transform duration-300 ease-in-out">
+    <a href="/" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      Início
+    </a>
+    <a href="/membro" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      Tornar-se Membro
+    </a>
+    <a href="/blog" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      Blog
+    </a>
+    <a href="/biblioteca" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      Biblioteca
+    </a>
+    <a href="/faq" class="block py-3 px-4 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red">
+      FAQ
+    </a>
   </div>
 </nav>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+// Este script deve ser movido para /scripts/navbar.js
+function initNavbar() {
   const toggle = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
   const menuBtn = document.querySelector('.menu-btn');
   
-  toggle.addEventListener('click', function() {
-    const isExpanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', !isExpanded);
-    menu.classList.toggle('hidden');
-    menuBtn.classList.toggle('open');
-    document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
-  });
-
-  // Fechar menu ao clicar em um link
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      menuBtn.classList.remove('open');
-      document.body.style.overflow = 'auto';
-      toggle.setAttribute('aria-expanded', 'false');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      menu.classList.toggle('hidden');
+      menuBtn.classList.toggle('open');
+      
+      document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
     });
-  });
-});
+
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menuBtn.classList.remove('open');
+        document.body.style.overflow = 'auto';
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Ajuste de padding para o conteúdo
+  const navbarHeight = document.getElementById('navbar')?.offsetHeight;
+  if (navbarHeight) {
+    document.documentElement.style.setProperty('--navbar-height', `${navbarHeight}px`);
+  }
+}
 </script>
