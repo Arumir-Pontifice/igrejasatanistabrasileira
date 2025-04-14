@@ -1,17 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Metatags... -->
+  <!-- Mesmo head da política de privacidade -->
+  <title>Solicitar Dados Pessoais - Igreja Satanista Brasileira</title>
+  <meta name="description" content="Formulário para solicitação de acesso, correção ou exclusão de dados pessoais">
 </head>
-<body class="bg-black text-gray-200 min-h-screen flex flex-col">
+
+<body class="bg-black text-gray-200">
   <div id="navbar-container"></div>
 
-  <main class="flex-grow pt-20 px-4 sm:px-6">
-    <!-- Formulário de Solicitação... -->
+  <main class="max-w-4xl mx-auto py-12 px-4">
+    <div class="bg-dark-gray p-8 rounded-lg border border-satanic-red">
+      <h1 class="text-3xl text-satanic-red font-bold mb-6">Solicitação de Dados Pessoais</h1>
+      
+      <form id="data-request-form" class="space-y-6">
+        <div>
+          <label for="request-type" class="block text-sm font-medium mb-1">Tipo de Solicitação*</label>
+          <select id="request-type" name="request-type" required class="w-full bg-amoled-gray border border-gray-700 text-white p-3 rounded focus:ring-satanic-red focus:border-satanic-red">
+            <option value="">Selecione...</option>
+            <option value="access">Acesso aos meus dados</option>
+            <option value="correction">Correção de dados</option>
+            <option value="deletion">Exclusão de dados</option>
+            <option value="portability">Portabilidade de dados</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium mb-1">Email cadastrado*</label>
+          <input type="email" id="email" name="email" required class="w-full bg-amoled-gray border border-gray-700 text-white p-3 rounded focus:ring-satanic-red focus:border-satanic-red">
+        </div>
+
+        <div>
+          <label for="identification" class="block text-sm font-medium mb-1">Documento de identificação (CPF/RG)*</label>
+          <input type="text" id="identification" name="identification" required class="w-full bg-amoled-gray border border-gray-700 text-white p-3 rounded focus:ring-satanic-red focus:border-satanic-red">
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium mb-1">Detalhes adicionais</label>
+          <textarea id="message" name="message" rows="4" class="w-full bg-amoled-gray border border-gray-700 text-white p-3 rounded focus:ring-satanic-red focus:border-satanic-red"></textarea>
+        </div>
+
+        <div class="flex items-center">
+          <input id="consent" name="consent" type="checkbox" required class="h-4 w-4 text-satanic-red focus:ring-satanic-red border-gray-600 rounded">
+          <label for="consent" class="ml-2 block text-sm">
+            Confirmo que sou o titular dos dados ou seu representante legal*
+          </label>
+        </div>
+
+        <div>
+          <button type="submit" class="w-full bg-satanic-red hover:bg-red-900 text-white font-bold py-3 px-4 rounded transition-colors">
+            Enviar Solicitação
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-8 text-sm text-gray-400">
+        <p>Resposta em até 15 dias úteis, conforme artigo 19 da LGPD.</p>
+        <p class="mt-2">Dúvidas? <a href="mailto:privacidade@igrejasatanistabrasileira.org" class="text-satanic-red hover:underline">privacidade@igrejasatanistabrasileira.org</a></p>
+      </div>
+    </div>
   </main>
 
   <div id="footer-container"></div>
 
-  <!-- Mesmo script de carregamento da política -->
+  <!-- Scripts (mesmo padrão das outras páginas) -->
+  <script>
+    // Implemente aqui o envio do formulário para seu backend
+    document.getElementById('data-request-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Lógica de envio...
+      alert('Solicitação recebida! Entraremos em contato em breve.');
+    });
+  </script>
 </body>
 </html>
