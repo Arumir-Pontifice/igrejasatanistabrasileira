@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function showQuote(index) {
     container.style.opacity = 0;
     setTimeout(() => {
-      container.textContent = quotes[index];
+      container.innerHTML = quotes[index].replace(/\n/g, "<br>");
       container.style.opacity = 1;
     }, 1000); // fade-out antes de mostrar nova
   }
