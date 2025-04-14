@@ -246,3 +246,56 @@ main {
     height: 4.5rem; /* Ajuste para mobile se necessário */
   }
 }
+
+/* Estilos do Menu Hamburguer */
+.menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.bar {
+  width: 24px;
+  height: 3px;
+  background-color: var(--vermelho-brilhante);
+  margin: 3px 0;
+  transition: var(--transicao-padrao);
+  transform-origin: center;
+}
+
+.menu-btn.open .top {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-btn.open .middle {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.menu-btn.open .bottom {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menu Mobile */
+#mobile-menu {
+  position: fixed;
+  top: 5rem; /* altura da navbar */
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 767px) {
+  #mobile-menu {
+    top: 4.5rem;
+    max-height: calc(100vh - 4.5rem);
+  }
+}
