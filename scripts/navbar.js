@@ -1,52 +1,55 @@
 function initNavbar() {
-  const toggle = document.getElementById('mobile-menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  const menuBtn = document.querySelector('.menu-btn');
-  
-  if (toggle && menu && menuBtn) {
-    // Função para alternar o menu
-    const toggleMenu = () => {
-      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', !isExpanded);
-      menu.classList.toggle('hidden');
-      menuBtn.classList.toggle('open');
-      document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
-    };
+  const navbar = document.getElementById("navbar");
+  const logoText = document.getElementById("logo-text");
+  const menu = document.getElementById("menu");
+  const menuIcon = document.getElementById("menu-icon");
+  const content = document.querySelector("main") || document.body;
 
-    // Evento de clique no botão
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleMenu();
-    });
+  let lastScroll = 0;
 
-    // Fechar ao clicar fora
-    document.addEventListener('click', function(e) {
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        if (!menu.classList.contains('hidden')) {
-          toggleMenu();
-        }
-      }
-    });
-
-    // Fechar ao clicar nos links
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', toggleMenu);
+  // Alternar o menu mobile
+  if (menuIcon && menu) {
+    menuIcon.addEventListener("click", () => {
+      const isActive = menu.classList.toggle("active");
+      menu.classList.toggle("hidden", !isActive);
+      menuIcon.innerHTML = isActive ? "&#10005;" : "&#9776;";
+      content.classList.toggle("blur-content", isActive);
     });
   }
 
-  // Efeito de scroll na navbar
-  window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-      navbar.classList.toggle('nav-scroll', window.scrollY > 20);
+  // Comportamento ao rolar
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+
+    if (window.innerWidth > 768) {
+      // Desktop: encolher e mudar nome
+      if (scrollTop > 50) {
+        navbar.classList.add("shrink");
+        logoText.textContent = "ISB";
+      } else {
+        navbar.classList.remove("shrink");
+        logoText.textContent = "Igreja Satanista Brasileira";
+      }
+    } else {
+      // Mobile: esconder ao rolar para baixo, mostrar ao rolar para cima
+      if (scrollTop > lastScroll && scrollTop > 60) {
+        navbar.classList.add("shrink", "hide");
+      } else {
+        navbar.classList.remove("hide");
+      }
+
+      // Fecha o menu ao rolar
+      if (menu.classList.contains("active")) {
+        menu.classList.remove("active");
+        menu.classList.add("hidden");
+        menuIcon.innerHTML = "&#9776;";
+        content.classList.remove("blur-content");
+      }
     }
+
+    lastScroll = scrollTop;
   });
 }
 
-// Inicializa quando o DOM estiver pronto
-if (document.readyState !== 'loading') {
-  initNavbar();
-} else {
-  document.addEventListener('DOMContentLoaded', initNavbar);
-}
+// Inicializar
+document.addEventListener("DOMContentLoaded", initNavbar);
