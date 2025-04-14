@@ -1,327 +1,93 @@
-/* Fonte base */
+/* style.css */
+
+/* === Global === */
 body {
+  font-family: 'Arial', sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #000000; /* preto profundo */
-  color: #F5F5F5; /* branco suave */
-  line-height: 1.6;
+  padding: 0;
+  background-color: #121212;
+  color: #eaeaea;
 }
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(to bottom, #1a1a1a, #000000);
-  padding: 140px 20px;
-  text-align: center;
-}
-
-.hero .logo {
-  width: 100px;
-  margin-bottom: 20px;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  color: #B22222; /* vermelho profundo */
-  margin: 0;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  color: #cccccc;
-  margin-top: 10px;
-  margin-bottom: 40px;
-}
-
-/* Botões */
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 10px;
-  font-size: 1rem;
+a {
+  color: #eaeaea;
   text-decoration: none;
-  border: 2px solid #B22222;
-  color: #F5F5F5;
-  background-color: transparent;
-  transition: all 0.3s ease;
-  border-radius: 5px;
 }
 
-.btn:hover {
-  background-color: #B22222;
-  color: #fff;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.btn-secondary {
-  border-color: #666666;
-}
-
-.btn-secondary:hover {
-  background-color: #666666;
-}
-
-/* Responsividade básica */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .subtitle {
-    font-size: 1rem;
-  }
-  .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-.navbar {
-  background-color: #111;
-  padding: 10px 20px;
-  /* position: sticky; */
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #B22222;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.navbar-logo img {
-  height: 32px;
-  margin-right: 10px;
-}
-
-.navbar-menu {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
 
-.navbar-menu li a {
-  color: #F5F5F5;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.navbar-menu li a:hover {
-  color: #B22222;
-}
-
-/* Botão do menu (mobile) */
-.navbar-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #F5F5F5;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .navbar-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #111;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-  }
-
-  .navbar-menu.active {
-    display: flex;
-  }
-
-  .navbar-toggle {
-    display: block;
-  }
-}
-
-
-.site-footer {
-  background-color: #111;
-  color: #888;
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 0.9rem;
-  border-top: 1px solid #222;
-}
-
-.site-footer a {
-  color: #B22222;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-.footer-simbolo {
-  margin-top: 15px;
-  color: #666;
-  font-style: italic;
-}
-
-.quote-carousel {
-  width: 100%;
-  height: 100vh; /* Ocupa toda a altura da tela */
-  background-color: #0a0a0a;
-  padding: 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-bottom: 1px solid #1a1a1a;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
-.quote-container {
-  color: #f5f5f5;
-  font-size: 1.5rem;
-  font-style: italic;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-  max-width: 90%;
-  line-height: 1.8;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-@media (max-width: 600px) {
-  .quote-container {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
-}
-
-.quote-divider {
-  border: none;
-  border-top: 1px solid #444;
-  margin: 24px auto; /* antes era 20px */
-  width: 60%;
-}
-
-#main-header {
+/* === Navbar === */
+.navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: #0a0a0a;
-  transition: all 0.3s ease-in-out;
-  z-index: 1000;
-}
-
-/* Altura maior inicialmente */
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 32px;
-  transition: padding 0.3s ease-in-out;
+  color: #eaeaea;
+  padding: 20px 0;
+  z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .navbar-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
 }
 
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: #fff;
-  text-decoration: none;
 }
 
-#logo-img {
-  height: 48px;
-  transition: height 0.3s ease-in-out;
+.navbar-logo img {
+  width: 40px;
+  margin-right: 10px;
 }
 
-#site-name {
-  font-size: 1.5rem;
-  transition: font-size 0.3s ease-in-out;
-  white-space: nowrap;
+.navbar-logo-text {
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
-/* Reduzido ao rolar */
-.header-scrolled .navbar {
-  padding: 12px 24px;
-}
-
-.header-scrolled #logo-img {
-  height: 32px;
-}
-
-.header-scrolled #site-name {
-  font-size: 1.1rem;
-}
-
-/* Menu mobile */
 .navbar-toggle {
   display: none;
-  font-size: 1.8rem;
-  background: none;
-  color: #fff;
+  background-color: transparent;
   border: none;
-  cursor: pointer;
+  color: #eaeaea;
+  font-size: 2rem;
 }
 
 .navbar-menu {
-  list-style: none;
   display: flex;
-  gap: 20px;
 }
 
-.navbar-menu li a {
-  color: #f5f5f5;
-  text-decoration: none;
-  font-weight: 500;
+.navbar-menu li {
+  margin-left: 20px;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .navbar-toggle {
-    display: block;
-  }
-
-  .navbar-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #111;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 10px 20px;
-  }
-
-  .navbar-menu.show {
-    display: flex;
-  }
-
-  #main-header {
-    transition: top 0.3s ease-in-out;
-  }
+.navbar-menu.active {
+  display: block;
 }
 
-/* === Carrossel de Citações === */
+.navbar-shrink {
+  padding: 10px 0;
+  background-color: #111;
+}
+
+/* === Carrossel === */
 #hero-carousel {
   display: flex;
   align-items: center;
