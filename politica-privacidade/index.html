@@ -196,5 +196,12 @@
         });
     });
   </script>
+<!-- Cookie Banner -->
+<div id="cookie-container"></div>
+<script>
+  fetch('/partials/cookie-banner.html')
+    .then(r => r.text())
+    .then(html => document.getElementById('cookie-container').innerHTML = html);
+</script>
 </body>
 </html>
