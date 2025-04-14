@@ -1,163 +1,24 @@
-/* style.css */
-
-/* === Global === */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #121212;
-  color: #eaeaea;
-}
-
-a {
-  color: #eaeaea;
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
-}
-
-/* === Navbar === */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #0a0a0a;
-  color: #eaeaea;
-  padding: 20px 0;
-  z-index: 100;
-  transition: all 0.3s ease;
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  width: 100%;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-logo img {
-  width: 40px;
-  margin-right: 10px;
-}
-
-.navbar-logo-text {
-  font-size: 1.6rem;
-  font-weight: bold;
-}
-
-.navbar-toggle {
-  display: none;
-  background-color: transparent;
-  border: none;
-  color: #eaeaea;
-  font-size: 2rem;
-}
-
-.navbar-menu {
-  display: flex;
-}
-
-.navbar-menu li {
-  margin-left: 20px;
-}
-
-.navbar-menu.active {
-  display: block;
-}
-
-.navbar-shrink {
-  padding: 10px 0;
+.site-footer {
   background-color: #111;
-}
-
-/* === Carrossel === */
-#hero-carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  background-color: #0a0a0a;
-  padding: 0 20px;
+  color: #888;
   text-align: center;
-  overflow: hidden;
-  box-sizing: border-box;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  border-top: 1px solid #222;
 }
 
-.carousel-quote {
-  max-width: 900px;
-  color: #eaeaea;
-  font-family: 'Georgia', serif;
-  animation: fadeIn 2s ease-in-out;
-  transition: all 0.5s ease-in-out;
+.site-footer a {
+  color: #B22222;
+  text-decoration: none;
+  margin: 0 5px;
 }
 
-.carousel-quote blockquote p {
-  font-size: 1.8rem;
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-simbolo {
+  margin-top: 15px;
+  color: #666;
   font-style: italic;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.carousel-quote hr {
-  border: none;
-  border-top: 1px solid #888;
-  margin: 1rem auto;
-  width: 60%;
-}
-
-.carousel-quote cite {
-  font-size: 1rem;
-  color: #bbb;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .carousel-quote blockquote p {
-    font-size: 1.4rem;
-  }
-
-  .carousel-quote cite {
-    font-size: 0.9rem;
-  }
-
-  .carousel-quote hr {
-    width: 50%;
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-quote blockquote p {
-    font-size: 1.2rem;
-  }
-
-  .carousel-quote cite {
-    font-size: 0.85rem;
-  }
-
-  .carousel-quote hr {
-    width: 40%;
-  }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
