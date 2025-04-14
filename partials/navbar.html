@@ -1,35 +1,96 @@
-<nav id="navbar" class="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 md:px-8 h-16 z-50 transition-all duration-300 border-b border-amoled-gray shadow-lg">
-  <!-- Logo -->
+<nav id="navbar" class="fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 md:px-8 h-20 z-50 transition-all duration-300 border-b border-amoled-gray shadow-lg">
+  <!-- Logo + Título -->
   <a href="/" class="flex items-center space-x-3 group">
-    <img src="/assets/imgs/logo.svg" alt="Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
-    <span class="text-xl font-bold whitespace-nowrap text-satanic-red group-hover:text-red-700 transition-colors">
+    <img src="/assets/imgs/logo.svg" alt="Logo Igreja Satanista Brasileira" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
+    <span id="navbar-title" class="text-xl font-bold whitespace-nowrap transition-all duration-300 text-satanic-red group-hover:text-red-700">
       Igreja Satanista Brasileira
     </span>
   </a>
 
   <!-- Menu Desktop -->
   <ul class="hidden md:flex space-x-8 text-sm uppercase tracking-wider">
-    <li><a href="/" class="nav-link">Início</a></li>
-    <li><a href="/membro" class="nav-link">Membro</a></li>
-    <li><a href="/blog" class="nav-link">Blog</a></li>
-    <li><a href="/biblioteca" class="nav-link">Biblioteca</a></li>
-    <li><a href="/contato" class="px-4 py-2 bg-satanic-red hover:bg-red-900">Contato</a></li>
+    <li>
+      <a href="/" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        Início
+      </a>
+    </li>
+    <li>
+      <a href="/membro" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        Tornar-se Membro
+      </a>
+    </li>
+    <li>
+      <a href="/blog" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        Blog
+      </a>
+    </li>
+    <li>
+      <a href="/biblioteca" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        Biblioteca
+      </a>
+    </li>
+    <li>
+      <a href="/faq" class="relative py-1 px-2 hover:text-satanic-red transition-colors after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-satanic-red after:transition-all after:duration-300 hover:after:w-full">
+        FAQ
+      </a>
+    </li>
   </ul>
 
-  <!-- Menu Mobile -->
-  <button id="mobile-menu-toggle" class="md:hidden p-2">
-    <div class="menu-btn">
-      <div class="bar top"></div>
-      <div class="bar middle"></div>
-      <div class="bar bottom"></div>
-    </div>
-  </button>
+  <!-- Botão do menu mobile -->
+  <div class="md:hidden flex items-center">
+    <button id="mobile-menu-toggle" aria-label="Menu Mobile" aria-expanded="false" class="focus:outline-none p-2 hover:bg-amoled-gray rounded transition-colors">
+      <div class="menu-btn">
+        <div class="bar top"></div>
+        <div class="bar middle"></div>
+        <div class="bar bottom"></div>
+      </div>
+    </button>
+  </div>
 
-  <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black text-white py-4 px-6 space-y-4 md:hidden border-t border-amoled-gray shadow-xl">
-    <a href="/" class="block py-3 px-4 hover:bg-amoled-gray">Início</a>
-    <a href="/membro" class="block py-3 px-4 hover:bg-amoled-gray">Membro</a>
-    <a href="/blog" class="block py-3 px-4 hover:bg-amoled-gray">Blog</a>
-    <a href="/biblioteca" class="block py-3 px-4 hover:bg-amoled-gray">Biblioteca</a>
-    <a href="/contato" class="block py-3 px-4 bg-satanic-red hover:bg-red-900 text-center">Contato</a>
+  <!-- Menu Mobile -->
+  <div id="mobile-menu" class="hidden fixed inset-0 bg-black bg-opacity-95 z-40 pt-20 overflow-y-auto">
+    <div class="container mx-auto px-4 py-8">
+      <a href="/" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
+        Início
+      </a>
+      <a href="/membro" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
+        Tornar-se Membro
+      </a>
+      <a href="/blog" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
+        Blog
+      </a>
+      <a href="/biblioteca" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
+        Biblioteca
+      </a>
+      <a href="/faq" class="block py-4 px-6 hover:bg-amoled-gray hover:text-satanic-red transition-colors border-l-4 border-transparent hover:border-satanic-red text-lg">
+        FAQ
+      </a>
+    </div>
   </div>
 </nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuBtn = document.querySelector('.menu-btn');
+  
+  toggle.addEventListener('click', function() {
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !isExpanded);
+    menu.classList.toggle('hidden');
+    menuBtn.classList.toggle('open');
+    document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+  });
+
+  // Fechar menu ao clicar em um link
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menuBtn.classList.remove('open');
+      document.body.style.overflow = 'auto';
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+</script>
