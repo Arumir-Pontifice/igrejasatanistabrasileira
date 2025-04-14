@@ -1,16 +1,24 @@
-// navbar.js
-const navbar = document.querySelector('.navbar');
-const navbarToggle = document.getElementById('navbar-toggle');
-const navbarMenu = document.getElementById('navbar-menu');
+document.addEventListener('DOMContentLoaded', function () {
+  // Carrega navbar e footer
+  fetch('/partials/navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
 
-navbarToggle.addEventListener('click', () => {
-  navbarMenu.classList.toggle('active');
-});
+      // Reativa o botão depois de carregar
+      const toggle = document.getElementById('navbar-toggle');
+      const menu = document.getElementById('navbar-menu');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('navbar-shrink');
-  } else {
-    navbar.classList.remove('navbar-shrink');
-  }
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('active');
+        });
+      }
+    });
+
+  fetch('/partials/footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    });
 });
