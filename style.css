@@ -197,3 +197,33 @@ a:hover {
     border-top: 1px solid #8b0000;
   }
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    position: relative; /* permite o posicionamento absoluto interno */
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 100%; /* posiciona abaixo da barra */
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    z-index: 999; /* garante que fique sobre outros elementos */
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .navbar-menu.show {
+    max-height: 500px; /* ou JS dinâmico como já está no script */
+  }
+
+  .navbar-menu a {
+    padding: 0.8rem 1rem;
+    border-top: 1px solid #8b0000;
+    color: white;
+    text-decoration: none;
+  }
+}
