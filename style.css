@@ -31,6 +31,8 @@ a:hover {
   justify-content: space-between;
   border-bottom: 2px solid #8b0000;
   font-weight: bold;
+  position: relative;
+  z-index: 1000;
 }
 
 .navbar-logo {
@@ -43,12 +45,79 @@ a:hover {
   margin-right: 0.8rem;
 }
 
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.navbar-toggle .bar {
+  height: 4px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+.navbar-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
 .navbar-menu {
   display: flex;
   gap: 1.2rem;
 }
 
-/* CARROSSEL */
+.navbar-menu a {
+  color: #d4d4d4;
+  padding: 0.8rem 1rem;
+}
+
+/* MENU MOBILE */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #000;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+    display: flex;
+  }
+
+  .navbar-menu.show {
+    max-height: 500px;
+  }
+
+  .navbar-menu a {
+    border-top: 1px solid #8b0000;
+    color: #fff;
+  }
+}
+
+/* HERO / CARROSSEL */
 .hero-carousel {
   position: relative;
   background-color: #111;
@@ -96,6 +165,12 @@ a:hover {
   right: 10px;
 }
 
+@media (max-width: 768px) {
+  .carousel-slide {
+    font-size: 1.4rem;
+  }
+}
+
 /* CONTEÚDO PRINCIPAL */
 .main-content {
   padding: 3rem 2rem;
@@ -113,6 +188,12 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+  .intro-section h2 {
+    font-size: 1.6rem;
+  }
+}
+
 /* RODAPÉ */
 .footer {
   background-color: #111;
@@ -123,178 +204,7 @@ a:hover {
   text-align: center;
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) {
-  .navbar-menu {
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .carousel-slide {
-    font-size: 1.4rem;
-  }
-
-  .intro-section h2 {
-    font-size: 1.6rem;
-  }
-}
-
-/* PARA O MENU */
-
-.navbar-toggle {
-  display: none;
-  background: none;
-  color: #d4d4d4;
-  font-size: 2rem;
-  border: none;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .navbar-toggle {
-    display: block;
-  }
-
-  .navbar-menu {
-    display: none;
-    flex-direction: column;
-    background-color: #000;
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .navbar-menu a {
-    padding: 0.8rem 0;
-    border-top: 1px solid #8b0000;
-  }
-
-  .navbar-menu.show {
-    display: flex;
-  }
-}
-
-.navbar-menu {
-  display: flex;
-  gap: 1.2rem;
-}
-
-@media (max-width: 768px) {
-  .navbar-menu {
-    flex-direction: column;
-    background-color: #000;
-    width: 100%;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.4s ease-in-out;
-  }
-
-  .navbar-menu.show {
-    max-height: 500px; /* ou use JS com scrollHeight para tornar dinâmico */
-  }
-
-  .navbar-menu a {
-    padding: 0.8rem 1rem;
-    border-top: 1px solid #8b0000;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    position: relative; /* permite o posicionamento absoluto interno */
-  }
-
-  .navbar-menu {
-    position: absolute;
-    top: 100%; /* posiciona abaixo da barra */
-    left: 0;
-    width: 100%;
-    background-color: #000;
-    flex-direction: column;
-    overflow: hidden;
-    max-height: 0;
-    z-index: 999; /* garante que fique sobre outros elementos */
-    transition: max-height 0.4s ease-in-out;
-  }
-
-  .navbar-menu.show {
-    max-height: 500px; /* ou JS dinâmico como já está no script */
-  }
-
-  .navbar-menu a {
-    padding: 0.8rem 1rem;
-    border-top: 1px solid #8b0000;
-    color: white;
-    text-decoration: none;
-  }
-}
-.mobile-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 60px; /* ajusta se sua navbar for maior */
-  right: 10px;
-  background-color: #111;
-  border: 1px solid #333;
-  border-radius: 5px;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-  z-index: 999;
-}
-.mobile-menu ul.open {
-  max-height: 500px; /* ou algo suficiente pro número de itens */
-  opacity: 1;
-}
-
-.material-icons {
-  font-size: 20px;
-}
-
+/* UTILITÁRIOS */
 .hidden {
   display: none !important;
-}
-.navbar-menu {
-  display: none;
-  flex-direction: column;
-  /* outros estilos para menu mobile */
-}
-
-.navbar-menu.show {
-  display: flex;
-}
-
-.navbar-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1001;
-}
-
-.navbar-toggle .bar {
-  height: 4px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 2px;
-  transition: 0.3s ease;
-}
-
-/* Estado ativo: vira X */
-.navbar-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.navbar-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.navbar-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
 }
