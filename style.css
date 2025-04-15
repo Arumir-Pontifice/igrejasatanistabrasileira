@@ -35,7 +35,8 @@
 .navbar {
   background-color: #111; /* Cor sólida e simbólica */
   padding: 20px 30px; /* Grossura ajustada */
-  position: sticky;
+height: 60px;
+  position: relative;
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
@@ -98,10 +99,16 @@
      display: none;
      flex-direction: column;
      background-color: #111;
-     width: 100%;
+     width: 200px;
      position: absolute;
      top: 60px;
      left: 0;
+right: 0;
+margin: 0 auto;
+z-index: 999;
+border-top: 2px solid #b22222;
+border-radius: 0 0 8px 8px;
+box-shadow: 0 4px 6px grab(0, 0, 0, 0.3);
    }
  
    .navbar-menu.active {
