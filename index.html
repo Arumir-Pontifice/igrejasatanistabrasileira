@@ -68,9 +68,10 @@
       if (toggleBtn && navbarMenu) {
         // Evento de clique
         toggleBtn.addEventListener("click", function (event) {
-          event.stopPropagation();
-          navbarMenu.classList.toggle("show");
-        });
+  event.stopPropagation();
+  toggleBtn.classList.toggle("active"); // ativa o X
+  navbarMenu.classList.toggle("show");
+});
 
         // Fecha ao clicar fora
         document.addEventListener("click", function (event) {
