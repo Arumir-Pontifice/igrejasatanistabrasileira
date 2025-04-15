@@ -54,50 +54,34 @@
   <script src="scripts/navbar.js" defer></script>
   <script src="scripts/carousel.js" defer></script>
   <script>
-  // Carregar navbar dinamicamente e só depois ativar o JS
-  fetch('partials/navbar.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('navbar-container').innerHTML = data;
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("menuToggle");
+    const navbarMenu = document.getElementById("navbarMenu");
 
-      // Agora que a navbar está no DOM, ativamos o JS do menu
-      const toggleBtn = document.getElementById('menuToggle');
-      const navbarMenu = document.getElementById('navbarMenu');
-
-      if (toggleBtn && navbarMenu) {
-        toggleBtn.addEventListener('click', () => {
-          navbarMenu.classList.toggle('show');
-        });
+    // Fecha o menu ao clicar fora dele
+    document.addEventListener("click", function (event) {
+      if (
+        navbarMenu.classList.contains("show") &&
+        !event.target.closest(".navbar") &&
+        !event.target.closest("#menuToggle")
+      ) {
+        navbarMenu.classList.remove("show");
       }
     });
 
-  // Footer pode vir separado
-  fetch('partials/footer.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('footer-container').innerHTML = data;
+    // Fecha o menu ao rolar a página
+    window.addEventListener("scroll", function () {
+      navbarMenu.classList.remove("show");
     });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobileMenu");
 
-    hamburger.addEventListener("click", function () {
-  mobileMenu.classList.toggle("open");
-});
-
-// Fecha o menu ao clicar fora dele
-$(document).on('click', function (event) {
-  if (!$(event.target).closest('#hamburger').length && !$(event.target).closest('#mobileMenu').length) {
-    $('#mobileMenu').removeClass('open');
-  }
-});
-
-// Fecha o menu ao rolar a página
-$(window).on('scroll', function () {
-  $('#mobileMenu').removeClass('open');
-});
+    // Adiciona evento de clique para abrir/fechar
+    if (toggleBtn && navbarMenu) {
+      toggleBtn.addEventListener("click", function (event) {
+        event.stopPropagation(); // Evita que feche imediatamente
+        navbarMenu.classList.toggle("show");
+      });
+    }
+  });
 </script>
 </body>
 </html>
