@@ -172,3 +172,28 @@ a:hover {
     display: flex;
   }
 }
+
+.navbar-menu {
+  display: flex;
+  gap: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-menu {
+    flex-direction: column;
+    background-color: #000;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .navbar-menu.show {
+    max-height: 500px; /* ou use JS com scrollHeight para tornar dinâmico */
+  }
+
+  .navbar-menu a {
+    padding: 0.8rem 1rem;
+    border-top: 1px solid #8b0000;
+  }
+}
