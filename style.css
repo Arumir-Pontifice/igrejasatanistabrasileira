@@ -43,24 +43,39 @@ height: 60px;
   border-bottom: 2px solid #8B0000; /* Linha simbólica */
 }
 
-.navbar-container {
+.navbar {
+  background-color: #111;
+  border-bottom: 2px solid #B22222;
+  padding: 10px 20px;
+  height: 60px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
 }
 
 .navbar-logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
   color: #B22222;
-  font-weight: bold;
+  text-decoration: none;
   font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .navbar-logo img {
-  height: 42px;
-  margin-right: 12px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #F5F5F5;
+  cursor: pointer;
+  display: none;
 }
 
 .navbar-menu {
@@ -83,215 +98,33 @@ height: 60px;
   color: #B22222;
 }
 
- 
- /* Botão do menu (mobile) */
- .navbar-toggle {
-   display: none;
-   background: none;
-   border: none;
-   font-size: 1.5rem;
-   color: #F5F5F5;
- }
- 
- /* Responsivo */
- @media (max-width: 768px) {
-   .navbar-menu {
-     display: none;
-     flex-direction: column;
-     background-color: #111;
-     width: 200px;
-     position: absolute;
-     top: 60px;
-     left: 0;
-right: 0;
-margin: 0 auto;
-z-index: 1001;
-border-top: 2px solid #b22222;
-border-radius: 0 0 8px 8px;
-box-shadow: 0 4px 6px rgab(0, 0, 0, 0.3);
-   }
- 
-   .navbar-menu.active {
-     display: flex;
-   }
- 
-   .navbar-toggle {
-     display: block;
-   }
- }
- 
- /* Botões */
- .btn {
-   display: inline-block;
-   padding: 12px 24px;
-   margin: 10px;
-   font-size: 1rem;
-   text-decoration: none;
-   border: 2px solid #B22222;
-   color: #F5F5F5;
-   background-color: transparent;
-   transition: all 0.3s ease;
-   border-radius: 5px;
- }
- 
- .btn:hover {
-   background-color: #B22222;
-   color: #fff;
- }
- 
- .btn-secondary {
-   border-color: #666666;
- }
- 
- .btn-secondary:hover {
-   background-color: #666666;
- }
- 
- /* Responsividade básica */
- @media (max-width: 600px) {
-   .hero h1 {
-     font-size: 2rem;
-   }
-   .subtitle {
-     font-size: 1rem;
-   }
-   .btn {
-     width: 100%;
-     max-width: 300px;
-   }
- }
- .site-footer {
-   background-color: #111;
-   color: #888;
-   text-align: center;
-   padding: 30px 20px;
-   font-size: 0.9rem;
-   border-top: 1px solid #222;
- }
- 
- .site-footer a {
-   color: #B22222;
-   text-decoration: none;
-   margin: 0 5px;
- }
- 
- .site-footer a:hover {
-   text-decoration: underline;
- }
- 
- .footer-simbolo {
-   margin-top: 15px;
-   color: #666;
-   font-style: italic;
- }
-
-/* Ajuste do Menu no Mobile */
 @media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
   .navbar-menu {
     display: none;
     flex-direction: column;
     background-color: #111;
-    width: 250px; /* Largura limitada para o menu */
     position: absolute;
-    top: 60px; /* Ajuste para começar logo abaixo da barra */
-    left: 50%;  /* Centraliza o menu na tela */
-    transform: translateX(-50%); /* Ajusta para ficar centralizado */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombras para destacar */
-    border-top: 2px solid #B22222; /* Linha vermelha acima do menu */
-    border-radius: 5px; /* Bordas arredondadas */
-    z-index: 998; /* Menor que o da barra para não cobrir */
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    border-top: 2px solid #B22222;
   }
 
   .navbar-menu.active {
     display: flex;
   }
 
-  .navbar-toggle {
-    color: #F5F5F5;
-    background-color: transparent;
-    font-size: 1.5rem;
-  }
-
   .navbar-menu li {
-    padding: 10px 20px; /* Espaçamento maior nas opções */
+    padding: 12px 20px;
+    border-bottom: 1px solid #222;
   }
 
   .navbar-menu li a {
-    color: #F5F5F5;
-    text-decoration: none;
-    font-size: 1.1rem; /* Fonte do menu ajustada */
-    transition: color 0.3s;
+    font-size: 1.1rem;
   }
-
-  .navbar-menu li a:hover {
-    color: #B22222; /* Vermelho para destacar no hover */
-  }
-}
-
-.navbar {
-  background-color: #111;
-  border-bottom: 2px solid #B22222;
-  padding: 10px 20px;
-  position: relative;
-  height: 60px;
-  z-index: 1000;
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-}
-
-.navbar-logo {
-  color: #B22222;
-  text-decoration: none;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-logo img {
-  height: 40px;
-  margin-right: 10px;
-}
-
-.navbar-toggle {
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.navbar-menu {
-  display: none;
-  flex-direction: column;
-  background-color: #111;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  border-top: 2px solid #B22222;
-  z-index: 999;
-}
-
-.navbar-menu.active {
-  display: flex;
-}
-
-.navbar-menu li {
-  padding: 12px 20px;
-  border-bottom: 1px solid #222;
-}
-
-.navbar-menu li a {
-  color: #F5F5F5;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.navbar-menu li a:hover {
-  color: #B22222;
 }
