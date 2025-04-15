@@ -255,3 +255,12 @@ a:hover {
 .hidden {
   display: none !important;
 }
+.navbar-menu {
+  display: none;
+  flex-direction: column;
+  /* outros estilos para menu mobile */
+}
+
+.navbar-menu.show {
+  display: flex;
+}
