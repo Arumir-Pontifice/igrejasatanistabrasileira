@@ -84,7 +84,17 @@
     const mobileMenu = document.getElementById("mobileMenu");
 
     hamburger.addEventListener("click", function () {
-      mobileMenu.classList.toggle("open");
+      mobileMenu.classList.toggle("open"), // Fecha o menu ao clicar fora dele
+$(document).on('click', function (event) {
+  if (!$(event.target).closest('.menu').length && !$(event.target).closest('.list').length) {
+    $('.list').addClass('hidden');
+  }
+});
+
+// Fecha o menu ao rolar a página
+$(window).on('scroll', function () {
+  $('.list').addClass('hidden');
+});;
     });
   });
 </script>
