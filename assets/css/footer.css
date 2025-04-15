@@ -1,10 +1,12 @@
-/* footer.css */
-
 footer {
-  background-color: #0d0d0d;
-  color: #aaa;
-  padding: 2rem;
+  background-color: var(--secondary-color);
+  color: var(--text-light);
   text-align: center;
-  font-size: 0.9rem;
-  border-top: 1px solid #222;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+}
+
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
 }
