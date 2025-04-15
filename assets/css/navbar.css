@@ -1,5 +1,6 @@
 /* navbar.css */
 
+/* Container da navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -12,19 +13,22 @@
   z-index: 1000;
 }
 
+/* Logo */
 .navbar-logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.navbar-logo .logo {
+.navbar-logo img {
   height: 40px;
 }
 
+/* Menu principal */
 .navbar-menu {
   display: flex;
   gap: 2rem;
+  list-style: none;
 }
 
 .navbar-menu a {
@@ -38,18 +42,17 @@
 }
 
 /* Botão hamburger */
-.menu-toggle {
+.navbar-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
   width: 30px;
   height: 25px;
   justify-content: space-between;
-  background: none;
-  border: none;
 }
 
-.menu-toggle .bar {
+.navbar-toggle .bar {
+  display: block;
   height: 4px;
   width: 100%;
   background: white;
@@ -57,21 +60,22 @@
   transition: all 0.3s ease;
 }
 
-.menu-toggle.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+/* Animação do X */
+.navbar-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
 }
 
-.menu-toggle.open .bar:nth-child(2) {
+.navbar-toggle.active .bar:nth-child(2) {
   opacity: 0;
 }
 
-.menu-toggle.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.navbar-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .menu-toggle {
+  .navbar-toggle {
     display: flex;
   }
 
@@ -87,5 +91,9 @@
   .navbar-menu.show {
     max-height: 500px;
     padding: 1rem 0;
+  }
+
+  .navbar-menu a {
+    padding: 0.5rem 1rem;
   }
 }
