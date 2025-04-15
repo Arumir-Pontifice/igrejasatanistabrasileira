@@ -5,77 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Igreja Satanista Brasileira</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="scripts/navbar.js"></script>
-  <script defer src="scripts/carousel.js"></script>
+  <link rel="icon" href="assets/imgs/favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <!-- Barra Superior -->
-  <header class="top-bar">
-    <div class="container">
-      <a href="/" class="logo">
-        <img src="assets/imgs/logo.svg" alt="Logo ISB" />
-        <span>Igreja Satanista Brasileira</span>
-      </a>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="#quem-somos">Quem Somos</a></li>
-          <li><a href="#objetivos">Objetivos</a></li>
-          <li><a href="#filosofia">Filosofia</a></li>
-          <li><a href="/manifesto/">Manifesto</a></li>
-          <li><a href="/contato/">Contato</a></li>
-        </ul>
-        <button class="nav-toggle">☰</button>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Carrossel de Frases -->
+  <!-- Navbar (inserida dinamicamente) -->
+  <div id="navbar-container"></div>
+
+  <!-- Carrossel -->
   <section class="hero-carousel">
     <div class="carousel-container">
-      <div class="carousel-slide">
-        <blockquote>“Frase 1 alinhada à nossa filosofia.”</blockquote>
+      <div class="carousel-slide active">
+        <blockquote>“Tu és teu próprio altar.”</blockquote>
       </div>
       <div class="carousel-slide">
-        <blockquote>“Frase 2 alinhada à nossa filosofia.”</blockquote>
+        <blockquote>“A liberdade é o fogo que molda o Eu.”</blockquote>
       </div>
       <div class="carousel-slide">
-        <blockquote>“Frase 3 alinhada à nossa filosofia.”</blockquote>
+        <blockquote>“Negamos o trono, pois somos os deuses de nós mesmos.”</blockquote>
       </div>
-      <!-- Controles -->
       <button class="carousel-prev">‹</button>
       <button class="carousel-next">›</button>
     </div>
   </section>
 
   <!-- Seções Introdutórias -->
-  <main>
+  <main class="main-content">
     <section id="quem-somos" class="intro-section">
       <h2>Quem Somos</h2>
-      <p><!-- Texto sobre quem somos --></p>
+      <p>A Igreja Satanista Brasileira é uma organização filosófica, laica e livre de dogmas, dedicada à valorização do indivíduo, da razão e da liberdade consciente. Somos um reflexo do humano que ousa pensar por si mesmo.</p>
     </section>
 
     <section id="objetivos" class="intro-section">
-      <h2>Objetivos</h2>
-      <p><!-- Texto sobre objetivos --></p>
+      <h2>Nossos Objetivos</h2>
+      <p>Promover a filosofia satanista ateísta no Brasil, defender a laicidade, combater a opressão religiosa e estimular o pensamento crítico como ferramenta de emancipação pessoal e coletiva.</p>
     </section>
 
     <section id="filosofia" class="intro-section">
-      <h2>Filosofia</h2>
-      <p><!-- Texto sobre a filosofia --></p>
+      <h2>Nossa Filosofia</h2>
+      <p>O Satanismo Ateísta é uma filosofia de autoafirmação, responsabilidade pessoal e rejeição ao divino externo. Satã é símbolo de rebeldia, lucidez e liberdade diante da tirania espiritual.</p>
     </section>
   </main>
 
-  <!-- Rodapé -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-links">
-        <a href="/politica-privacidade/">Política de Privacidade</a>
-        <a href="/termos-de-uso/">Termos de Uso</a>
-        <a href="/codigo-de-conduta/">Código de Conduta</a>
-      </div>
-      <p>© 2025 Igreja Satanista Brasileira. Todos os direitos reservados.</p>
-      <p>CNPJ: XX.XXX.XXX/0001-XX – Rua Exemplo, 123, Cidade, Estado – Brasil</p>
-    </div>
-  </footer>
+  <!-- Rodapé (inserido dinamicamente) -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="scripts/navbar.js" defer></script>
+  <script src="scripts/carousel.js" defer></script>
+  <script>
+    // Carregar navbar e footer dinamicamente
+    fetch('partials/navbar.html').then(res => res.text()).then(data => {
+      document.getElementById('navbar-container').innerHTML = data;
+    });
+
+    fetch('partials/footer.html').then(res => res.text()).then(data => {
+      document.getElementById('footer-container').innerHTML = data;
+    });
+  </script>
 </body>
 </html>
