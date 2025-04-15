@@ -1,16 +1,55 @@
-/* components.css */
-
 button {
-  background-color: #c92424;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--text-light);
   border: none;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: var(--transition);
+  border-radius: 5px;
 }
 
 button:hover {
-  background-color: #a31e1e;
+  background-color: var(--accent-color);
+}
+
+.hero-carousel {
+  background: #000;
+  color: var(--text-light);
+  padding: 4rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel-slide {
+  display: none;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
 }
