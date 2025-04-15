@@ -1,17 +1,42 @@
-document.addEventListener("DOMContentLoaded", function () {
-  fetch("./navbar.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("navbar-placeholder").innerHTML = data;
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevButton = document.querySelector('.carousel-prev');
+  const nextButton = document.querySelector('.carousel-next');
+  let currentSlide = 0;
+  let slideInterval;
 
-      // Agora que a navbar foi carregada, ative o menu
-      const toggle = document.getElementById("menuToggle");
-      const menu = document.getElementById("navbarMenu");
-
-      if (toggle && menu) {
-        toggle.addEventListener("click", () => {
-          menu.classList.toggle("active");
-        });
-      }
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
     });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 7000);
+  }
+
+  prevButton.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+  });
+
+  nextButton.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  // Início automático
+  showSlide(currentSlide);
+  slideInterval = setInterval(nextSlide, 7000);
 });
