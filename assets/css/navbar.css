@@ -1,68 +1,52 @@
-/* navbar.css */
-
-/* Container da navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--secondary-color);
   padding: 1rem 2rem;
-  background-color: #111;
-  color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* Logo */
 .navbar-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
 }
 
-.navbar-logo img {
-  height: 40px;
-}
-
-/* Menu principal */
 .navbar-menu {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.navbar-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.navbar-menu a:hover {
-  text-decoration: underline;
-}
-
-/* Botão hamburger */
-.navbar-toggle {
   display: none;
   flex-direction: column;
-  cursor: pointer;
+  gap: 1rem;
+}
+
+.navbar-menu.show {
+  display: flex;
+}
+
+.navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 30px;
-  height: 25px;
-  justify-content: space-between;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
 }
 
 .navbar-toggle .bar {
-  display: block;
   height: 4px;
   width: 100%;
-  background: white;
+  background-color: #fff;
   border-radius: 2px;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
-/* Animação do X */
 .navbar-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .navbar-toggle.active .bar:nth-child(2) {
@@ -70,30 +54,5 @@
 }
 
 .navbar-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .navbar-toggle {
-    display: flex;
-  }
-
-  .navbar-menu {
-    flex-direction: column;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    width: 100%;
-    background-color: #111;
-  }
-
-  .navbar-menu.show {
-    max-height: 500px;
-    padding: 1rem 0;
-  }
-
-  .navbar-menu a {
-    padding: 0.5rem 1rem;
-  }
+  transform: rotate(-45deg) translate(6px, -6px);
 }
