@@ -34,11 +34,31 @@
   });
 });*/
 
+/*document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('menuToggle');
+  const navbarMenu = document.getElementById('navbarMenu');
+
+  toggleBtn.addEventListener('click', () => {
+    if (navbarMenu.classList.contains('show')) {
+      navbarMenu.style.maxHeight = null;
+      navbarMenu.classList.remove('show');
+    } else {
+      navbarMenu.style.maxHeight = navbarMenu.scrollHeight + "px";
+      navbarMenu.classList.add('show');
+    }
+  });
+});*/
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('menuToggle');
   const navbarMenu = document.getElementById('navbarMenu');
 
   toggleBtn.addEventListener('click', () => {
+    // Alternar classe ativa no botão (para o X funcionar)
+    toggleBtn.classList.toggle('active');
+
+    // Mostrar ou esconder o menu
     if (navbarMenu.classList.contains('show')) {
       navbarMenu.style.maxHeight = null;
       navbarMenu.classList.remove('show');
