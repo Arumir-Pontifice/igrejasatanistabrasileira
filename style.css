@@ -45,12 +45,13 @@ a:hover {
   margin-right: 0.8rem;
 }
 
+/* BOTÃO HAMBURGUER PADRÃO */
 .navbar-toggle {
   display: none;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 30px;
-  height: 24px;
+  height: 22px;
   background: none;
   border: none;
   cursor: pointer;
@@ -59,15 +60,16 @@ a:hover {
 }
 
 .navbar-toggle .bar {
-  height: 4px;
+  height: 3px;
   width: 100%;
   background-color: #fff;
   border-radius: 2px;
-  transition: 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
+/* ANIMAÇÃO PARA “X” */
 .navbar-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(4px, 4px);
 }
 
 .navbar-toggle.active .bar:nth-child(2) {
@@ -75,8 +77,16 @@ a:hover {
 }
 
 .navbar-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: rotate(-45deg) translate(4px, -4px);
 }
+
+/* RESPONSIVO: ATIVA O BOTÃO */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
 
 .navbar-menu {
   display: flex;
@@ -88,11 +98,11 @@ a:hover {
   padding: 0.8rem 1rem;
 }
 
-/* MENU MOBILE */
+/* MENU MOBILE 
 @media (max-width: 768px) {
   .navbar-toggle {
     display: flex;
-  }
+  }*/
 
   .navbar-menu {
     flex-direction: column;
