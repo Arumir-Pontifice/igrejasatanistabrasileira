@@ -1,0 +1,65 @@
+/* navbar.css */
+
+nav {
+  background-color: #0d0d0d;
+  color: #e5e5e5;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+nav .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #c92424;
+}
+
+#menuToggle {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #e5e5e5;
+}
+
+#menuToggle.open::before {
+  content: "✕";
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  nav ul.show {
+    max-height: 500px;
+  }
+
+  #menuToggle {
+    display: block;
+  }
+}
