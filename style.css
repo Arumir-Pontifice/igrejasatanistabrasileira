@@ -243,6 +243,10 @@ a:hover {
   transition: max-height 0.4s ease, opacity 0.4s ease;
   z-index: 999;
 }
+.mobile-menu ul.open {
+  max-height: 500px; /* ou algo suficiente pro número de itens */
+  opacity: 1;
+}
 
 .material-icons {
   font-size: 20px;
