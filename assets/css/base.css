@@ -1,27 +1,22 @@
-/* Reset */
+/* Reset e Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
+  font-family: 'Segoe UI', sans-serif;
   background-color: #0d0d0d;
   color: #d4d4d4;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
 }
 
-/* Variáveis */
-:root {
-  --primary-color: #d60000;
-  --secondary-color: #222;
-  --accent-color: #900;
-  --text-light: #f0f0f0;
-  --text-dark: #111;
-  --transition: 0.3s ease;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
 }

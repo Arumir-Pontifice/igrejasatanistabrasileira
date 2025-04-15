@@ -1,33 +1,23 @@
-button {
-  background-color: var(--primary-color);
-  color: var(--text-light);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-  transition: var(--transition);
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: var(--accent-color);
-}
-
+/* Hero / Carrossel */
 .hero-carousel {
-  background: #000;
-  color: var(--text-light);
-  padding: 4rem 1rem;
+  background-color: #111;
+  padding: 4rem 2rem;
   text-align: center;
   position: relative;
 }
 
 .carousel-container {
+  max-width: 800px;
+  margin: 0 auto;
   position: relative;
 }
 
 .carousel-slide {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-style: italic;
+  font-weight: bold;
+  color: #ff0000;
 }
 
 .carousel-slide.active {
@@ -39,17 +29,68 @@ button:hover {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
-  background: none;
+  background-color: transparent;
   border: none;
-  color: var(--primary-color);
+  font-size: 2rem;
+  color: #ff0000;
   cursor: pointer;
+  user-select: none;
+  padding: 0 1rem;
 }
 
 .carousel-prev {
-  left: 10px;
+  left: 0;
 }
 
 .carousel-next {
-  right: 10px;
+  right: 0;
+}
+
+.hero-carousel {
+  background: #000;
+  color: #fff;
+  padding: 4rem 1rem;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.carousel-slide {
+  display: none;
+  font-size: 1.5rem;
+  font-style: italic;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-slide.active {
+  display: block;
+  opacity: 1;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.carousel-prev {
+  left: 0;
+}
+
+.carousel-next {
+  right: 0;
 }

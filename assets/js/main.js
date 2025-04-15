@@ -1,24 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".carousel-slide");
-  const nextBtn = document.querySelector(".carousel-next");
-  const prevBtn = document.querySelector(".carousel-prev");
-  let index = 0;
-
-  function showSlide(i) {
-    slides.forEach((slide, idx) => {
-      slide.classList.toggle("active", idx === i);
+document.addEventListener("DOMContentLoaded", () => {
+  // Navbar
+  fetch("partials/navbar.html")
+    .then((res) => res.text())
+    .then((html) => {
+      document.getElementById("navbar-container").innerHTML = html;
+      if (typeof initNavbar === "function") initNavbar();
     });
-  }
-
-  nextBtn.addEventListener("click", () => {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-  });
-
-  prevBtn.addEventListener("click", () => {
-    index = (index - 1 + slides.length) % slides.length;
-    showSlide(index);
-  });
-
-  showSlide(index);
+  
+  // Footer
+  fetch("partials/footer.html")
+    .then((res) => res.text())
+    .then((html) => {
+      document.getElementById("footer-container").innerHTML = html;
+    });
 });
+
+// Carrossel
+fetch("partials/carousel.html")
+  .then((res) => res.text())
+  .then((html) => {
+    document.getElementById("carousel-container").innerHTML = html;
+  });
+  
+  // Seções Introdutórias
+fetch("partials/intro-sections.html")
+  .then((res) => res.text())
+  .then((html) => {
+    document.getElementById("intro-container").innerHTML = html;
+  });

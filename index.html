@@ -4,8 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Igreja Satanista Brasileira</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Favicon -->
   <link rel="icon" href="assets/imgs/favicon.ico" type="image/x-icon" />
+
+  <!-- CSS modular -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
@@ -13,8 +17,8 @@
   <div id="navbar-container"></div>
 
   <!-- Carrossel -->
-  <section class="hero-carousel">
-    <div class="carousel-container">
+  <div id="carousel-container"></div>
+    <!--div class="carousel-container">
       <div class="carousel-slide active">
         <blockquote>“Tu és teu próprio altar.”</blockquote>
       </div>
@@ -26,11 +30,11 @@
       </div>
       <button class="carousel-prev">‹</button>
       <button class="carousel-next">›</button>
-    </div>
+    </div --->
   </section>
 
   <!-- Seções Introdutórias -->
-  <main class="main-content">
+  <!--main class="main-content">
     <section id="quem-somos" class="intro-section">
       <h2>Quem Somos</h2>
       <p>A Igreja Satanista Brasileira é uma organização filosófica, laica e livre de dogmas, dedicada à valorização do indivíduo, da razão e da liberdade consciente. Somos um reflexo do humano que ousa pensar por si mesmo.</p>
@@ -48,61 +52,14 @@
   </main>
 
   <!-- Rodapé (inserido dinamicamente) -->
+  <div id="intro-container">
+    <!--Tab to edit-->
+  </div>
   <div id="footer-container"></div>
 
-  <!-- Scripts -->
-  <script src="/assets/js/navbar.js" defer></script>
-  <script src="/assets/js/main.js" defer></script>
-  <script>
-  // Carregar navbar
-  fetch('partials/navbar.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('navbar-container').innerHTML = data;
-
-      // Após inserir, ativar menu mobile
-      const toggleBtn = document.getElementById("menuToggle");
-      const navbarMenu = document.getElementById("navbarMenu");
-
-      // Garante que os elementos existem
-      if (toggleBtn && navbarMenu) {
-        // Evento de clique
-        toggleBtn.addEventListener("click", function (event) {
-  event.stopPropagation();
-  toggleBtn.classList.toggle("active"); // ativa o X
-  navbarMenu.classList.toggle("show");
-});
-
-        // Fecha ao clicar fora
-        document.addEventListener("click", function (event) {
-          if (
-            navbarMenu.classList.contains("show") &&
-            !event.target.closest(".navbar") &&
-            !event.target.closest("#menuToggle")
-          ) {
-            navbarMenu.classList.remove("show");
-          }
-        });
-
-        // Fecha ao rolar a página
-        window.addEventListener("scroll", function () {
-          navbarMenu.classList.remove("show");
-        });
-      }
-    })
-    .catch(error => {
-      console.error("Erro ao carregar navbar:", error);
-    });
-
-  // Carregar footer
-  fetch('partials/footer.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('footer-container').innerHTML = data;
-    })
-    .catch(error => {
-      console.error("Erro ao carregar footer:", error);
-    });
-</script>
+  <!-- Scripts JS -->
+  <script src="assets/js/navbar.js" defer></script>
+  <script src="assets/js/carousel.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

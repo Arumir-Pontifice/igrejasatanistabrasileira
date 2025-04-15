@@ -1,28 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initNavbar() {
   const toggleBtn = document.getElementById("menuToggle");
   const navbarMenu = document.getElementById("navbarMenu");
-
-  document.addEventListener("click", function (event) {
+  
+  if (!toggleBtn || !navbarMenu) return;
+  
+  toggleBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    navbarMenu.classList.toggle("show");
+    toggleBtn.classList.toggle("open");
+  });
+  
+  // Fecha ao clicar fora
+  document.addEventListener("click", function(event) {
     if (
       navbarMenu.classList.contains("show") &&
       !event.target.closest(".navbar") &&
       !event.target.closest("#menuToggle")
     ) {
       navbarMenu.classList.remove("show");
-      toggleBtn.classList.remove("active");
+      toggleBtn.classList.remove("open");
     }
   });
-
-  window.addEventListener("scroll", function () {
+  
+  // Fecha ao rolar a página
+  window.addEventListener("scroll", function() {
     navbarMenu.classList.remove("show");
-    toggleBtn.classList.remove("active");
+    toggleBtn.classList.remove("open");
   });
+}
 
-  if (toggleBtn && navbarMenu) {
-    toggleBtn.addEventListener("click", function (event) {
-      event.stopPropagation();
-      toggleBtn.classList.toggle("active");
-      navbarMenu.classList.toggle("show");
+// Executa ao carregar
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("/navbar.html")
+    .then((res) => res.text())
+    .then((html) => {
+      document.getElementById("navbar-container").innerHTML = html;
+      initNavbar();
     });
-  }
 });

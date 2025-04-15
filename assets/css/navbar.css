@@ -1,44 +1,90 @@
-/* em assets/css/navbar.css */
+.navbar {
+  background-color: #111;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
 
-/* desktop: menu sempre visível */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
 .navbar-menu {
   display: flex;
-  gap: 1.2rem;
+  gap: 2rem;
+  list-style: none;
 }
 
-/* desktop: botão só aparece no mobile */
-.navbar-toggle {
+.navbar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu-toggle {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1001;
 }
 
-/* mobile */
-@media (max-width: 768px) {
-  .navbar-toggle {
-    display: flex;
-    /* ...seus estilos de hambúrguer aqui... */
-  }
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
 
+/* Animação para X */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   .navbar-menu {
-    display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--secondary-color);
+    right: 0;
+    background-color: #111;
     flex-direction: column;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.4s ease-in-out;
-    z-index: 999;
+    width: 100%;
+    display: none;
   }
-
+  
   .navbar-menu.show {
-    max-height: 500px;
     display: flex;
   }
-
-  .navbar-menu a {
-    padding: 0.8rem 1rem;
-    border-top: 1px solid var(--primary-color);
+  
+  .menu-toggle {
+    display: flex;
   }
 }
