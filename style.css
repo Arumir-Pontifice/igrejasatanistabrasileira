@@ -138,3 +138,37 @@ a:hover {
     font-size: 1.6rem;
   }
 }
+
+/* PARA O MENU */
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  color: #d4d4d4;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .navbar-menu a {
+    padding: 0.8rem 0;
+    border-top: 1px solid #8b0000;
+  }
+
+  .navbar-menu.show {
+    display: flex;
+  }
+}
