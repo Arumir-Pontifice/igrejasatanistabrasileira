@@ -1,11 +1,19 @@
-/* layout.css */
-
 .container {
+  width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  margin: auto;
 }
 
-main {
-  padding-top: 80px;
+.main-content {
+  padding: 3rem 0;
+}
+
+.intro-section {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.intro-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
