@@ -54,14 +54,29 @@
   <script src="scripts/navbar.js" defer></script>
   <script src="scripts/carousel.js" defer></script>
   <script>
-    // Carregar navbar e footer dinamicamente
-    fetch('partials/navbar.html').then(res => res.text()).then(data => {
+  // Carregar navbar dinamicamente e só depois ativar o JS
+  fetch('partials/navbar.html')
+    .then(res => res.text())
+    .then(data => {
       document.getElementById('navbar-container').innerHTML = data;
+
+      // Agora que a navbar está no DOM, ativamos o JS do menu
+      const toggleBtn = document.getElementById('menuToggle');
+      const navbarMenu = document.getElementById('navbarMenu');
+
+      if (toggleBtn && navbarMenu) {
+        toggleBtn.addEventListener('click', () => {
+          navbarMenu.classList.toggle('show');
+        });
+      }
     });
 
-    fetch('partials/footer.html').then(res => res.text()).then(data => {
+  // Footer pode vir separado
+  fetch('partials/footer.html')
+    .then(res => res.text())
+    .then(data => {
       document.getElementById('footer-container').innerHTML = data;
     });
-  </script>
+</script>
 </body>
 </html>
