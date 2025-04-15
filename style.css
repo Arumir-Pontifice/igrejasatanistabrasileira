@@ -105,10 +105,10 @@ height: 60px;
      left: 0;
 right: 0;
 margin: 0 auto;
-z-index: 999;
+z-index: 1001;
 border-top: 2px solid #b22222;
 border-radius: 0 0 8px 8px;
-box-shadow: 0 4px 6px grab(0, 0, 0, 0.3);
+box-shadow: 0 4px 6px rgab(0, 0, 0, 0.3);
    }
  
    .navbar-menu.active {
@@ -199,7 +199,7 @@ box-shadow: 0 4px 6px grab(0, 0, 0, 0.3);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombras para destacar */
     border-top: 2px solid #B22222; /* Linha vermelha acima do menu */
     border-radius: 5px; /* Bordas arredondadas */
-    z-index: 1001; /* Menor que o da barra para não cobrir */
+    z-index: 998; /* Menor que o da barra para não cobrir */
   }
 
   .navbar-menu.active {
