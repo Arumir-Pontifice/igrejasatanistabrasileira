@@ -1,65 +1,93 @@
 /* navbar.css */
 
-nav {
-  background-color: #0d0d0d;
-  color: #e5e5e5;
-  padding: 1rem 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.5);
-}
-
-nav .nav-container {
+/* Container da navbar */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-nav ul {
-  list-style: none;
+/* Logo */
+.navbar .logo {
+  height: 40px;
+}
+
+/* Menu principal */
+.navbar-menu {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
+  list-style: none;
 }
 
-nav ul li a {
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem;
-  transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-  color: #c92424;
+.navbar-menu a:hover {
+  text-decoration: underline;
 }
 
-#menuToggle {
+/* Botão hamburger */
+.menu-toggle {
   display: none;
+  flex-direction: column;
   cursor: pointer;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #e5e5e5;
+  width: 30px;
+  height: 25px;
+  justify-content: space-between;
 }
 
-#menuToggle.open::before {
-  content: "✕";
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
+/* Animação do X */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
-  nav ul {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
     flex-direction: column;
-    overflow: hidden;
     max-height: 0;
-    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    width: 100%;
+    background-color: #111;
   }
 
-  nav ul.show {
+  .navbar-menu.show {
     max-height: 500px;
+    padding: 1rem 0;
   }
 
-  #menuToggle {
-    display: block;
+  .navbar-menu li {
+    padding: 0.5rem 1rem;
   }
 }
