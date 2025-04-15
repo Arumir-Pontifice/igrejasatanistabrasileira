@@ -84,19 +84,20 @@
     const mobileMenu = document.getElementById("mobileMenu");
 
     hamburger.addEventListener("click", function () {
-      mobileMenu.classList.toggle("open"), // Fecha o menu ao clicar fora dele
+  mobileMenu.classList.toggle("open");
+});
+
+// Fecha o menu ao clicar fora dele
 $(document).on('click', function (event) {
-  if (!$(event.target).closest('.menu').length && !$(event.target).closest('.list').length) {
-    $('.list').addClass('hidden');
+  if (!$(event.target).closest('#hamburger').length && !$(event.target).closest('#mobileMenu').length) {
+    $('#mobileMenu').removeClass('open');
   }
 });
 
 // Fecha o menu ao rolar a página
 $(window).on('scroll', function () {
-  $('.list').addClass('hidden');
-});;
-    });
-  });
+  $('#mobileMenu').removeClass('open');
+});
 </script>
 </body>
 </html>
