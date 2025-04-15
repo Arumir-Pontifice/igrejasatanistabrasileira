@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbarMenu = document.getElementById('navbarMenu');
 
   toggleBtn.addEventListener('click', () => {
-    toggleBtn.classList.toggle('open');
+    toggleBtn.classList.toggle('activate');
     navbarMenu.classList.toggle('show');
   });
 });
