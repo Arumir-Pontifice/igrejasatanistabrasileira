@@ -1,58 +1,44 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--secondary-color);
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+/* em assets/css/navbar.css */
 
-.navbar-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
+/* desktop: menu sempre visível */
 .navbar-menu {
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.navbar-menu.show {
   display: flex;
+  gap: 1.2rem;
 }
 
+/* desktop: botão só aparece no mobile */
 .navbar-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1001;
+  display: none;
 }
 
-.navbar-toggle .bar {
-  height: 4px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 2px;
-  transition: var(--transition);
-}
+/* mobile */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+    /* ...seus estilos de hambúrguer aqui... */
+  }
 
-.navbar-toggle.active .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
+  .navbar-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-color);
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out;
+    z-index: 999;
+  }
 
-.navbar-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
+  .navbar-menu.show {
+    max-height: 500px;
+    display: flex;
+  }
 
-.navbar-toggle.active .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  .navbar-menu a {
+    padding: 0.8rem 1rem;
+    border-top: 1px solid var(--primary-color);
+  }
 }
