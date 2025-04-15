@@ -54,34 +54,54 @@
   <script src="scripts/navbar.js" defer></script>
   <script src="scripts/carousel.js" defer></script>
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggleBtn = document.getElementById("menuToggle");
-    const navbarMenu = document.getElementById("navbarMenu");
+  // Carregar navbar
+  fetch('partials/navbar.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('navbar-container').innerHTML = data;
 
-    // Fecha o menu ao clicar fora dele
-    document.addEventListener("click", function (event) {
-      if (
-        navbarMenu.classList.contains("show") &&
-        !event.target.closest(".navbar") &&
-        !event.target.closest("#menuToggle")
-      ) {
-        navbarMenu.classList.remove("show");
+      // Após inserir, ativar menu mobile
+      const toggleBtn = document.getElementById("menuToggle");
+      const navbarMenu = document.getElementById("navbarMenu");
+
+      // Garante que os elementos existem
+      if (toggleBtn && navbarMenu) {
+        // Evento de clique
+        toggleBtn.addEventListener("click", function (event) {
+          event.stopPropagation();
+          navbarMenu.classList.toggle("show");
+        });
+
+        // Fecha ao clicar fora
+        document.addEventListener("click", function (event) {
+          if (
+            navbarMenu.classList.contains("show") &&
+            !event.target.closest(".navbar") &&
+            !event.target.closest("#menuToggle")
+          ) {
+            navbarMenu.classList.remove("show");
+          }
+        });
+
+        // Fecha ao rolar a página
+        window.addEventListener("scroll", function () {
+          navbarMenu.classList.remove("show");
+        });
       }
+    })
+    .catch(error => {
+      console.error("Erro ao carregar navbar:", error);
     });
 
-    // Fecha o menu ao rolar a página
-    window.addEventListener("scroll", function () {
-      navbarMenu.classList.remove("show");
+  // Carregar footer
+  fetch('partials/footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer-container').innerHTML = data;
+    })
+    .catch(error => {
+      console.error("Erro ao carregar footer:", error);
     });
-
-    // Adiciona evento de clique para abrir/fechar
-    if (toggleBtn && navbarMenu) {
-      toggleBtn.addEventListener("click", function (event) {
-        event.stopPropagation(); // Evita que feche imediatamente
-        navbarMenu.classList.toggle("show");
-      });
-    }
-  });
 </script>
 </body>
 </html>
