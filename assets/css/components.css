@@ -1,0 +1,16 @@
+/* components.css */
+
+button {
+  background-color: #c92424;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #a31e1e;
+}
