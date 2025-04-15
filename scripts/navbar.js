@@ -6,3 +6,14 @@
     menu.classList.toggle("active");
   });
 }); */
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('menuToggle');
+  const navbarMenu = document.getElementById('navbarMenu');
+
+  toggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('show');
+  });
+});
