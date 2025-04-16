@@ -1,92 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Igreja Satanista Brasileira</title>
-    <link href="/tailwind.output.css" rel="stylesheet" />
-  </head>
-  <body class="bg-[#2f2f2f] text-white font-sans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Igreja Satanista Brasileira</title>
+  <link href="/dist/tailwind.output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white font-sans">
 
-    <!-- Navbar -->
-    <header id="navbar" class="fixed w-full top-0 left-0 z-50 transition-all duration-300 bg-gradient-to-b from-[#2f2f2f] to-black border-b border-gray-700">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 transition-all duration-300">
-        <div class="flex items-center space-x-3">
-          <img src="/logo.png" alt="Logo" class="h-10 transition-all duration-300" id="logo">
-          <span id="site-name" class="text-xl font-bold text-white transition-all duration-300">Igreja Satanista Brasileira</span>
-        </div>
-        <nav class="hidden md:flex space-x-6">
-          <a href="#" class="text-white hover:text-red-600">Início</a>
-          <a href="#" class="text-white hover:text-red-600">História</a>
-          <a href="#" class="text-white hover:text-red-600">Biblioteca</a>
-          <a href="#" class="text-white hover:text-red-600">Contato</a>
-        </nav>
-
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
-          <button id="mobile-menu-button" class="text-white focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 bg-gray-900 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <img src="/logo.png" alt="Logo ISB" class="h-8">
+        <h1 class="text-xl font-bold">Igreja Satanista Brasileira</h1>
       </div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#" class="text-white hover:text-red-500">Início</a></li>
+          <li><a href="#sobre" class="text-white hover:text-red-500">Sobre</a></li>
+          <li><a href="#contato" class="text-white hover:text-red-500">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      <!-- Mobile dropdown -->
-      <div id="mobile-menu" class="md:hidden fixed top-20 left-0 w-full bg-[#2f2f2f]/90 backdrop-blur-md border-t border-gray-700 hidden flex-col space-y-4 px-6 py-4 z-40">
-        <a href="#" class="text-white hover:text-red-600">Início</a>
-        <a href="#" class="text-white hover:text-red-600">História</a>
-        <a href="#" class="text-white hover:text-red-600">Biblioteca</a>
-        <a href="#" class="text-white hover:text-red-600">Contato</a>
-      </div>
-    </header>
+  <!-- Saudação -->
+  <main class="mt-20 p-8">
+    <section>
+      <h2 id="saudacao" class="text-3xl text-center mt-20 mb-8 font-semibold"></h2>
+      <p class="text-lg text-center">Seja bem-vindo ao nosso templo. Aqui, o conhecimento é a chave e a liberdade, nossa luz.</p>
+    </section>
 
-    <!-- Conteúdo -->
-    <main class="pt-28 max-w-4xl mx-auto px-4 space-y-8">
-      <section>
-        <h1 class="text-3xl font-bold">Bem-vindo à Igreja Satanista Brasileira</h1>
-        <p class="mt-4 text-gray-300">Este é o início de algo profano, racional e verdadeiramente livre.</p>
-      </section>
-    </main>
+    <!-- Rodapé -->
+    <footer class="bg-gray-900 py-4 mt-20 text-center text-gray-500">
+      <p>&copy; 2025 Igreja Satanista Brasileira - Todos os direitos reservados.</p>
+    </footer>
+  </main>
 
-    <script>
-      const navbar = document.getElementById('navbar');
-      const siteName = document.getElementById('site-name');
-      const logo = document.getElementById('logo');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileButton = document.getElementById('mobile-menu-button');
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          navbar.classList.add('h-14');
-          navbar.classList.remove('h-20');
-          siteName.textContent = 'ISB';
-          logo.classList.add('h-8');
-          logo.classList.remove('h-10');
-          mobileMenu.classList.add('border-t');
-        } else {
-          navbar.classList.remove('h-14');
-          navbar.classList.add('h-20');
-          siteName.textContent = 'Igreja Satanista Brasileira';
-          logo.classList.remove('h-8');
-          logo.classList.add('h-10');
-        }
-
-        if (!mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-        }
-      });
-
-      mobileButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!mobileButton.contains(e.target) && !mobileMenu.contains(e.target)) {
-          mobileMenu.classList.add('hidden');
-        }
-      });
-    </script>
-  </body>
+  <script src="/src/script.js"></script>
+</body>
 </html>

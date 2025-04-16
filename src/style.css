@@ -1,0 +1,12 @@
+/* /src/style.css */
+
+/* Adiciona algum estilo de fundo e fonte */
+body {
+  font-family: 'Helvetica', sans-serif;
+}
+
+#saudacao {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff4f4f; /* Cor vermelha para a saudação */
+}
