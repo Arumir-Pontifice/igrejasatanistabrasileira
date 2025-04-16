@@ -1,11 +1,12 @@
+// tailwind.config.js
 module.exports = {
-  content: ["./index.html"],
+  content: ["./public/**/*.html"],
   theme: {
     extend: {
       colors: {
-        'asfalto': '#2e2e2e',
+        asfalto: "#2f2f2f", // cinza escuro opaco
       },
     },
   },
   plugins: [],
-}
+};
