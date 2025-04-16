@@ -1,143 +1,159 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
     <title>Igreja Satanista Brasileira</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.17/dist/tailwind.min.css" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./dist/tailwind.output.css" rel="stylesheet" />
+    <script>
+      // Função de rolagem para esconder o menu ao rolar a página
+      window.onscroll = function () {
+        const navbar = document.getElementById('navbar');
+        const logo = document.getElementById('logo');
+        const title = document.getElementById('title');
+        const shortTitle = document.getElementById('short-title');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+          logo.classList.add('h-10');
+          logo.classList.remove('h-16');
+          title.classList.add('hidden');
+          shortTitle.classList.remove('hidden');
+        } else {
+          navbar.classList.remove('scrolled');
+          logo.classList.remove('h-10');
+          logo.classList.add('h-16');
+          title.classList.remove('hidden');
+          shortTitle.classList.add('hidden');
         }
 
-        /* Animação da navbar e efeito de scroll */
-        .navbar {
-            transition: all 0.3s ease;
+        // Fecha o menu dropdown ao rolar a página
+        if (mobileMenu && !mobileMenu.contains(event.target)) {
+          closeDropdown();
+        }
+      }
+
+      // Função para alternar o menu de navegação no mobile
+      function toggleMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+      }
+
+      // Função para alternar o submenu no menu dropdown
+      function toggleDropdown() {
+        const dropdown = document.getElementById('dropdown-menu');
+        dropdown.classList.toggle('hidden');
+      }
+
+      // Fecha o menu dropdown ao clicar fora
+      window.addEventListener('click', function (e) {
+        const dropdown = document.getElementById('dropdown-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.getElementById('hamburger');
+
+        if (!dropdown.contains(e.target) && !hamburger.contains(e.target)) {
+          closeDropdown();
         }
 
-        .shrink-navbar {
-            background: linear-gradient(180deg, #333333, #666666);
-            padding: 10px 0;
+        if (mobileMenu && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
         }
+      });
 
-        .shrink-logo {
-            max-width: 80px;
-        }
+      // Função para fechar o dropdown
+      function closeDropdown() {
+        const dropdown = document.getElementById('dropdown-menu');
+        dropdown.classList.add('hidden');
+      }
+    </script>
+  </head>
 
-        .navbar-logo {
-            max-width: 120px;
-            transition: all 0.3s ease;
-        }
-
-        /* Dropdown menu */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            top: 100%;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-            backdrop-filter: blur(4px);
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        /* Especificidades de responsividade */
-        @media (max-width: 768px) {
-            .mobile-menu {
-                display: block;
-            }
-
-            .desktop-menu {
-                display: none;
-            }
-        }
-    </style>
-</head>
-
-<body class="bg-[#303030] text-white">
-
+  <body class="bg-[#5c5c5c] text-white font-[Montserrat]">
     <!-- Navbar -->
-    <header class="navbar fixed w-full z-10 top-0 left-0 transition-all">
-        <div class="flex items-center justify-between px-6 py-4 bg-transparent">
-            <!-- Logo e Nome -->
-            <a href="/" class="flex items-center space-x-2">
-                <img src="/logo.png" alt="Logo ISB" class="navbar-logo transition-all" id="logo">
-                <span class="text-2xl font-semibold text-red-600" id="site-name">Igreja Satanista Brasileira</span>
-            </a>
-            <!-- Menu Principal -->
-            <nav class="desktop-menu space-x-6 hidden md:flex">
-                <a href="#" class="hover:text-red-600">Início</a>
-                <a href="#" class="hover:text-red-600">Sobre</a>
-                <a href="#" class="hover:text-red-600">Blog</a>
-                <a href="#" class="hover:text-red-600">Contato</a>
-                <!-- Dropdown Menu -->
-                <div class="relative">
-                    <button class="hover:text-red-600">Mais</button>
-                    <div class="dropdown-menu rounded-lg p-4">
-                        <a href="#" class="block text-white">Pacto de Sangue</a>
-                        <a href="#" class="block text-white">Rituais</a>
-                        <a href="#" class="block text-white">Eventos</a>
-                    </div>
-                </div>
-            </nav>
-            <!-- Mobile Menu -->
-            <div class="mobile-menu md:hidden">
-                <button id="mobile-menu-button">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828770.png" alt="Menu Icon" width="30" />
-                </button>
-            </div>
+    <header id="navbar" class="w-full fixed top-0 left-0 z-50 bg-gradient-to-b from-[#484848] to-[#5c5c5c] transition-all duration-300 ease-in-out">
+      <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+        <!-- Logo + Título -->
+        <div class="flex items-center space-x-4">
+          <img id="logo" src="/logo.png" alt="Igreja Satanista Brasileira" class="h-16 w-auto transition-all duration-300 ease-in-out" />
+          <div id="title" class="text-white font-semibold text-xl transition-all duration-300 ease-in-out">Igreja Satanista Brasileira</div>
+          <div id="short-title" class="text-white font-semibold text-xl hidden transition-all duration-300 ease-in-out">ISB</div>
         </div>
+        
+        <!-- Menu de Navegação -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#" class="text-white hover:text-red-500 transition">Início</a>
+          <a href="#" class="text-white hover:text-red-500 transition">História</a>
+          <a href="#" class="text-white hover:text-red-500 transition">Blog</a>
+          <a href="#" class="text-white hover:text-red-500 transition">Biblioteca</a>
+          <a href="#" class="text-white hover:text-red-500 transition">F.A.Q.</a>
+          
+          <!-- Dropdown -->
+          <div class="relative">
+            <button onclick="toggleDropdown()" class="text-white hover:text-red-500 transition">
+              Mais
+            </button>
+            <div id="dropdown-menu" class="absolute hidden bg-[#484848] text-white py-2 px-4 mt-1 space-y-2 w-48 rounded-lg shadow-lg backdrop-blur-sm">
+              <a href="#" class="block py-2 px-4 hover:text-red-500 transition">Subitem 1</a>
+              <a href="#" class="block py-2 px-4 hover:text-red-500 transition">Subitem 2</a>
+              <a href="#" class="block py-2 px-4 hover:text-red-500 transition">Subitem 3</a>
+            </div>
+          </div>
+        </nav>
+        
+        <!-- Ícone de Hambúrguer para Mobile -->
+        <button id="hamburger" class="md:hidden text-white" onclick="toggleMenu()">
+          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
     </header>
 
-    <!-- Seção "Em Construção" -->
-    <section class="px-6 py-12 bg-[#484848] text-gray-200">
-        <div class="max-w-4xl mx-auto text-justify space-y-6">
-            <h2 class="text-2xl md:text-3xl font-semibold text-red-500">Site em Construção</h2>
-            <p>
-                A Igreja Satanista Brasileira está em processo de construção digital, mas já estamos trabalhando para fornecer uma plataforma sólida para compartilhar a filosofia ateísta satanista, promover o pensamento crítico e a liberdade individual.
-            </p>
-            <p>
-                Em breve, você encontrará mais informações sobre nossa doutrina, rituais e como se tornar parte da nossa comunidade. Estamos comprometidos em proporcionar um espaço onde a autonomia e a reflexão sejam as bases para o desenvolvimento pessoal.
-            </p>
-            <p>
-                Fique atento para novidades e atualizações enquanto construímos um espaço digital que reflita nossa vertente filosófica única.
-            </p>
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="md:hidden hidden bg-[#484848] px-6 py-4 space-y-4">
+      <a href="#" class="text-white hover:text-red-500 transition">Início</a>
+      <a href="#" class="text-white hover:text-red-500 transition">História</a>
+      <a href="#" class="text-white hover:text-red-500 transition">Blog</a>
+      <a href="#" class="text-white hover:text-red-500 transition">Biblioteca</a>
+      <a href="#" class="text-white hover:text-red-500 transition">F.A.Q.</a>
+
+      <!-- Dropdown Mobile -->
+      <div class="relative">
+        <button onclick="toggleDropdown()" class="text-white hover:text-red-500 transition">
+          Mais
+        </button>
+        <div id="dropdown-menu" class="absolute hidden bg-[#484848] text-white py-2 px-4 mt-1 space-y-2 w-48 rounded-lg shadow-lg backdrop-blur-sm">
+          <a href="#" class="block py-2 px-4 hover:text-red-500 transition">Subitem 1</a>
+          <a href="#" class="block py-2 px-4 hover:text-red-500 transition">Subitem 2</a>
+          <a href="#" class="block py-2 px-4 hover:text-red-500 transition">Subitem 3</a>
         </div>
+      </div>
+    </div>
+
+    <!-- Seção Hero -->
+    <section class="pt-32 pb-24 px-6 text-center bg-[#484848]">
+      <h1 class="text-4xl md:text-6xl font-bold text-red-600">Tu és o teu próprio deus</h1>
+      <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+        A Igreja Satanista Brasileira é o espelho do indivíduo livre — sem deuses externos, sem céu, sem inferno. Aqui, a carne é sagrada e a consciência, soberana.
+      </p>
     </section>
 
-    <script>
-        // Função para diminuir a navbar ao rolar a página
-        window.onscroll = function () {
-            var scroll = window.scrollY;
-            var navbar = document.querySelector(".navbar");
-            var logo = document.getElementById("logo");
-            var siteName = document.getElementById("site-name");
+    <!-- Seção Manifesto / Introdução -->
+    <section class="px-6 py-12 bg-[#484848] text-gray-200">
+      <div class="max-w-4xl mx-auto text-justify space-y-6">
+        <h2 class="text-2xl md:text-3xl font-semibold text-red-500">Manifesto</h2>
+        <p>
+          A Igreja Satanista Brasileira é a expressão viva da recusa à submissão e da exaltação do eu. Não cultuamos divindades, mas cultivamos a lucidez. 
+          Não tememos o inferno, pois o construímos em vida para transformá-lo em força. Cada membro é templo e altar. Cada pensamento crítico é oração.
+        </p>
+        <p>
+          Nosso compromisso é com a liberdade, com a razão e com a responsabilidade de sermos deuses de nós mesmos. Não há doutrina a seguir, mas consciência a desenvolver.
+        </p>
+      </div>
+    </section>
 
-            if (scroll > 100) {
-                navbar.classList.add("shrink-navbar");
-                logo.classList.add("shrink-logo");
-                siteName.textContent = "ISB"; // Abreviação do nome
-            } else {
-                navbar.classList.remove("shrink-navbar");
-                logo.classList.remove("shrink-logo");
-                siteName.textContent = "Igreja Satanista Brasileira"; // Nome completo
-            }
-        };
-
-        // Toggle para menu mobile
-        const mobileMenuButton = document.getElementById("mobile-menu-button");
-        const mobileMenu = document.querySelector(".mobile-menu");
-
-        mobileMenuButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
-
-</body>
-
+  </body>
 </html>
