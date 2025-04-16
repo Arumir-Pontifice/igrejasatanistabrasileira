@@ -1,10 +1,11 @@
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./public/**/*.html"],
   theme: {
     extend: {
       colors: {
-        asfalto: "#2f2f2f", // cinza escuro opaco
+        asphalt: '#2f2f2f', // cinza sujo
+        blood: '#8B0000',
       },
     },
   },
