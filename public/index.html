@@ -4,70 +4,93 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Igreja Satanista Brasileira</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      background-color: #1a1a1a;
+    .transition-transform {
+      transition: transform 0.3s ease;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      width: 24px;
+      background: white;
+      margin: 6px 0;
+      transition: 0.3s ease;
+    }
+    .hamburger.active .line1 {
+      transform: rotate(45deg) translateY(8px);
+    }
+    .hamburger.active .line2 {
+      opacity: 0;
+    }
+    .hamburger.active .line3 {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+    .shrink {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    .logo-shrink {
+      width: 24px !important;
+      height: 24px !important;
+    }
+    .saudacao-shrink {
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: all 0.5s ease;
     }
   </style>
 </head>
-<body class="text-white font-sans">
 
-<!-- Navbar -->
-<nav class="bg-black text-white sticky top-0 z-50 shadow-md">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-16 items-center">
-      <!-- Logo / Nome -->
-      <div class="flex items-center space-x-2">
-  <!-- Ícone: estrela invertida -->
-  <svg class="w-6 h-6 text-red-600 transform rotate-180" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27
-             5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" />
-  </svg>
-  <span class="font-bold text-red-600 text-lg tracking-wider">ISB</span>
-</div>
+<body class="bg-black text-white overflow-x-hidden relative">
+  <!-- Overlay Blur -->
+  <div id="overlay" class="fixed inset-0 backdrop-blur-sm bg-black/30 z-30 hidden"></div>
+
+  <!-- Navbar -->
+  <header id="header" class="w-full py-5 px-6 md:px-16 fixed top-0 left-0 bg-black z-40 shadow-md transition-all duration-300">
+    <div class="flex items-center justify-between">
+      <!-- Logo e nome -->
+      <a href="#" class="flex items-center space-x-3 transition-all duration-300">
+        <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pentagram.svg/2048px-Pentagram.svg.png" alt="Logo" class="w-8 h-8 transition-all duration-300">
+        <span class="text-lg font-semibold tracking-wide uppercase text-white">ISB</span>
+      </a>
 
       <!-- Menu desktop -->
-      <div class="hidden md:flex space-x-8 text-sm">
-        <a href="#inicio" class="hover:text-red-600 transition">Início</a>
-        <a href="#filosofia" class="hover:text-red-600 transition">Filosofia</a>
-        <a href="#manifesto" class="hover:text-red-600 transition">Manifesto</a>
-        <a href="#biblioteca" class="hover:text-red-600 transition">Biblioteca</a>
-        <a href="#contato" class="hover:text-red-600 transition">Contato</a>
-      </div>
+      <nav class="hidden md:flex space-x-6 text-sm uppercase">
+        <a href="#" class="hover:text-red-600">Início</a>
+        <a href="#" class="hover:text-red-600">Manifesto</a>
+        <a href="#" class="hover:text-red-600">Biblioteca</a>
+        <a href="#" class="hover:text-red-600">Contato</a>
+      </nav>
 
-      <!-- Botão hambúrguer mobile -->
+      <!-- Botão mobile -->
       <div class="md:hidden">
-        <button id="menu-btn" class="focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
+        <button id="menuBtn" class="hamburger z-50 relative">
+          <span class="line1"></span>
+          <span class="line2"></span>
+          <span class="line3"></span>
         </button>
       </div>
     </div>
-  </div>
 
-  <!-- Menu mobile -->
-  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2 text-sm bg-black">
-    <a href="#inicio" class="block hover:text-red-600 transition">Início</a>
-    <a href="#filosofia" class="block hover:text-red-600 transition">Filosofia</a>
-    <a href="#manifesto" class="block hover:text-red-600 transition">Manifesto</a>
-    <a href="#biblioteca" class="block hover:text-red-600 transition">Biblioteca</a>
-    <a href="#contato" class="block hover:text-red-600 transition">Contato</a>
-  </div>
-</nav>
+    <!-- Menu mobile dropdown -->
+    <div id="mobileMenu" class="absolute top-full left-0 w-full bg-black text-white flex flex-col items-center space-y-6 py-6 text-lg uppercase backdrop-blur-md hidden z-40">
+      <a href="#" class="hover:text-red-600">Início</a>
+      <a href="#" class="hover:text-red-600">Manifesto</a>
+      <a href="#" class="hover:text-red-600">Biblioteca</a>
+      <a href="#" class="hover:text-red-600">Contato</a>
+    </div>
+  </header>
 
   <!-- Saudação + Frase aleatória -->
-  <header class="text-center py-16 px-4 bg-black">
-    <div id="saudacao" class="text-xl md:text-2xl text-gray-300 font-light mb-2"></div>
-    <div id="frase" class="text-2xl md:text-3xl font-semibold text-white max-w-2xl mx-auto"></div>
+  <header class="text-center px-4 bg-black pt-28 pb-16 relative transition-all duration-500">
+    <div id="saudacao" class="text-xl md:text-2xl text-gray-300 font-light mb-2 transition-all duration-500 fixed top-20 left-0 right-0 z-10"></div>
+    <div id="frase" class="text-2xl md:text-3xl font-semibold text-white max-w-2xl mx-auto relative z-0"></div>
   </header>
 
   <!-- Pilares da Insubmissão -->
   <section class="bg-[#2e2e2e] text-white py-16 px-6">
-    <div class="max-w-5xl mx-auto text-center">
+    <div class="max-w-5xl mx-auto text-left">
       <h2 class="text-3xl md:text-4xl font-serif mb-12 tracking-wide uppercase border-b border-gray-600 inline-block pb-2">
         Pilares da Insubmissão
       </h2>
@@ -75,28 +98,28 @@
       <div class="space-y-12 mt-12">
         <div>
           <h3 class="text-xl md:text-2xl font-semibold tracking-wide text-red-600">I. Um Caminho de Autonomia</h3>
-          <p class="mt-4 text-gray-200 text-base md:text-lg max-w-3xl mx-auto font-light leading-relaxed">
+          <p class="mt-4 text-gray-200 text-base md:text-lg max-w-3xl font-light leading-relaxed">
             O Satanismo Ateísta é o convite à responsabilidade radical. Não te oferecemos salvação, mas o espelho.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl md:text-2xl font-semibold tracking-wide text-red-600">II. Satã como Espelho, Não como Deidade</h3>
-          <p class="mt-4 text-gray-200 text-base md:text-lg max-w-3xl mx-auto font-light leading-relaxed">
+          <p class="mt-4 text-gray-200 text-base md:text-lg max-w-3xl font-light leading-relaxed">
             Aqui, Satã é símbolo. É metáfora de insubmissão, não entidade. Não nos ajoelhamos — erguemo-nos.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl md:text-2xl font-semibold tracking-wide text-red-600">III. A Carne como Santuário</h3>
-          <p class="mt-4 text-gray-200 text-base md:text-lg max-w-3xl mx-auto font-light leading-relaxed">
+          <p class="mt-4 text-gray-200 text-base md:text-lg max-w-3xl font-light leading-relaxed">
             Para nós, o corpo é templo. O prazer é caminho. O desejo é sinal de vida, não pecado.
           </p>
         </div>
 
         <div>
           <h3 class="text-xl md:text-2xl font-semibold tracking-wide text-red-600">IV. Liberdade com Peso</h3>
-          <p class="mt-4 text-gray-200 text-base md:text-lg max-w-3xl mx-auto font-light leading-relaxed">
+          <p class="mt-4 text-gray-200 text-base md:text-lg max-w-3xl font-light leading-relaxed">
             Não pregamos libertinagem, mas liberdade com responsabilidade. Tu és teu próprio juiz.
           </p>
         </div>
@@ -109,50 +132,73 @@
     © 2025 Igreja Satanista Brasileira. Todos os direitos reservados.
   </footer>
 
-  <!-- Script das frases aleatórias -->
+  <!-- Script -->
   <script>
-    const saudacoes = [
-      "Saudações do Templo do Eu.",
-      "Bem-vindo à trilha da autonomia.",
-      "Tu és o altar, e aqui te reconhecemos.",
-      "Ao que caminha sem pastores, saudamos.",
-      "Saudamos tua chegada — olhos abertos, mente erguida.",
-      "Honramos tua presença entre os insubmissos.",
-      "Àquele que pensa, damos as boas-vindas.",
-      "Que tua razão encontre solo fértil aqui.",
-      "Desperto, és bem-vindo ao Templo do Profano.",
-      "A porta está aberta para quem ousa ver."
-    ];
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    const header = document.getElementById('header');
+    const logo = document.getElementById('logo');
+    const saudacao = document.getElementById('saudacao');
 
+    // Toggle do menu
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('hidden');
+      overlay.classList.toggle('hidden');
+    });
+
+    overlay.addEventListener('click', () => {
+      closeMenu();
+    });
+
+    document.addEventListener('scroll', () => {
+      if (!mobileMenu.classList.contains('hidden')) {
+        closeMenu();
+      }
+
+      if (window.scrollY > 20) {
+        header.classList.add('shrink');
+        logo.classList.add('logo-shrink');
+        saudacao.classList.add('saudacao-shrink');
+      } else {
+        header.classList.remove('shrink');
+        logo.classList.remove('logo-shrink');
+        saudacao.classList.remove('saudacao-shrink');
+      }
+    });
+
+    function closeMenu() {
+      menuBtn.classList.remove('active');
+      mobileMenu.classList.add('hidden');
+      overlay.classList.add('hidden');
+    }
+
+    // Fecha o menu ao clicar em link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Saudação aleatória
     const frases = [
-      "Não buscamos o céu, construímos chão firme.",
-      "A liberdade exige coragem — e aqui ela habita.",
-      "Nada prometemos além da lucidez.",
-      "O sagrado é o que tu escolhes venerar.",
-      "Satã é metáfora — tua consciência é o altar.",
-      "Nosso inferno é interno, e dele extraímos força.",
-      "Crer é escolha, pensar é rebeldia.",
-      "O erro é humano — e também a responsabilidade.",
-      "Prazer, carne, escolha — não há pecado no que é consciente.",
-      "Aqui não há pastor — só quem caminha de pé."
+      "Não buscamos luz, mas verdade.",
+      "A carne é sagrada, pois sente.",
+      "Ergue-te: nenhum deus virá por ti.",
+      "A dúvida é a vela do pensamento.",
+      "Não há céu ou inferno, só tua escolha.",
+      "Fé cega é prisão dourada.",
+      "Na escuridão, reconhecemos quem somos.",
+      "O Satã é símbolo, não senhor.",
+      "Tu és teu próprio juiz e templo.",
+      "Sacraliza tua existência — ela é única."
     ];
 
-    const saudacaoEl = document.getElementById('saudacao');
-    const fraseEl = document.getElementById('frase');
+    const saudacoes = ["Salve!", "Ave!", "Saudações profanas!", "Bem-vindo à Insubmissão!", "Paz Profana!"];
 
-    const index = Math.floor(Math.random() * saudacoes.length);
-    saudacaoEl.textContent = saudacoes[index];
-    fraseEl.textContent = frases[index];
+    document.getElementById("saudacao").innerText = saudacoes[Math.floor(Math.random() * saudacoes.length)];
+    document.getElementById("frase").innerText = frases[Math.floor(Math.random() * frases.length)];
   </script>
-
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
-
 </body>
 </html>
