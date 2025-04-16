@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Igreja Satanista Brasileira</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.17/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Animação da navbar e efeito de scroll */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+
+        .shrink-navbar {
+            background: linear-gradient(180deg, #333333, #666666);
+            padding: 10px 0;
+        }
+
+        .shrink-logo {
+            max-width: 80px;
+        }
+
+        .navbar-logo {
+            max-width: 120px;
+            transition: all 0.3s ease;
+        }
+
+        /* Dropdown menu */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            top: 100%;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Especificidades de responsividade */
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+
+            .desktop-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#303030] text-white">
+
+    <!-- Navbar -->
+    <header class="navbar fixed w-full z-10 top-0 left-0 transition-all">
+        <div class="flex items-center justify-between px-6 py-4 bg-transparent">
+            <!-- Logo e Nome -->
+            <a href="/" class="flex items-center space-x-2">
+                <img src="/logo.png" alt="Logo ISB" class="navbar-logo transition-all" id="logo">
+                <span class="text-2xl font-semibold text-red-600" id="site-name">Igreja Satanista Brasileira</span>
+            </a>
+            <!-- Menu Principal -->
+            <nav class="desktop-menu space-x-6 hidden md:flex">
+                <a href="#" class="hover:text-red-600">Início</a>
+                <a href="#" class="hover:text-red-600">Sobre</a>
+                <a href="#" class="hover:text-red-600">Blog</a>
+                <a href="#" class="hover:text-red-600">Contato</a>
+                <!-- Dropdown Menu -->
+                <div class="relative">
+                    <button class="hover:text-red-600">Mais</button>
+                    <div class="dropdown-menu rounded-lg p-4">
+                        <a href="#" class="block text-white">Pacto de Sangue</a>
+                        <a href="#" class="block text-white">Rituais</a>
+                        <a href="#" class="block text-white">Eventos</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div class="mobile-menu md:hidden">
+                <button id="mobile-menu-button">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828770.png" alt="Menu Icon" width="30" />
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção "Em Construção" -->
+    <section class="px-6 py-12 bg-[#484848] text-gray-200">
+        <div class="max-w-4xl mx-auto text-justify space-y-6">
+            <h2 class="text-2xl md:text-3xl font-semibold text-red-500">Site em Construção</h2>
+            <p>
+                A Igreja Satanista Brasileira está em processo de construção digital, mas já estamos trabalhando para fornecer uma plataforma sólida para compartilhar a filosofia ateísta satanista, promover o pensamento crítico e a liberdade individual.
+            </p>
+            <p>
+                Em breve, você encontrará mais informações sobre nossa doutrina, rituais e como se tornar parte da nossa comunidade. Estamos comprometidos em proporcionar um espaço onde a autonomia e a reflexão sejam as bases para o desenvolvimento pessoal.
+            </p>
+            <p>
+                Fique atento para novidades e atualizações enquanto construímos um espaço digital que reflita nossa vertente filosófica única.
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Função para diminuir a navbar ao rolar a página
+        window.onscroll = function () {
+            var scroll = window.scrollY;
+            var navbar = document.querySelector(".navbar");
+            var logo = document.getElementById("logo");
+            var siteName = document.getElementById("site-name");
+
+            if (scroll > 100) {
+                navbar.classList.add("shrink-navbar");
+                logo.classList.add("shrink-logo");
+                siteName.textContent = "ISB"; // Abreviação do nome
+            } else {
+                navbar.classList.remove("shrink-navbar");
+                logo.classList.remove("shrink-logo");
+                siteName.textContent = "Igreja Satanista Brasileira"; // Nome completo
+            }
+        };
+
+        // Toggle para menu mobile
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.querySelector(".mobile-menu");
+
+        mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+
+</body>
+
+</html>
