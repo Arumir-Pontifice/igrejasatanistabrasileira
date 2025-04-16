@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Igreja Satanista Brasileira</title>
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* Hamburger */
+    .hamburger span {
+      display: block;
+      height: 2px;
+      width: 24px;
+      background: white;
+      margin: 6px 0;
+      transition: 0.3s ease;
+    }
+    .hamburger.active .line1 {
+      transform: rotate(45deg) translateY(8px);
+    }
+    .hamburger.active .line2 {
+      opacity: 0;
+    }
+    .hamburger.active .line3 {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+
+    /* Navbar shrink */
+    .shrink {
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+
+    /* Hero-logo shrink on scroll */
+    .hero-logo-shrink {
+      opacity: 0 !important;
+      transform: scale(0.5) !important;
+    }
+
+    /* Scroll-logo show/hide */
+    .logo-scroll-hide {
+      opacity: 0;
+      transform: scale(0);
+    }
+    .logo-scroll-show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Saudação shrink */
+    .saudacao-shrink {
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white overflow-x-hidden relative">
+  <!-- Overlay Blur -->
+  <div id="overlay" class="fixed inset-0 backdrop-blur-sm bg-black/30 z-30 hidden"></div>
+
+  <!-- Navbar -->
+  <header id="header" class="w-full py-6 px-6 md:px-16 fixed top-0 left-0 bg-black/90 backdrop-blur-sm z-40 shadow-md transition-all duration-300">
+    <div class="flex items-center justify-between">
+      <!-- Scroll-logo (hidden until scroll) -->
+      <a href="/" class="flex items-center space-x-2">
+        <img id="logo-scroll"
+             src="/imgs/logo-ISB.svg"
+             alt="Logo ISB"
+             class="w-10 h-10 transition-all duration-500 logo-scroll-hide" />
+        <span class="text-white text-xl font-semibold tracking-wide">Igreja Satanista Brasileira</span>
+      </a>
+
+      <!-- Desktop menu -->
+      <nav class="hidden md:flex space-x-8 uppercase text-sm">
+        <a href="#quem-somos" class="hover:text-red-600">Início</a>
+        <a href="#manifesto" class="hover:text-red-600">Manifesto</a>
+        <a href="#blog" class="hover:text-red-600">Blog</a>
+        <a href="#contato" class="hover:text-red-600">Contato</a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <div class="md:hidden">
+        <button id="menuBtn" class="hamburger relative z-50">
+          <span class="line1"></span>
+          <span class="line2"></span>
+          <span class="line3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="mobileMenu"
+         class="absolute top-full left-0 w-full bg-black text-white flex flex-col items-center space-y-4 py-6 uppercase backdrop-blur-md hidden z-40">
+      <a href="#quem-somos" class="hover:text-red-600">Início</a>
+      <a href="#manifesto" class="hover:text-red-600">Manifesto</a>
+      <a href="#blog" class="hover:text-red-600">Blog</a>
+      <a href="#contato" class="hover:text-red-600">Contato</a>
+    </div>
+  </header>
+
+  <!-- Hero / Saudação Fullscreen -->
+  <section class="relative flex flex-col justify-center items-center text-center bg-black text-white min-h-screen px-4">
+    <!-- Fundo decorativo -->
+    <img src="/imgs/simbolo-fundo.png"
+         alt="Símbolo ISB"
+         class="absolute inset-0 w-full h-full object-contain opacity-5 pointer-events-none select-none z-0" />
+
+    <div class="relative z-10 space-y-6">
+      <!-- Hero Logo central -->
+      <img id="hero-logo"
+           src="/imgs/logo-ISB.svg"
+           alt="Logo ISB"
+           class="w-32 md:w-40 mx-auto mb-4 transition-all duration-500 ease-in-out" />
+
+      <!-- Saudação Aleatória -->
+      <h1 id="saudacao" class="text-4xl md:text-5xl font-bold transition-all duration-500 ease-in-out">
+        Salve, espírito livre.
+      </h1>
+
+      <!-- Linha separadora -->
+      <div class="relative flex items-center justify-center h-12">
+        <div class="w-24 h-1 bg-red-700 z-10 rounded-full"></div>
+      </div>
+
+      <!-- Frase Aleatória -->
+      <p id="frase" class="text-xl md:text-2xl italic text-neutral-300 transition-all duration-500 ease-in-out">
+        Tu és o teu próprio altar.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seções animadas com AOS -->
+  <section id="quem-somos" class="py-16 px-4 bg-neutral-950 text-white" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto text-center space-y-4">
+      <h2 class="text-3xl font-semibold">Quem Somos</h2>
+      <p class="text-lg text-neutral-300 leading-relaxed text-justify">
+        A Igreja Satanista Brasileira é uma organização filosófico-religiosa dedicada à valorização do indivíduo, da razão, da autonomia e do pensamento crítico. Seguimos a tradição do satanismo ateísta como uma expressão simbólica e ética da liberdade humana. Rejeitamos o dogma e a fé cega, abraçando o Eu como centro da experiência e da construção de sentido. Existimos para cultivar a soberania pessoal, o autoconhecimento e o compromisso ético com a realidade.
+      </p>
+    </div>
+  </section>
+
+  <section id="nossa-missao" class="py-16 px-4 bg-neutral-900 text-white" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto text-center space-y-4">
+      <h2 class="text-3xl font-semibold">Nossa Missão</h2>
+      <p class="text-lg text-neutral-300 leading-relaxed text-justify">
+        Promover uma filosofia de vida enraizada na liberdade, na responsabilidade e na celebração da existência concreta. Nossa missão é oferecer um espaço de reflexão e expressão para todos que reconhecem a potência do Eu, que recusam a submissão ao transcendente, e que encontram na Terra, no corpo e na razão o verdadeiro sagrado. Lutamos pela laicidade, pela liberdade de crença e descrença, e pela construção de uma ética que nasce do humano — e para o humano.
+      </p>
+    </div>
+  </section>
+
+  <section id="nossos-pilares" class="py-16 px-4 bg-neutral-950 text-white" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold">Nossos Pilares</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+      <div class="bg-neutral-900 p-6 rounded-2xl border border-neutral-800">
+        <h3 class="text-xl font-semibold text-red-600 mb-3">Autonomia do Eu</h3>
+        <p class="text-neutral-300 leading-relaxed">
+          Cada indivíduo é o seu próprio deus. A liberdade nasce da responsabilidade e da consciência de si. Não nos curvamos a mestres invisíveis — somos senhores do nosso próprio destino.
+        </p>
+      </div>
+      <div class="bg-neutral-900 p-6 rounded-2xl border border-neutral-800">
+        <h3 class="text-xl font-semibold text-red-600 mb-3">Corpo como Templo</h3>
+        <p class="text-neutral-300 leading-relaxed">
+          O corpo é sagrado. A carne, o prazer e o desejo não são pecados, mas expressões plenas da existência. Celebramos a vida em sua materialidade e potência.
+        </p>
+      </div>
+      <div class="bg-neutral-900 p-6 rounded-2xl border border-neutral-800">
+        <h3 class="text-xl font-semibold text-red-600 mb-3">Razão e Dúvida</h3>
+        <p class="text-neutral-300 leading-relaxed">
+          A dúvida é virtude, não falha. A razão é a lâmina que separa o real da ilusão. Rejeitamos a fé cega e os dogmas — pensamos, questionamos, transformamos.
+        </p>
+      </div>
+      <div class="bg-neutral-900 p-6 rounded-2xl border border-neutral-800">
+        <h3 class="text-xl font-semibold text-red-600 mb-3">Ética sem Céu</h3>
+        <p class="text-neutral-300 leading-relaxed">
+          A moralidade não depende de divindades. Defendemos uma ética profana, fundada na responsabilidade, no respeito mútuo e na autonomia das escolhas conscientes.
+        </p>
+      </div>
+      <div class="bg-neutral-900 p-6 rounded-2xl border border-neutral-800">
+        <h3 class="text-xl font-semibold text-red-600 mb-3">Vontade e Criação</h3>
+        <p class="text-neutral-300 leading-relaxed">
+          Existir é criar. A vontade é a centelha que molda o caminho, e cada ato consciente é um ritual de afirmação do Eu soberano.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="torne-se-membro" class="py-16 px-4 bg-neutral-900 text-white text-center" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto space-y-6">
+      <h2 class="text-3xl md:text-4xl font-bold">Torne-se um Membro</h2>
+      <p class="text-lg text-neutral-300">
+        A Igreja Satanista Brasileira é feita por livres pensadores como você.
+      </p>
+      <p class="text-lg text-neutral-300">
+        Se compartilha da visão de um mundo sem deuses, onde a ética brota da razão e o corpo é celebrado sem culpa, junte-se a nós.
+      </p>
+      <p class="text-lg text-neutral-300 font-semibold">
+        Importante: para ingressar, é necessário estar de acordo com a filosofia, os valores e os princípios do satanismo ateísta promovido pela ISB.
+      </p>
+      <p class="text-lg text-white font-bold">
+        Assuma sua soberania. Torne-se um membro da ISB.
+      </p>
+      <a href="/formulario-membro"
+         class="inline-block bg-red-700 hover:bg-red-800 text-white font-semibold py-3 px-6 rounded-full transition-colors">
+        Quero fazer parte
+      </a>
+    </div>
+  </section>
+
+  <section id="blog" class="py-16 px-4 bg-neutral-950 text-white" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center">Últimas Postagens</h2>
+      <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <!-- Exemplo de card -->
+        <div class="bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden shadow-md flex flex-col hover:shadow-lg transition-shadow">
+          <img src="/blog/img-exemplo-1.jpg" alt="Título do post" class="w-full h-48 object-cover">
+          <div class="p-4 flex flex-col justify-between flex-grow">
+            <h3 class="text-xl font-semibold mb-2">Título do Post</h3>
+            <p class="text-sm text-neutral-400 mb-4">Trecho introdutório do post, com até duas linhas para chamar o leitor.</p>
+            <a href="/blog/post-1" class="text-red-600 hover:underline mt-auto font-medium">Ler mais</a>
+          </div>
+        </div>
+        <!-- Clonar para outros posts -->
+      </div>
+      <div class="mt-12 text-center">
+        <a href="/blog" class="inline-block bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+          Ver mais postagens
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="py-16 px-4 bg-neutral-950 text-white" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Entre em Contato</h2>
+      <p class="text-center text-neutral-400 mb-10 max-w-2xl mx-auto text-sm md:text-base">
+        Utilize o formulário abaixo para entrar em contato com a Igreja Satanista Brasileira. Este canal é destinado a dúvidas sobre a filosofia, interesse em se tornar membro, propostas de colaboração, entrevistas ou informações gerais. Informe também o estado de onde você nos escreve.
+      </p>
+      <form class="grid grid-cols-1 gap-6">
+        <div>
+          <label for="nome" class="block mb-2 text-sm font-medium text-neutral-300">Nome</label>
+          <input type="text" id="nome" name="nome" required class="w-full bg-neutral-900 border border-neutral-700 rounded-xl p-3 text-white placeholder-neutral-500 focus:outline-none focus:border-red-600">
+        </div>
+        <div>
+          <label for="email" class="block mb-2 text-sm font-medium text-neutral-300">E-mail</label>
+          <input type="email" id="email" name="email" required class="w-full bg-neutral-900 border border-neutral-700 rounded-xl p-3 text-white placeholder-neutral-500 focus:outline-none focus:border-red-600">
+        </div>
+        <div>
+          <label for="estado" class="block mb-2 text-sm font-medium text-neutral-300">Estado</label>
+          <input type="text" id="estado" name="estado" placeholder="Ex: SP, RJ, MG..." required class="w-full bg-neutral-900 border border-neutral-700 rounded-xl p-3 text-white placeholder-neutral-500 focus:outline-none focus:border-red-600">
+        </div>
+        <div>
+          <label for="mensagem" class="block mb-2 text-sm font-medium text-neutral-300">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required class="w-full bg-neutral-900 border border-neutral-700 rounded-xl p-3 text-white placeholder-neutral-500 focus:outline-none focus:border-red-600"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-full font-semibold transition-colors">
+            Enviar Mensagem
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-black text-gray-500 text-sm text-center py-6">
+    © 2025 Igreja Satanista Brasileira. Todos os direitos reservados.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('hidden');
+      overlay.classList.toggle('hidden');
+    });
+    overlay.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      mobileMenu.classList.add('hidden');
+      overlay.classList.add('hidden');
+    });
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.add('hidden');
+        overlay.classList.add('hidden');
+      });
+    });
+
+    // Scroll behaviors
+    const header = document.getElementById('header');
+    const heroLogo = document.getElementById('hero-logo');
+    const logoScroll = document.getElementById('logo-scroll');
+    const saudacao = document.getElementById('saudacao');
+
+    window.addEventListener('scroll', () => {
+      // close mobile menu if open
+      if (!mobileMenu.classList.contains('hidden')) {
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.add('hidden');
+        overlay.classList.add('hidden');
+      }
+
+      if (window.scrollY > 100) {
+        header.classList.add('shrink');
+        heroLogo.classList.add('hero-logo-shrink');
+        saudacao.classList.add('saudacao-shrink');
+        logoScroll.classList.remove('logo-scroll-hide');
+        logoScroll.classList.add('logo-scroll-show');
+      } else {
+        header.classList.remove('shrink');
+        heroLogo.classList.remove('hero-logo-shrink');
+        saudacao.classList.remove('saudacao-shrink');
+        logoScroll.classList.remove('logo-scroll-show');
+        logoScroll.classList.add('logo-scroll-hide');
+      }
+    });
+
+    // Random saudação + frase
+    document.addEventListener('DOMContentLoaded', () => {
+      const saudacoes = [
+        "Salve, espírito livre.",
+        "Bem-vindo ao templo da razão.",
+        "Desperta, deus de si.",
+        "Tu és soberano.",
+        "Que o fogo da consciência te ilumine."
+      ];
+      const frases = [
+        "Tu és o teu próprio altar.",
+        "A dúvida é sagrada.",
+        "Não buscamos céu nem tememos inferno.",
+        "A carne é templo, a vontade é sagrada.",
+        "Caminhamos com os pés na terra e a mente em chamas."
+      ];
+      document.getElementById('saudacao').innerText =
+        saudacoes[Math.floor(Math.random() * saudacoes.length)];
+      document.getElementById('frase').innerText =
+        frases[Math.floor(Math.random() * frases.length)];
+    });
+  </script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-in-out'
+    });
+  </script>
+</body>
+</html>
