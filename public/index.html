@@ -12,7 +12,7 @@
   <header class="fixed top-0 left-0 right-0 bg-gray-900 p-4 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-2">
-        <img src="/logo.png" alt="Logo ISB" class="h-8">
+        <img src="/logo.pg" alt="Logo ISB" class="h-8">
         <h1 class="text-xl font-bold">Igreja Satanista Brasileira</h1>
       </div>
       <nav>
@@ -26,18 +26,19 @@
   </header>
 
   <!-- Saudação -->
-  <main class="mt-20 p-8">
-    <section>
-      <h2 id="saudacao" class="text-3xl text-center mt-20 mb-8 font-semibold"></h2>
-      <p class="text-lg text-center">Seja bem-vindo ao nosso templo. Aqui, o conhecimento é a chave e a liberdade, nossa luz.</p>
-    </section>
-
-    <!-- Rodapé -->
-    <footer class="bg-gray-900 py-4 mt-20 text-center text-gray-500">
-      <p>&copy; 2025 Igreja Satanista Brasileira - Todos os direitos reservados.</p>
-    </footer>
-  </main>
-
+<div id="boas-vindas" class="text-center text-white px-4 py-12">
+  <h1 id="saudacao" class="text-2xl md:text-3xl font-semibold mb-4"></h1>
+  <p id="frase" class="text-lg md:text-xl text-gray-300"></p>
+</div>
   <script src="/src/script.js"></script>
+  <script type="module">
+  import { saudacoes } from '../src/saudacoes.js';
+
+  const indice = Math.floor(Math.random() * saudacoes.length);
+  const { saudacao, frase } = saudacoes[indice];
+
+  document.getElementById("saudacao").textContent = saudacao;
+  document.getElementById("frase").textContent = frase;
+</script>
 </body>
 </html>

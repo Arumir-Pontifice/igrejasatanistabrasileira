@@ -1,4 +1,6 @@
-const frases = [
+// src/saudacoes.js
+
+export const saudacoes = [
   {
     saudacao: "Seja bem-vindo à sua própria senda.",
     frase: "Aqui, Satã é símbolo de liberdade, e a jornada começa com um espelho.",
@@ -40,13 +42,3 @@ const frases = [
     frase: "Aqui, o saber é tua espada — e tua vontade, o altar.",
   }
 ];
-
-const escolhido = frases[Math.floor(Math.random() * frases.length)];
-
-document.addEventListener("DOMContentLoaded", () => {
-  const bloco = document.getElementById("saudacao-bloco");
-  bloco.innerHTML = `
-    <h1 class="text-2xl md:text-4xl font-semibold text-zinc-100">${escolhido.saudacao}</h1>
-    <p class="text-lg md:text-xl text-zinc-300">${escolhido.frase}</p>
-  `;
-});
