@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1.html",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "src": "/",
+      "dest": "/index.html",
+      "headers": {
+        "Content-Type": "text/html; charset=UTF-8"
+      }
+    }
+  ],
+  "cleanUrls": true
+}
