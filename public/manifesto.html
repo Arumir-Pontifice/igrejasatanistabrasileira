@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifesto | Igreja Satanista Brasileira</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            background: #000; 
+            color: #fff; 
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #8B0000;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            color: #8B0000;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            color: #777;
+            font-style: italic;
+            font-size: 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        nav a {
+            color: #8B0000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px #8B0000;
+        }
+        .manifesto-content {
+            flex: 1;
+            padding: 1rem 0;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        .destaque {
+            color: #8B0000;
+            font-weight: bold;
+        }
+        .assinatura {
+            text-align: right;
+            font-style: italic;
+            margin-top: 3rem;
+            border-top: 1px solid #8B0000;
+            padding-top: 1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #555;
+            font-size: 0.8rem;
+            border-top: 1px solid #222;
+        }
+        @media (max-width: 600px) {
+            p {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Manifesto</h1>
+            <div class="subtitle">Igreja Satanista Brasileira</div>
+            
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="faq.html">FAQ</a>
+                <a href="regras.html">Regras</a>
+            </nav>
+        </header>
+
+        <main class="manifesto-content">
+            <p><span class="destaque">Aos que ousam pensar. Aos que recusam ajoelhar-se. Aos que fazem da lucidez um altar e da vontade um caminho.</span></p>
+
+            <p>Erguemos este manifesto como marco da fundação da Igreja Satanista Brasileira — não como templo de adoração, mas como espaço de afirmação. Não se trata de culto ao Satã mitológico, mas da assunção plena do seu símbolo: a negação do jugo, a rebeldia contra a mentira sagrada, a exaltação da autonomia consciente.</p>
+
+            <p>Somos satanistas ateístas. Rejeitamos deuses externos, salvadores invisíveis, promessas de paraísos póstumos. O inferno está aqui — e nós aprendemos a caminhar sobre ele sem medo. Em vez de dobrar os joelhos, cultivamos a postura ereta do pensamento livre. Em vez de fé cega, escolhemos a dúvida lúcida. Em vez de dogmas, preferimos a crítica constante, que afia a mente como lâmina contra os ídolos.</p>
+
+            <p>Na tradição profana de Satã — não como entidade literal, mas como arquétipo de rebelião, lucidez e potência — encontramos um espelho do humano que não se submete. Ele representa aquele que pensa, que recusa o mandamento imposto, que rasga os véus do sagrado para tocar a carne do real. Satã é o símbolo da insubmissão diante do absoluto e da coragem de assumir-se como próprio senhor.</p>
+
+            <p>Nossa ética nasce da autonomia e se sustenta na responsabilidade. Rejeitamos a moral de rebanho, o medo travestido de virtude, a culpa usada como corrente. Cada indivíduo é seu próprio juiz, sua própria medida, seu próprio projeto. Cultuamos o corpo, a vontade e a consciência como expressões sagradas da existência — não há céu acima de nós, apenas a vastidão da experiência a ser explorada com lucidez e intensidade.</p>
+
+            <p>Somos brasileiros e enraizados nesta terra. Nossa visão não é importada, nem espelhada nos delírios de seitas estrangeiras. A ISB é uma criação original, gestada na realidade concreta de nosso tempo e país. Não romantizamos Satã como popstar do submundo nem o reduzimos a ícone gótico de vitrine. Aqui, ele é ideia viva — símbolo filosófico de um pacto com a liberdade lúcida e responsável.</p>
+
+            <p>A Igreja Satanista Brasileira é comunidade de livres pensadores, não de crentes. É espaço de construção, não de salvação. É proposta de vida que celebra o aqui e o agora, o corpo e a mente, o desejo e o limite, o eu e o mundo — sem pedir desculpas à metafísica.</p>
+
+            <p><span class="destaque">Nosso altar é a consciência. Nosso ritual é a razão. Nossa prece é o ato. Nosso céu é a liberdade.</span></p>
+
+            <p>Se Satã foi o primeiro a dizer "não", nós somos os que continuam dizendo "sim" à dignidade de pensar por si.</p>
+
+            <div class="assinatura">
+                <p>Que assim seja. E assim se faça.</p>
+                <p>⸸ ISB ⸸</p>
+            </div>
+        </main>
+
+        <footer>
+            © <span id="year"></span> Igreja Satanista Brasileira - Todos os direitos reservados
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

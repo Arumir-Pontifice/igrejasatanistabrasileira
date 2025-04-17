@@ -3,121 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Igreja Satanista Brasileira - ISB</title>
+    <title>ISB | Igreja Satanista Brasileira</title>
+    <style>
+        /* Reset minimalista */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            background: #000; 
+            color: #fff; 
+            line-height: 1.6;
+        }
+        /* Container principal */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #8B0000;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            color: #8B0000;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            color: #777;
+            letter-spacing: 8px;
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+        }
+        /* Navegação */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        nav a {
+            color: #8B0000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px #8B0000;
+        }
+        /* Conteúdo */
+        .content {
+            flex: 1;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #555;
+            font-size: 0.8rem;
+            border-top: 1px solid #222;
+        }
+        /* Efeitos */
+        .glow { text-shadow: 0 0 10px #8B0000; }
+    </style>
 </head>
-<body style="margin:0;padding:0;font-family:'Arial',sans-serif;background-color:#000;color:#fff;min-height:100vh;display:flex;flex-direction:column;">
-    <div style="width:100%;max-width:1200px;margin:0 auto;padding:1rem;box-sizing:border-box;flex:1;display:flex;flex-direction:column;">
-        <!-- Cabeçalho -->
-        <header style="text-align:center;padding:2rem 1rem;position:relative;">
-            <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#8B0000,#000,#8B0000);"></div>
-            <h1 style="margin:0;font-size:clamp(1.8rem, 5vw, 3.5rem);color:#8B0000;text-transform:uppercase;letter-spacing:3px;">Igreja Satanista Brasileira</h1>
-            <div style="font-size:clamp(1rem, 2vw, 1.5rem);color:#ccc;margin-top:0.5rem;letter-spacing:10px;">ISB</div>
-            <div style="height:1px;background:linear-gradient(90deg,transparent,#8B0000,transparent);margin:1.5rem auto;width:80%;max-width:400px;"></div>
+<body>
+    <div class="container">
+        <header>
+            <h1>IGREJA SATANISTA BRASILEIRA</h1>
+            <div class="subtitle">ISB</div>
+            
+            <!-- Menu de Navegação -->
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="manifesto.html">Manifesto</a>
+                <a href="faq.html">FAQ</a>
+                <a href="regras.html">Regras</a>
+            </nav>
         </header>
 
-        <!-- Conteúdo Principal -->
-        <main style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;text-align:center;">
-            <!-- Mensagem de Boas-Vindas Aleatória -->
-            <div id="welcome-message" style="font-size:clamp(1rem, 2.5vw, 1.5rem);font-style:italic;margin:2rem 0;color:#d3d3d3;line-height:1.6;max-width:800px;"></div>
+        <main class="content">
+            <!-- Mensagem dinâmica -->
+            <div id="welcome-message" style="font-size: clamp(1rem, 2.5vw, 1.3rem); margin: 2rem 0; color: #ccc;"></div>
             
-            <!-- Barra Divisora -->
-            <div style="height:1px;background:linear-gradient(90deg,transparent,#8B0000,#8B0000,transparent);margin:2rem auto;width:60%;max-width:300px;"></div>
+            <!-- Símbolo central -->
+            <div style="font-size: 3rem; margin: 2rem 0;" class="glow">⸸</div>
             
-            <!-- Frase Filosófica Aleatória -->
-            <div id="philosophy-quote" style="font-size:clamp(0.9rem, 2vw, 1.2rem);margin-bottom:2rem;color:#aaa;line-height:1.6;max-width:800px;padding:0 1rem;"></div>
-            
-            <!-- Símbolo Central -->
-            <div style="margin:2rem 0;font-size:4rem;">⸸</div>
+            <!-- Frase dinâmica -->
+            <div id="philosophy-quote" style="font-style: italic; color: #777;"></div>
         </main>
 
-        <!-- Rodapé com Links -->
-        <footer style="text-align:center;padding:2rem 1rem;margin-top:auto;">
-            <div style="display:flex;justify-content:center;gap:clamp(1rem, 3vw, 2rem);flex-wrap:wrap;margin-bottom:1.5rem;">
-                <a href="#" style="color:#8B0000;text-decoration:none;transition:all 0.3s;font-size:clamp(0.8rem, 2vw, 1rem);position:relative;padding:0.3rem 0;" 
-                   onmouseover="this.style.color='#fff';this.style.textShadow='0 0 5px #8B0000'" 
-                   onmouseout="this.style.color='#8B0000';this.style.textShadow='none'">
-                   Instagram
-                </a>
-                <a href="#" style="color:#8B0000;text-decoration:none;transition:all 0.3s;font-size:clamp(0.8rem, 2vw, 1rem);position:relative;padding:0.3rem 0;" 
-                   onmouseover="this.style.color='#fff';this.style.textShadow='0 0 5px #8B0000'" 
-                   onmouseout="this.style.color='#8B0000';this.style.textShadow='none'">
-                   YouTube
-                </a>
-                <a href="#" style="color:#8B0000;text-decoration:none;transition:all 0.3s;font-size:clamp(0.8rem, 2vw, 1rem);position:relative;padding:0.3rem 0;" 
-                   onmouseover="this.style.color='#fff';this.style.textShadow='0 0 5px #8B0000'" 
-                   onmouseout="this.style.color='#8B0000';this.style.textShadow='none'">
-                   Livros
-                </a>
-                <a href="#" style="color:#8B0000;text-decoration:none;transition:all 0.3s;font-size:clamp(0.8rem, 2vw, 1rem);position:relative;padding:0.3rem 0;" 
-                   onmouseover="this.style.color='#fff';this.style.textShadow='0 0 5px #8B0000'" 
-                   onmouseout="this.style.color='#8B0000';this.style.textShadow='none'">
-                   Filosofia
-                </a>
-                <a href="#" style="color:#8B0000;text-decoration:none;transition:all 0.3s;font-size:clamp(0.8rem, 2vw, 1rem);position:relative;padding:0.3rem 0;" 
-                   onmouseover="this.style.color='#fff';this.style.textShadow='0 0 5px #8B0000'" 
-                   onmouseout="this.style.color='#8B0000';this.style.textShadow='none'">
-                   Eventos
-                </a>
-            </div>
-            <div style="font-size:0.8rem;color:#555;margin-top:1rem;">© <span id="current-year"></span> Igreja Satanista Brasileira. Todos os direitos reservados.</div>
+        <footer>
+            © <span id="year"></span> ISB - Igreja Satanista Brasileira
         </footer>
     </div>
 
     <script>
-        // Mensagens de boas-vindas satanistas/filosóficas
-        const welcomeMessages = [
-            "Bem-vindo ao templo da liberdade individual, onde sua vontade é soberana.",
-            "Que seu caminho de autoconhecimento e empoderamento seja iluminado por Lúcifer, o portador da luz.",
-            "Aqui não veneramos um deus externo, mas celebramos o divino que há em cada um de nós.",
-            "Entre e deixe para trás as correntes da moralidade imposta. Aqui reinam a razão e a liberdade.",
-            "Satanás não é um deus para ser adorado, mas um símbolo de rebelião contra a tirania espiritual.",
-            "Neste espaço, honramos a busca pelo conhecimento proibido e a sabedoria marginalizada.",
-            "Seja seu próprio deus. Seja seu próprio mestre. Seja livre.",
-            "A verdadeira blasfêmia é a submissão voluntária à ignorância e à opressão.",
-            "Bem-vindo ao santuário dos questionadores, dos que ousam pensar por si mesmos.",
-            "Que o fogo de Prometeu ilumine seu caminho de autodescoberta e emancipação."
-        ];
+        // Mensagens aleatórias
+        const messages = {
+            welcome: [
+                "Bem-vindo ao templo da liberdade individual.",
+                "Sua vontade é a lei suprema.",
+                "Conhecimento é poder.",
+                "Não há deus além do homem."
+            ],
+            quotes: [
+                "Faze o que tu queres há de ser tudo da lei.",
+                "Satanás representa indulgência, não abstinência!",
+                "O céu está vazio. A terra é sua.",
+                "Seja seu próprio deus."
+            ]
+        };
+
+        // Atualiza elementos
+        document.getElementById('welcome-message').textContent = 
+            messages.welcome[Math.floor(Math.random() * messages.welcome.length)];
         
-        // Frases satanistas/filosóficas
-        const philosophyQuotes = [
-            "Faze o que tu queres pois é tudo da lei.",
-            "Não há deus além do homem, não há céu além da terra, não há inferno além da ignorância.",
-            "Satanás representa indulgência, em vez de abstinência!",
-            "A compaixão para com os fracos é traição à natureza.",
-            "O maior pecado contra a mente humana é acreditar em coisas sem evidências.",
-            "O homem é o mais cruel de todos os animais.",
-            "A vida é a vontade de poder; nossa moralidade deve ser determinada por nós mesmos.",
-            "Eu sou minha própria regra e minha própria lei, e não reconheço outra autoridade.",
-            "O inferno é a verdade vista tarde demais.",
-            "O conhecimento é o maior dos poderes, pois pode criar ou destruir a vida na terra."
-        ];
-        
-        // Selecionar mensagens aleatórias
-        function getRandomMessage(messages) {
-            return messages[Math.floor(Math.random() * messages.length)];
-        }
-        
-        // Atualizar os elementos com as mensagens aleatórias
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('welcome-message').textContent = getRandomMessage(welcomeMessages);
-            document.getElementById('philosophy-quote').textContent = `"${getRandomMessage(philosophyQuotes)}"`;
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-            
-            // Efeito de digitação para a mensagem de boas-vindas
-            const welcomeElement = document.getElementById('welcome-message');
-            const welcomeText = welcomeElement.textContent;
-            welcomeElement.textContent = '';
-            
-            let i = 0;
-            function typing() {
-                if (i < welcomeText.length) {
-                    welcomeElement.textContent += welcomeText.charAt(i);
-                    i++;
-                    setTimeout(typing, 30 + Math.random() * 20);
-                }
-            }
-            setTimeout(typing, 500);
-        });
+        document.getElementById('philosophy-quote').textContent = 
+            messages.quotes[Math.floor(Math.random() * messages.quotes.length)];
+
+        // Ano atual
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
