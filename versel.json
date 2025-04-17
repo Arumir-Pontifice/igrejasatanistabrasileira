@@ -2,18 +2,21 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/$1.html",
+      "dest": "/public/$1.html",
       "headers": {
         "Content-Type": "text/html; charset=UTF-8"
       }
     },
     {
       "src": "/",
-      "dest": "/index.html",
+      "dest": "/public/index.html",
       "headers": {
         "Content-Type": "text/html; charset=UTF-8"
       }
     }
   ],
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/public/$1" }
+  ]
 }
