@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/manifesto", "destination": "/public/manifesto.html" },
+    { "source": "/faq", "destination": "/public/faq.html" },
+    { "source": "/regras", "destination": "/public/regras.html" },
+    { "source": "/", "destination": "/public/index.html" }
+  ]
+}
